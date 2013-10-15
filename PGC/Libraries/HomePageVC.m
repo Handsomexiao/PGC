@@ -486,7 +486,7 @@
 
 -(UIImage *)GetPlayerPhoto:(NSInteger)page
 {
-    NSString* urlString = [[NSString alloc] initWithFormat:@"http://ec2-54-215-136-21.us-west-1.compute.amazonaws.com:8080/vizoal/image/android/homepage/medRez/%d.jpg",page];
+    NSString* urlString = [[NSString alloc] initWithFormat:@"http://ec2-54-215-136-21.us-west-1.compute.amazonaws.com:8080/vizoal/image/android/homepage/HdRez/%d.jpg",page];
     NSURL *url = [NSURL URLWithString:urlString];
     
     NSError* error = nil;

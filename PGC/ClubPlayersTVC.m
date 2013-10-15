@@ -89,12 +89,29 @@
         }
     }];
 
-    NSString* name = [[NSString alloc] initWithString:[[dict objectForKey:@"firstName"] description]];
+    NSString* name = nil;
     if ([[[dict objectForKey:@"firstName"] description] compare:@""]) {
-        [name stringByAppendingFormat:@" %@",[[dict objectForKey:@"lastName"] description]];
+        name = [[NSString alloc] initWithFormat:@"%@ %@",[[dict objectForKey:@"firstName"] description] ,[[dict objectForKey:@"lastName"] description]];
+    }
+    else
+    {
+        name = [[NSString alloc] initWithFormat:@"%@",[dict objectForKey:@"lastName"]];
     }
     
-    cell.textLabel.text = name;
+    //an NSDictionary of NSString => UIColor pairs
+    NSRange range = [name rangeOfString:[[dict objectForKey:@"lastName"] description]];
+    
+    CGFloat fontSize = [UIFont systemFontSize];
+    
+    NSDictionary *attributes = [cell.textLabel.attributedText attributesAtIndex:0 effectiveRange:NULL];
+    UIFont *font = attributes[NSFontAttributeName];
+    if (font) fontSize = font.pointSize;
+    UIFont *boldFont = [UIFont boldSystemFontOfSize:fontSize];
+    NSMutableAttributedString *mat = [[NSMutableAttributedString alloc] initWithString:name];
+    //[mat setAttributes:subAttrs range:range];
+    [mat addAttribute:NSFontAttributeName value:boldFont range:range];
+    
+    cell.textLabel.attributedText = mat;
     cell.playerFmId = [[dict objectForKey:@"playerId"] integerValue];
     NSLog(@"%@", name);
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@",[dict objectForKey:@"nickName"],[dict objectForKey:@"nationOfBirthName"]];
