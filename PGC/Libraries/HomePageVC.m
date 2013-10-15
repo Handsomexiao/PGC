@@ -7,6 +7,7 @@
 //
 
 #import "HomePageVC.h"
+#import "PlayerHdPhoto+Internet.h"
 
 
 @interface HomePageVC ()
@@ -258,8 +259,9 @@
     }
     
     //NSString *imageName = [NSString stringWithFormat:@"%@",[[_pages objectAtIndex:index] pictureName]];
-    UIImage* image = [self GetPlayerPhoto:index];
-    [imageView setImage:image];
+    [PlayerHdPhoto photoHdData:index afterDone:^(UIImage *image){
+        [imageView setImage:image];
+    }];
 }
 
 // Setup layer's alpha.
@@ -422,6 +424,8 @@
     [self startScrolling];
 }
 
+#pragma mark - network get photo
+
 -(void)startRequest
 {
     NSURL *url = [NSURL URLWithString:@"http://ec2-54-215-136-21.us-west-1.compute.amazonaws.com:8080/vizoal/services/player/homepage"];
@@ -456,6 +460,8 @@
                                            _pageControl.numberOfPages = [self.listData count];
                                            _pageControl.currentPage = 0;
                                            
+                                           [PlayerHdPhoto GetAllPlayerHdPhoto:self.listData];
+                                           
                                            [[self view] setBackgroundColor:[UIColor blackColor]];
                                            
                                            _windowSize = [[UIScreen mainScreen] bounds].size;
@@ -477,6 +483,8 @@
                                            
                                            // Run the auto-scrolling.
                                            [self autoScrollToNextPage];
+                                           
+                                           
                                        });
                                    }
                                }
@@ -484,7 +492,7 @@
     
 }
 
--(UIImage *)GetPlayerPhoto:(NSInteger)page
+-(UIImage *)GetPlayerHdPhoto:(NSInteger)page
 {
     NSString* urlString = [[NSString alloc] initWithFormat:@"http://ec2-54-215-136-21.us-west-1.compute.amazonaws.com:8080/vizoal/image/android/homepage/HdRez/%d.jpg",page];
     NSURL *url = [NSURL URLWithString:urlString];
@@ -500,13 +508,13 @@
     return [[UIImage alloc] initWithData:data];
 }
 
+#pragma mark - MoreAction
 - (IBAction)MoreAction:(UIBarButtonItem *)sender {
     UIActionSheet *styleAlert = [[UIActionSheet alloc] initWithTitle:@""
                                                             delegate:self
                                                    cancelButtonTitle:@"Cancel"
                                               destructiveButtonTitle:nil
-                                                   otherButtonTitles:@"LogIn",
-                                 @"Setting",
+                                                   otherButtonTitles:@"LogIn",@"Setting",
                                  nil,
                                  nil];
 	

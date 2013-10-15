@@ -59,6 +59,8 @@
 		00B7069517FBC9CB0011EAAE /* Menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 00B7069417FBC9CB0011EAAE /* Menu.png */; };
 		00B7069817FBCA760011EAAE /* Vizicon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 00B7069617FBCA760011EAAE /* Vizicon2.png */; };
 		00B7069917FBCA760011EAAE /* Vizoal-Icon-Green.png in Resources */ = {isa = PBXBuildFile; fileRef = 00B7069717FBCA760011EAAE /* Vizoal-Icon-Green.png */; };
+		3302CEC8180DD75F0021F533 /* PlayerHdPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 3302CEC7180DD75F0021F533 /* PlayerHdPhoto.m */; };
+		3302CECB180DD77A0021F533 /* PlayerHdPhoto+Internet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3302CECA180DD77A0021F533 /* PlayerHdPhoto+Internet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +143,10 @@
 		00B7069417FBC9CB0011EAAE /* Menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Menu.png; path = ../backham/Menu.png; sourceTree = "<group>"; };
 		00B7069617FBCA760011EAAE /* Vizicon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Vizicon2.png; sourceTree = "<group>"; };
 		00B7069717FBCA760011EAAE /* Vizoal-Icon-Green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Vizoal-Icon-Green.png"; sourceTree = "<group>"; };
+		3302CEC6180DD75F0021F533 /* PlayerHdPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerHdPhoto.h; sourceTree = "<group>"; };
+		3302CEC7180DD75F0021F533 /* PlayerHdPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerHdPhoto.m; sourceTree = "<group>"; };
+		3302CEC9180DD77A0021F533 /* PlayerHdPhoto+Internet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PlayerHdPhoto+Internet.h"; sourceTree = "<group>"; };
+		3302CECA180DD77A0021F533 /* PlayerHdPhoto+Internet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PlayerHdPhoto+Internet.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +177,10 @@
 			isa = PBXGroup;
 			children = (
 				009541591804E35C00E02794 /* Model.xcdatamodeld */,
+				3302CEC6180DD75F0021F533 /* PlayerHdPhoto.h */,
+				3302CEC9180DD77A0021F533 /* PlayerHdPhoto+Internet.h */,
+				3302CECA180DD77A0021F533 /* PlayerHdPhoto+Internet.m */,
+				3302CEC7180DD75F0021F533 /* PlayerHdPhoto.m */,
 				0095415C1804E39F00E02794 /* PlayerPhoto.h */,
 				0095415D1804E39F00E02794 /* PlayerPhoto.m */,
 				0095415F1804EDF500E02794 /* PlayerPhoto+Internet.h */,
@@ -449,12 +459,14 @@
 				0095412C1803BDB300E02794 /* playerProfileDetailTBC.m in Sources */,
 				009541611804EDF500E02794 /* PlayerPhoto+Internet.m in Sources */,
 				0095414F1804CF0C00E02794 /* TopPlayersTVC.m in Sources */,
+				3302CEC8180DD75F0021F533 /* PlayerHdPhoto.m in Sources */,
 				00B7068C17FB94690011EAAE /* ClubCell.m in Sources */,
 				009541291803BAED00E02794 /* PlayerProfileDetailVC.m in Sources */,
 				00B7068E17FB94690011EAAE /* ClubPlayersTVC.m in Sources */,
 				0095415E1804E39F00E02794 /* PlayerPhoto.m in Sources */,
 				00B7064F17FB78280011EAAE /* PGCAppDelegate.m in Sources */,
 				00A952AC180B7920004547C4 /* ICETutorialPage.m in Sources */,
+				3302CECB180DD77A0021F533 /* PlayerHdPhoto+Internet.m in Sources */,
 				0095415B1804E35C00E02794 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
