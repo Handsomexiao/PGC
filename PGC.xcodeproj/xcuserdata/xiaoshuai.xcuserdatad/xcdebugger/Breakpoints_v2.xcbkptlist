@@ -25,7 +25,7 @@
                   symbolName = "-[HomePageVC autoScrollEnabled]"
                   moduleName = "PGC"
                   urlString = "file://localhost/Users/xiaoshuai/Documents/devolper/PGC/PGC/Libraries/HomePageVC.h"
-                  timestampString = "403489427.271459"
+                  timestampString = "403491039.937158"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "59"
@@ -39,7 +39,7 @@
                   symbolName = "-[HomePageVC setAutoScrollEnabled:]"
                   moduleName = "PGC"
                   urlString = "file://localhost/Users/xiaoshuai/Documents/devolper/PGC/PGC/Libraries/HomePageVC.h"
-                  timestampString = "403489427.271669"
+                  timestampString = "403491039.937362"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "59"
@@ -47,6 +47,22 @@
                   offsetFromSymbolStart = "31">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PGC/Libraries/HomePageVC.m"
+            timestampString = "403491039.667583"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "322"
+            endingLineNumber = "322"
+            landmarkName = "-scrollingToNextPageWithOffset:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

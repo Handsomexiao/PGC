@@ -11,6 +11,9 @@
 
 @interface HomePageVC ()
 
+//保存数据列表
+@property (nonatomic,strong) NSMutableArray* listData;
+
 @end
 
 @implementation HomePageVC
@@ -59,7 +62,7 @@
 }
 
 - (id)initWithNibName:(NSBundle *)nibBundleOrNil
-             andPages:(NSArray *)pages{
+             andPages:(NSMutableArray *)pages{
     self = [self initWithNibName:nibBundleOrNil];
     if (self){
         _pages = pages;
@@ -83,28 +86,10 @@
 {
     [super viewDidLoad];
     [self initFormLoad];
+    
+    [self startRequest];
 
-    [[self view] setBackgroundColor:[UIColor blackColor]];
-    
-    _windowSize = [[UIScreen mainScreen] bounds].size;
-    
-    // ScrollView configuration.
-    [_scrollView setContentSize:CGSizeMake([self numberOfPages] * _windowSize.width,
-                                           _scrollView.contentSize.height)];
-    [_scrollView setPagingEnabled:YES];
-    
-    // PageControl configuration.
-    [_pageControl setNumberOfPages:[self numberOfPages]];
-    [_pageControl setCurrentPage:0];
-    
-    // Overlays.
-    [self setOverlayTexts];
-    
-    // Preset the origin state.
-    [self setOriginLayersState];
 
-    // Run the auto-scrolling.
-    [self autoScrollToNextPage];
 }
 
 - (void)didReceiveMemoryWarning
@@ -123,7 +108,7 @@
 
 #pragma mark - Pages
 // Set the list of pages (ICETutorialPage)
-- (void)setPages:(NSArray *)pages{
+- (void)setPages:(NSMutableArray *)pages{
     _pages = pages;
 }
 
@@ -272,8 +257,9 @@
         return;
     }
     
-    NSString *imageName = [NSString stringWithFormat:@"%@",[[_pages objectAtIndex:index] pictureName]];
-    [imageView setImage:[UIImage imageNamed:imageName]];
+    //NSString *imageName = [NSString stringWithFormat:@"%@",[[_pages objectAtIndex:index] pictureName]];
+    UIImage* image = [self GetPlayerPhoto:index];
+    [imageView setImage:image];
 }
 
 // Setup layer's alpha.
@@ -407,7 +393,12 @@
     [descStyle setOffset:TUTORIAL_DESC_OFFSET];
     
     // Load into an array.
-    _pages = @[layer1,layer2,layer3,layer4,layer5];
+    _pages = [[NSMutableArray alloc] init];
+    [_pages addObject:layer1];
+    [_pages addObject:layer2];
+    [_pages addObject:layer3];
+    [_pages addObject:layer4];
+    [_pages addObject:layer5];
    
     // Set the common styles, and start scrolling (auto scroll, and looping enabled by default)
     [self setCommonPageSubTitleStyle:subStyle];
@@ -430,4 +421,83 @@
     // Run it.
     [self startScrolling];
 }
+
+-(void)startRequest
+{
+    NSURL *url = [NSURL URLWithString:@"http://ec2-54-215-136-21.us-west-1.compute.amazonaws.com:8080/vizoal/services/player/homepage"];
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:queue
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                               if ([data length] > 0 && connectionError == nil)
+                               {
+                                   NSLog(@"request finished");
+                                   
+                                   NSDictionary *resDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+                                   NSNumber *resultCodeObj = [resDic objectForKey:@"ResultCode"];
+                                   
+                                   NSLog(@"%@", resDic);
+                                   
+                                   if ([resultCodeObj integerValue] >=0)
+                                   {
+                                       self.listData = [resDic objectForKey:@"result"];
+                                       _pages = nil;
+                                       _pages = [[NSMutableArray alloc] init];
+                                       for (NSDictionary* dic in self.listData) {
+                                           ICETutorialPage *layer = [[ICETutorialPage alloc] initWithSubTitle:[dic objectForKey:@"name"]
+                                                                                                  description:@""
+                                                                                                  pictureName:@""];
+                                           
+                                           [_pages addObject:layer];
+                                       }
+                                       dispatch_async(dispatch_get_main_queue(), ^{
+                                           _pageControl.numberOfPages = [self.listData count];
+                                           _pageControl.currentPage = 0;
+                                           
+                                           [[self view] setBackgroundColor:[UIColor blackColor]];
+                                           
+                                           _windowSize = [[UIScreen mainScreen] bounds].size;
+                                           
+                                           // ScrollView configuration.
+                                           [_scrollView setContentSize:CGSizeMake([self numberOfPages] * _windowSize.width,
+                                                                                  _scrollView.contentSize.height)];
+                                           [_scrollView setPagingEnabled:YES];
+                                           
+                                           // PageControl configuration.
+                                           [_pageControl setNumberOfPages:[self numberOfPages]];
+                                           [_pageControl setCurrentPage:0];
+                                           
+                                           // Overlays.
+                                           [self setOverlayTexts];
+                                           
+                                           // Preset the origin state.
+                                           [self setOriginLayersState];
+                                           
+                                           // Run the auto-scrolling.
+                                           [self autoScrollToNextPage];
+                                       });
+                                   }
+                               }
+                           }];
+    
+}
+
+-(UIImage *)GetPlayerPhoto:(NSInteger)page
+{
+    NSString* urlString = [[NSString alloc] initWithFormat:@"http://ec2-54-215-136-21.us-west-1.compute.amazonaws.com:8080/vizoal/image/android/homepage/medRez/%d.jpg",page];
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+    NSError* error = nil;
+    NSData* data = [NSData dataWithContentsOfURL:url options:NSDataReadingUncached error:&error];
+    if (error) {
+        NSLog(@"%@", [error localizedDescription]);
+    } else {
+        NSLog(@"Data has loaded successfully.");
+    }
+    
+    return [[UIImage alloc] initWithData:data];
+}
+
 @end
