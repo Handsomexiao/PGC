@@ -85,9 +85,17 @@
         }
     }];
     
-    cell.textLabel.text = [dict objectForKey:@"fullName"];
+
+
+    
+    NSString* name = [[NSString alloc] initWithString:[[dict objectForKey:@"firstName"] description]];
+    if ([[[dict objectForKey:@"firstName"] description] compare:@""]) {
+        [name stringByAppendingFormat:@" %@",[[dict objectForKey:@"lastName"] description]];
+    }
+    
+    cell.textLabel.text = name ;
     cell.playerFmId = [[dict objectForKey:@"playerId"] integerValue];
-    NSLog(@"%@", [dict objectForKey:@"fullName"]);
+    NSLog(@"%@", name);
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@",[dict objectForKey:@"nickName"],[dict objectForKey:@"nationOfBirthName"]];
     
     return cell;
