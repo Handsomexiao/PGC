@@ -6,14 +6,14 @@
 //  Copyright (c) 2013 Patrick Trillsam. All rights reserved.
 //
 
-#import "ICETutorialController.h"
+#import "HomePageVC.h"
 
 
-@interface ICETutorialController ()
+@interface HomePageVC ()
 
 @end
 
-@implementation ICETutorialController
+@implementation HomePageVC
 @synthesize autoScrollEnabled = _autoScrollEnabled;
 @synthesize autoScrollLooping = _autoScrollLooping;
 @synthesize autoScrollDurationOnPage = _autoScrollDurationOnPage;
@@ -21,6 +21,7 @@
 @synthesize commonPageDescriptionStyle = _commonPageDescriptionStyle;
 
 
+#pragma mark - Table
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
@@ -45,6 +46,8 @@
     
     return nil;
 }
+
+#pragma mark - InitWithNibName
 
 -(id)initWithNibName:(NSBundle *)nibBundleOrNil{
     if (self){

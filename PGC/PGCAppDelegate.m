@@ -7,7 +7,7 @@
 //
 
 #import "PGCAppDelegate.h"
-#import "ICETutorialController.h"
+#import "HomePageVC.h"
 
 @implementation PGCAppDelegate
 

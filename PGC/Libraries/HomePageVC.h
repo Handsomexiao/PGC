@@ -28,7 +28,7 @@ typedef NS_OPTIONS(NSUInteger, ScrollingState) {
 
 typedef void (^ButtonBlock)(UIButton *button);
 
-@interface ICETutorialController : UIViewController <UIScrollViewDelegate,UITableViewDelegate> {
+@interface HomePageVC : UIViewController <UIScrollViewDelegate,UITableViewDelegate> {
 
     __weak IBOutlet UIImageView *_backLayerView;
     __weak IBOutlet UIImageView *_frontLayerView;

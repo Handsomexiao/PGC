@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class ICETutorialController;
+@class HomePageVC;
 
 @interface PGCAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) ICETutorialController *viewController;
+@property (strong, nonatomic) HomePageVC *viewController;
 
 
 @end

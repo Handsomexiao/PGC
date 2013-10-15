@@ -22,7 +22,7 @@
 		0095415E1804E39F00E02794 /* PlayerPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 0095415D1804E39F00E02794 /* PlayerPhoto.m */; };
 		009541611804EDF500E02794 /* PlayerPhoto+Internet.m in Sources */ = {isa = PBXBuildFile; fileRef = 009541601804EDF500E02794 /* PlayerPhoto+Internet.m */; };
 		009F18A5180242CB00BC385F /* 16.png in Resources */ = {isa = PBXBuildFile; fileRef = 009F18A4180242CB00BC385F /* 16.png */; };
-		00A952AB180B7920004547C4 /* ICETutorialController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A952A8180B7920004547C4 /* ICETutorialController.m */; };
+		00A952AB180B7920004547C4 /* HomePageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A952A8180B7920004547C4 /* HomePageVC.m */; };
 		00A952AC180B7920004547C4 /* ICETutorialPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A952AA180B7920004547C4 /* ICETutorialPage.m */; };
 		00A952BC180B7952004547C4 /* background-gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 00A952B0180B7952004547C4 /* background-gradient.png */; };
 		00A952BD180B7952004547C4 /* background-gradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00A952B1180B7952004547C4 /* background-gradient@2x.png */; };
@@ -92,8 +92,8 @@
 		0095415F1804EDF500E02794 /* PlayerPhoto+Internet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PlayerPhoto+Internet.h"; sourceTree = "<group>"; };
 		009541601804EDF500E02794 /* PlayerPhoto+Internet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PlayerPhoto+Internet.m"; sourceTree = "<group>"; };
 		009F18A4180242CB00BC385F /* 16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 16.png; path = PGCTests/16.png; sourceTree = SOURCE_ROOT; };
-		00A952A7180B7920004547C4 /* ICETutorialController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICETutorialController.h; sourceTree = "<group>"; };
-		00A952A8180B7920004547C4 /* ICETutorialController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICETutorialController.m; sourceTree = "<group>"; };
+		00A952A7180B7920004547C4 /* HomePageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomePageVC.h; path = Libraries/HomePageVC.h; sourceTree = "<group>"; };
+		00A952A8180B7920004547C4 /* HomePageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomePageVC.m; path = Libraries/HomePageVC.m; sourceTree = "<group>"; };
 		00A952A9180B7920004547C4 /* ICETutorialPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICETutorialPage.h; sourceTree = "<group>"; };
 		00A952AA180B7920004547C4 /* ICETutorialPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICETutorialPage.m; sourceTree = "<group>"; };
 		00A952B0180B7952004547C4 /* background-gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-gradient.png"; sourceTree = "<group>"; };
@@ -182,8 +182,6 @@
 		00A952A6180B7920004547C4 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				00A952A7180B7920004547C4 /* ICETutorialController.h */,
-				00A952A8180B7920004547C4 /* ICETutorialController.m */,
 				00A952A9180B7920004547C4 /* ICETutorialPage.h */,
 				00A952AA180B7920004547C4 /* ICETutorialPage.m */,
 			);
@@ -246,6 +244,8 @@
 				00A952A6180B7920004547C4 /* Libraries */,
 				00B7064D17FB78280011EAAE /* PGCAppDelegate.h */,
 				00B7064E17FB78280011EAAE /* PGCAppDelegate.m */,
+				00A952A7180B7920004547C4 /* HomePageVC.h */,
+				00A952A8180B7920004547C4 /* HomePageVC.m */,
 				00B7065017FB78280011EAAE /* Main_iPhone.storyboard */,
 				0095414D1804CF0C00E02794 /* TopPlayersTVC.h */,
 				0095414E1804CF0C00E02794 /* TopPlayersTVC.m */,
@@ -443,7 +443,7 @@
 				00B7068D17FB94690011EAAE /* PlayerCell.m in Sources */,
 				00B7068B17FB94690011EAAE /* ClubTVC.m in Sources */,
 				00B7065817FB78280011EAAE /* PGCViewController.m in Sources */,
-				00A952AB180B7920004547C4 /* ICETutorialController.m in Sources */,
+				00A952AB180B7920004547C4 /* HomePageVC.m in Sources */,
 				00B7069317FBBFDB0011EAAE /* PlayerProfileVC.m in Sources */,
 				00B7064B17FB78280011EAAE /* main.m in Sources */,
 				0095412C1803BDB300E02794 /* playerProfileDetailTBC.m in Sources */,
