@@ -100,7 +100,7 @@
 
     cell.clubId = [[dict objectForKey:@"clubId"] integerValue];
     NSLog(@"%@", [dict objectForKey:@"name"]);
-    cell.detailTextLabel.text = @"Barclays Premier League(England)";
+    cell.detailTextLabel.text = [dict objectForKey:@"homeField"];
 
     
     return cell;
