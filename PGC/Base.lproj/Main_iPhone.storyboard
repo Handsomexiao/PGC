@@ -103,7 +103,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Football Player" id="559-Mc-HHE"/>
+                    <navigationItem key="navigationItem" title="Football Player" id="559-Mc-HHE">
+                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="dnr-mE-LBI"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="5ax-AD-RB0">
+                            <connections>
+                                <action selector="MoreAction:" destination="miI-uz-DWm" id="fua-OR-9y5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="_backLayerView" destination="GwK-4t-VBi" id="8R5-BN-Wyp"/>
                         <outlet property="_frontLayerView" destination="U8d-43-ndy" id="vwj-QB-p1Q"/>
@@ -169,76 +176,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fYQ-Jt-MMI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="408" y="744"/>
-        </scene>
-        <!--Player ProfileVC - Player Profile-->
-        <scene sceneID="3Nu-TF-Zec">
-            <objects>
-                <viewController id="aCV-LX-hpH" customClass="PlayerProfileVC" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="B1P-tj-c1P"/>
-                        <viewControllerLayoutGuide type="bottom" id="330-Nu-JoO"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="hhd-sd-OLt">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JnO-WL-Lv6">
-                                <rect key="frame" x="20" y="80" width="114" height="137"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t6P-Md-zwj">
-                                <rect key="frame" x="160" y="87" width="140" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Country" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgb-vV-T0b">
-                                <rect key="frame" x="160" y="135" width="140" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="club" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOz-bW-IiH">
-                                <rect key="frame" x="160" y="170" width="140" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OJc-Ep-lI3">
-                                <rect key="frame" x="0.0" y="237" width="320" height="331"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bhg-ez-ECh">
-                                        <rect key="frame" x="0.0" y="-5" width="320" height="49"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <items>
-                                            <tabBarItem systemItem="contacts" id="zZs-4C-GUi"/>
-                                            <tabBarItem systemItem="favorites" id="tbY-cf-84G"/>
-                                            <tabBarItem systemItem="history" id="vkt-st-5Jz"/>
-                                            <tabBarItem systemItem="bookmarks" id="wWx-Vl-DDt"/>
-                                        </items>
-                                    </tabBar>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="LkX-JZ-UFC"/>
-                    <navigationItem key="navigationItem" title="Player Profile" id="EOF-Vg-teY"/>
-                    <connections>
-                        <outlet property="Photo" destination="JnO-WL-Lv6" id="OmG-nh-Qua"/>
-                        <outlet property="as" destination="zZs-4C-GUi" id="i5W-gV-xtB"/>
-                        <outlet property="clubName" destination="sOz-bW-IiH" id="hhN-G8-TJF"/>
-                        <outlet property="country" destination="fgb-vV-T0b" id="x85-ua-JRV"/>
-                        <outlet property="name" destination="t6P-Md-zwj" id="ajg-d0-ZZO"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oue-6e-cTB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1019" y="-690"/>
         </scene>
         <!--Club PlayersTVC - Player Select-->
         <scene sceneID="ai7-nv-7rx">
@@ -356,7 +293,10 @@
         <scene sceneID="WJe-Td-LIa">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="e4c-ZO-5Ob" customClass="playerProfileDetailTBC" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="hw9-KK-Oay"/>
+                    <navigationItem key="navigationItem" id="hw9-KK-Oay">
+                        <nil key="title"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="xGm-UT-Wni"/>
+                    </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Ztm-ML-MmS">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>

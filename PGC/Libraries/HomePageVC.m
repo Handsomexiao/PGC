@@ -500,4 +500,32 @@
     return [[UIImage alloc] initWithData:data];
 }
 
+- (IBAction)MoreAction:(UIBarButtonItem *)sender {
+    UIActionSheet *styleAlert = [[UIActionSheet alloc] initWithTitle:@""
+                                                            delegate:self
+                                                   cancelButtonTitle:@"Cancel"
+                                              destructiveButtonTitle:nil
+                                                   otherButtonTitles:@"LogIn",
+                                 @"Setting",
+                                 nil,
+                                 nil];
+	
+	// use the same style as the nav bar
+	styleAlert.actionSheetStyle = (UIActionSheetStyle)self.navigationController.navigationBar.barStyle;
+	
+	[styleAlert showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        NSLog(@"index = 0");
+    }
+    else if(buttonIndex == 1)
+    {
+        NSLog(@"index = 1");
+    }
+}
+
+
 @end
