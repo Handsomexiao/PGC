@@ -1,19 +1,18 @@
 //
-//  PlayerProfileDetailVC.m
+//  PlayerProfileDetailVC_tab3.m
 //  PGC
 //
-//  Created by Shuai Xiao on 10/7/13.
+//  Created by Xiao Shuai on 10/15/13.
 //  Copyright (c) 2013 Shuai Xiao. All rights reserved.
 //
 
-#import "PlayerProfileDetailVC.h"
+#import "PlayerProfileDetailVC_tab3.h"
 
-@interface PlayerProfileDetailVC ()
-@property (weak, nonatomic) IBOutlet UITextView *DetailTextView;
+@interface PlayerProfileDetailVC_tab3 ()
 
 @end
 
-@implementation PlayerProfileDetailVC
+@implementation PlayerProfileDetailVC_tab3
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,11 +33,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(void)moreInfo
-{
-    self.DetailTextView.text = [NSString stringWithFormat:@"%@",self.listData];
 }
 
 @end

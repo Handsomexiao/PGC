@@ -8,6 +8,6 @@
 
 #import "PlayerProfileVC.h"
 
-@interface PlayerProfileDetailVC : PlayerProfileVC
+@interface PlayerProfileDetailVC_tab1 : PlayerProfileVC
 
 @end
