@@ -88,9 +88,7 @@
     [super viewDidLoad];
     [self initFormLoad];
     
-    [self startRequest];
-
-
+    [self startRequest];    
 }
 
 - (void)didReceiveMemoryWarning

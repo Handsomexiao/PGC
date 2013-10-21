@@ -17,6 +17,9 @@
 //保存数据列表
 @property (nonatomic,strong) NSMutableArray* listData;
 
+@property (strong,nonatomic) NSMutableArray *filteredArray;
+@property IBOutlet UISearchBar *SearchBar;
+
 @end
 
 @implementation ClubPlayersTVC
@@ -32,6 +35,13 @@
     return _listData;
 }
 
+-(NSMutableArray*)filteredArray
+{
+    if(!_filteredArray){
+        _filteredArray = [[NSMutableArray alloc] init];
+    }
+    return _filteredArray;
+}
 
 -(void)viewDidLoad
 {
@@ -42,6 +52,11 @@
     [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     
     [self startRequest];
+    
+    // 将搜索栏藏起来（搜索栏只有在用户滚动到列表视图顶端时才会出现）
+    CGRect newBounds = self.tableView.bounds;
+    newBounds.origin.y = newBounds.origin.y + self.SearchBar.bounds.size.height;
+    self.tableView.bounds = newBounds;
 }
 
 
@@ -57,7 +72,12 @@
 {
     // Return the number of rows in the section.
     if (self.listData) {
-        return self.listData.count;
+        // 检查现在应该显示普通列表还是过滤后的列表
+        if (tableView == self.searchDisplayController.searchResultsTableView) {
+            return [self.filteredArray count];
+        } else {
+            return [self.listData count];
+        }
     }
     else{
         return 0;
@@ -69,11 +89,19 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"ClubPlayer";
-    PlayerCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    PlayerCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[PlayerCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    NSMutableDictionary* dict = self.listData[indexPath.row];
+
+    NSMutableDictionary* dict;
+    
+    // 检查现在应该显示普通列表还是过滤后的列表
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        dict = [self.filteredArray objectAtIndex:indexPath.row];
+    } else {
+        dict = [self.listData objectAtIndex:indexPath.row];
+    }
     
     // Configure the cell...
     cell.tag = indexPath.row;
@@ -143,6 +171,7 @@
                                    if ([resultCodeObj integerValue] >=0)
                                    {
                                        self.listData = [resDic objectForKey:@"result"];
+                                       self.filteredArray = [NSMutableArray arrayWithCapacity:[self.listData count]];
                                    }
                                }
                                
@@ -169,6 +198,39 @@
             plays.playerFmId = player.playerFmId;
         }
     }
+}
+
+#pragma mark Content Filtering
+-(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
+    // 根据搜索栏的内容和范围更新过滤后的数组。
+    // 先将过滤后的数组清空。
+    [self.filteredArray removeAllObjects];
+    // 用NSPredicate来过滤数组。
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.fullName contains[c] %@",searchText];
+    self.filteredArray = [NSMutableArray arrayWithArray:[self.listData filteredArrayUsingPredicate:predicate]];
+}
+
+#pragma mark - UISearchDisplayController Delegate Methods
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+    // 当用户改变搜索字符串时，让列表的数据来源重新加载数据
+    [self filterContentForSearchText:searchString scope:
+     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
+    // 返回YES，让table view重新加载。
+    return YES;
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
+    // 当用户改变搜索范围时，让列表的数据来源重新加载数据
+    [self filterContentForSearchText:self.searchDisplayController.searchBar.text scope:
+     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
+    // 返回YES，让table view重新加载。
+    return YES;
+}
+
+-(IBAction)goToSearch:(id)sender {
+    // 如果你担心用户无法发现藏在列表顶端的搜索栏，那我们在导航栏加一个搜索图标。
+    // 如果你不隐藏搜索栏，那就别加入这个搜索图标，否则就重复了。
+    [self.SearchBar becomeFirstResponder];
 }
 
 @end

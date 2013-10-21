@@ -24,6 +24,18 @@
     return self;
 }
 
+- (IBAction)A:(id)sender
+{
+    // code here
+    NSLog(@"select a");
+}
+
+- (IBAction)B:(id)sender
+{
+    // code here
+    NSLog(@"select b");
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -36,8 +48,13 @@
             plays.playerFmId = self.playerFmId;
         }
     }
-
+    
+    UIBarButtonItem *AButton = [[UIBarButtonItem alloc] initWithTitle:@"A" style:UIBarButtonItemStyleBordered target:self action:@selector(A:)];
+    UIBarButtonItem *BButton = [[UIBarButtonItem alloc] initWithTitle:@"B" style:UIBarButtonItemStyleBordered target:self action:@selector(B:)];
+    
+    self.navigationItem.rightBarButtonItems = @[AButton, BButton];
 }
+
 
 - (void)didReceiveMemoryWarning
 {

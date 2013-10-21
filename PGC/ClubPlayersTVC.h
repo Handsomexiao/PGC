@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ClubPlayersTVC : UITableViewController
+@interface ClubPlayersTVC : UITableViewController <UISearchBarDelegate, UISearchDisplayDelegate>
 
 @property NSInteger cludId;
 
