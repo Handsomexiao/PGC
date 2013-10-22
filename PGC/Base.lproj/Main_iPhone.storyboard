@@ -222,9 +222,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="e4c-ZO-5Ob" kind="push" id="F6x-JW-wqF"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -248,6 +245,7 @@
                     <connections>
                         <outlet property="SearchBar" destination="EtM-fj-r99" id="eXo-dz-ZHS"/>
                         <outlet property="searchDisplayController" destination="sd8-EN-CSh" id="a2C-Tn-51w"/>
+                        <segue destination="e4c-ZO-5Ob" kind="push" identifier="CellPlayerSelect" id="YUm-eB-znl"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gcq-zg-WRK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -601,6 +599,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="F6x-JW-wqF"/>
+        <segue reference="YUm-eB-znl"/>
     </inferredMetricsTieBreakers>
 </document>

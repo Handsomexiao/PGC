@@ -185,21 +185,6 @@
 }
 
 
-
-
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([sender isKindOfClass:[PlayerCell class]]) {
-        PlayerCell* player = (PlayerCell*)sender;
-        if([segue.destinationViewController isKindOfClass:[playerProfileDetailTBC class]])
-        {
-            playerProfileDetailTBC* plays = (playerProfileDetailTBC*)segue.destinationViewController;
-            plays.playerFmId = player.playerFmId;
-        }
-    }
-}
-
 #pragma mark Content Filtering
 -(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
     // 根据搜索栏的内容和范围更新过滤后的数组。
@@ -231,6 +216,37 @@
     // 如果你担心用户无法发现藏在列表顶端的搜索栏，那我们在导航栏加一个搜索图标。
     // 如果你不隐藏搜索栏，那就别加入这个搜索图标，否则就重复了。
     [self.SearchBar becomeFirstResponder];
+}
+
+
+#pragma mark - TableView Delegate
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // 切入详细视图
+    [self performSegueWithIdentifier:@"CellPlayerSelect" sender:tableView];
+}
+
+#pragma mark - Segue
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"CellPlayerSelect"]) {
+        // 我们需要知道哪个是现在正显示的列表视图，这样才能从相应的数组中提取正确的信息，显示在详细视图中。
+        if(sender == self.searchDisplayController.searchResultsTableView) {
+            NSIndexPath *indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+            NSDictionary* dict = [self.filteredArray objectAtIndex:[indexPath row]];
+            playerProfileDetailTBC* plays = (playerProfileDetailTBC*)segue.destinationViewController;
+            plays.playerFmId = [[dict objectForKey:@"playerId"] integerValue];
+        }
+        else {
+            NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+            NSDictionary* dict = [self.listData objectAtIndex:[indexPath row]];
+            playerProfileDetailTBC* plays = (playerProfileDetailTBC*)segue.destinationViewController;
+            plays.playerFmId = [[dict objectForKey:@"playerId"] integerValue];
+        }
+    }
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
 }
 
 @end
