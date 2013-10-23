@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		007C9CE018176B8200DA235C /* club placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 007C9CDC18176B8200DA235C /* club placeholder.png */; };
+		007C9CE118176B8200DA235C /* player-placeholder2.png in Resources */ = {isa = PBXBuildFile; fileRef = 007C9CDD18176B8200DA235C /* player-placeholder2.png */; };
+		007C9CE218176B8200DA235C /* country-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 007C9CDE18176B8200DA235C /* country-placeholder.png */; };
+		007C9CE318176B8200DA235C /* Soccer-Field----Green.png in Resources */ = {isa = PBXBuildFile; fileRef = 007C9CDF18176B8200DA235C /* Soccer-Field----Green.png */; };
 		009541291803BAED00E02794 /* PlayerProfileDetailVC_tab1.m in Sources */ = {isa = PBXBuildFile; fileRef = 009541281803BAED00E02794 /* PlayerProfileDetailVC_tab1.m */; };
 		0095412C1803BDB300E02794 /* playerProfileDetailTBC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0095412B1803BDB300E02794 /* playerProfileDetailTBC.m */; };
 		009541451803C58600E02794 /* Comments-icon-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 0095413D1803C58600E02794 /* Comments-icon-pressed.png */; };
@@ -31,11 +35,6 @@
 		00A952C0180B7952004547C4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00A952B4180B7952004547C4 /* Default-568h@2x.png */; };
 		00A952C1180B7952004547C4 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 00A952B5180B7952004547C4 /* Default.png */; };
 		00A952C2180B7952004547C4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00A952B6180B7952004547C4 /* Default@2x.png */; };
-		00A952C3180B7952004547C4 /* tutorial_background_00@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00A952B7180B7952004547C4 /* tutorial_background_00@2x.jpg */; };
-		00A952C4180B7952004547C4 /* tutorial_background_01@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00A952B8180B7952004547C4 /* tutorial_background_01@2x.jpg */; };
-		00A952C5180B7952004547C4 /* tutorial_background_02@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00A952B9180B7952004547C4 /* tutorial_background_02@2x.jpg */; };
-		00A952C6180B7952004547C4 /* tutorial_background_03@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00A952BA180B7952004547C4 /* tutorial_background_03@2x.jpg */; };
-		00A952C7180B7952004547C4 /* tutorial_background_04@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00A952BB180B7952004547C4 /* tutorial_background_04@2x.jpg */; };
 		00B7063F17FB78270011EAAE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B7063E17FB78270011EAAE /* Foundation.framework */; };
 		00B7064117FB78280011EAAE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B7064017FB78280011EAAE /* CoreGraphics.framework */; };
 		00B7064317FB78280011EAAE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B7064217FB78280011EAAE /* UIKit.framework */; };
@@ -77,6 +76,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		007C9CDC18176B8200DA235C /* club placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "club placeholder.png"; sourceTree = "<group>"; };
+		007C9CDD18176B8200DA235C /* player-placeholder2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player-placeholder2.png"; sourceTree = "<group>"; };
+		007C9CDE18176B8200DA235C /* country-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "country-placeholder.png"; sourceTree = "<group>"; };
+		007C9CDF18176B8200DA235C /* Soccer-Field----Green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Soccer-Field----Green.png"; sourceTree = "<group>"; };
 		009541271803BAED00E02794 /* PlayerProfileDetailVC_tab1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerProfileDetailVC_tab1.h; sourceTree = "<group>"; };
 		009541281803BAED00E02794 /* PlayerProfileDetailVC_tab1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerProfileDetailVC_tab1.m; sourceTree = "<group>"; };
 		0095412A1803BDB300E02794 /* playerProfileDetailTBC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = playerProfileDetailTBC.h; sourceTree = "<group>"; };
@@ -108,11 +111,6 @@
 		00A952B4180B7952004547C4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		00A952B5180B7952004547C4 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		00A952B6180B7952004547C4 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		00A952B7180B7952004547C4 /* tutorial_background_00@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tutorial_background_00@2x.jpg"; sourceTree = "<group>"; };
-		00A952B8180B7952004547C4 /* tutorial_background_01@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tutorial_background_01@2x.jpg"; sourceTree = "<group>"; };
-		00A952B9180B7952004547C4 /* tutorial_background_02@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tutorial_background_02@2x.jpg"; sourceTree = "<group>"; };
-		00A952BA180B7952004547C4 /* tutorial_background_03@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tutorial_background_03@2x.jpg"; sourceTree = "<group>"; };
-		00A952BB180B7952004547C4 /* tutorial_background_04@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tutorial_background_04@2x.jpg"; sourceTree = "<group>"; };
 		00B7063B17FB78270011EAAE /* PGC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PGC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00B7063E17FB78270011EAAE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		00B7064017FB78280011EAAE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -217,11 +215,10 @@
 				00A952B4180B7952004547C4 /* Default-568h@2x.png */,
 				00A952B5180B7952004547C4 /* Default.png */,
 				00A952B6180B7952004547C4 /* Default@2x.png */,
-				00A952B7180B7952004547C4 /* tutorial_background_00@2x.jpg */,
-				00A952B8180B7952004547C4 /* tutorial_background_01@2x.jpg */,
-				00A952B9180B7952004547C4 /* tutorial_background_02@2x.jpg */,
-				00A952BA180B7952004547C4 /* tutorial_background_03@2x.jpg */,
-				00A952BB180B7952004547C4 /* tutorial_background_04@2x.jpg */,
+				007C9CDC18176B8200DA235C /* club placeholder.png */,
+				007C9CDD18176B8200DA235C /* player-placeholder2.png */,
+				007C9CDE18176B8200DA235C /* country-placeholder.png */,
+				007C9CDF18176B8200DA235C /* Soccer-Field----Green.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -420,14 +417,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				00A952C2180B7952004547C4 /* Default@2x.png in Resources */,
-				00A952C4180B7952004547C4 /* tutorial_background_01@2x.jpg in Resources */,
+				007C9CE318176B8200DA235C /* Soccer-Field----Green.png in Resources */,
 				009541461803C58600E02794 /* Comments-icon.png in Resources */,
 				00A952C0180B7952004547C4 /* Default-568h@2x.png in Resources */,
 				009F18A5180242CB00BC385F /* 16.png in Resources */,
-				00A952C3180B7952004547C4 /* tutorial_background_00@2x.jpg in Resources */,
+				007C9CE218176B8200DA235C /* country-placeholder.png in Resources */,
 				0095414C1803C58600E02794 /* Transfers-icon.png in Resources */,
-				00A952C7180B7952004547C4 /* tutorial_background_04@2x.jpg in Resources */,
 				009541491803C58600E02794 /* Position-icon-Pressed.png in Resources */,
+				007C9CE118176B8200DA235C /* player-placeholder2.png in Resources */,
+				007C9CE018176B8200DA235C /* club placeholder.png in Resources */,
 				00B7065A17FB78280011EAAE /* Images.xcassets in Resources */,
 				009541451803C58600E02794 /* Comments-icon-pressed.png in Resources */,
 				00B7065217FB78280011EAAE /* Main_iPhone.storyboard in Resources */,
@@ -435,14 +433,12 @@
 				009541471803C58600E02794 /* Info-Button.png in Resources */,
 				00A952BE180B7952004547C4 /* button-background.png in Resources */,
 				009541481803C58600E02794 /* info-icon-Pressed.png in Resources */,
-				00A952C5180B7952004547C4 /* tutorial_background_02@2x.jpg in Resources */,
 				00B7064917FB78280011EAAE /* InfoPlist.strings in Resources */,
 				00A952C1180B7952004547C4 /* Default.png in Resources */,
 				00B7069817FBCA760011EAAE /* Vizicon2.png in Resources */,
 				0095414A1803C58600E02794 /* Position-icon.png in Resources */,
 				00B7069517FBC9CB0011EAAE /* Menu.png in Resources */,
 				00A952BD180B7952004547C4 /* background-gradient@2x.png in Resources */,
-				00A952C6180B7952004547C4 /* tutorial_background_03@2x.jpg in Resources */,
 				00B7069917FBCA760011EAAE /* Vizoal-Icon-Green.png in Resources */,
 				00A952BF180B7952004547C4 /* button-background@2x.png in Resources */,
 				0095414B1803C58600E02794 /* Tranfer-icon-pressed.png in Resources */,
