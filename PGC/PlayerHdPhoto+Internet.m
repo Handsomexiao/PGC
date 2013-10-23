@@ -52,6 +52,19 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 if ([NewphotoData length] > 0) {
                     //write to datebase
+                    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"PlayerHdPhoto"];
+                    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"page"
+                                                                              ascending:YES]];
+                    request.predicate = [NSPredicate predicateWithFormat:@"page = %d",page];
+                    NSError *error = nil;
+                    NSArray *matches = [[self useDocument] executeFetchRequest:request
+                                                                         error:&error];
+                    if ([matches count] >= 1) {
+                        for (id d in matches) {
+                            [[self useDocument] deleteObject:d];
+                        }
+                    }
+                    
                     PlayerHdPhoto* playerPhoto = [NSEntityDescription insertNewObjectForEntityForName:@"PlayerHdPhoto"
                                                                                inManagedObjectContext:[self useDocument]];
                     
