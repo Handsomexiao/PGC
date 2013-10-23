@@ -39,14 +39,13 @@
     return;
 }
 
-+(void)GetAllPlayerHdPhoto:(NSArray *)lastData
++(void)GetAllPlayerHdPhoto:(NSArray *)lastData afterDone:(void (^)(void))myblock
 {
     NSInteger page = 0;
     for (NSDictionary *dict in lastData) {
         
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://ec2-54-215-136-21.us-west-1.compute.amazonaws.com:8080/vizoal/image/android/homepage/medRez/%@",[dict objectForKey:@"image"]]];
         NSLog(@"new get playerHdPhoto--%@",url);
-        page++;
         dispatch_async(kBgQueue, ^{
             NSData* NewphotoData = [NSData dataWithContentsOfURL:url];
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -70,10 +69,18 @@
                     
                     playerPhoto.photo = NewphotoData;
                     playerPhoto.page = [[NSNumber alloc] initWithInt:page];
+                    
+                    NSLog(@"get playerHdPhoto ok--%d",page);
+                    
+                    [[self useDocument] save:nil];
+                    myblock();
                 }
             });
         });
+        
+        page++;
     }
+
 }
 
 + (NSManagedObjectContext *)useDocument
