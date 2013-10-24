@@ -114,6 +114,7 @@
         if (cell.tag == indexPath.row) {
             cell.imageView.image = image;
             [cell setNeedsLayout];
+            [cell.imageView updateConstraints];
         }
     }];
 
@@ -139,6 +140,7 @@
     //[mat setAttributes:subAttrs range:range];
     [mat addAttribute:NSFontAttributeName value:boldFont range:range];
     
+    cell.imageView.image = [UIImage imageNamed:@"player-placeholder2.png"];
     cell.textLabel.attributedText = mat;
     cell.playerFmId = [[dict objectForKey:@"playerId"] integerValue];
     NSLog(@"%@", name);
