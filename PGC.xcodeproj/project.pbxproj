@@ -62,6 +62,8 @@
 		3302CED7180E16A40021F533 /* PlayerProfileDetailVC_tab2.m in Sources */ = {isa = PBXBuildFile; fileRef = 3302CED6180E16A40021F533 /* PlayerProfileDetailVC_tab2.m */; };
 		3302CEDA180E16B20021F533 /* PlayerProfileDetailVC_tab3.m in Sources */ = {isa = PBXBuildFile; fileRef = 3302CED9180E16B20021F533 /* PlayerProfileDetailVC_tab3.m */; };
 		3302CEDD180E16BF0021F533 /* PlayerProfileDetailVC_tab4.m in Sources */ = {isa = PBXBuildFile; fileRef = 3302CEDC180E16BF0021F533 /* PlayerProfileDetailVC_tab4.m */; };
+		33FBC82F1818AF770047E9F6 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FBC82E1818AF770047E9F6 /* LoginViewController.m */; };
+		33FBC8321818B2300047E9F6 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FBC8311818B2300047E9F6 /* LoginView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +153,10 @@
 		3302CED9180E16B20021F533 /* PlayerProfileDetailVC_tab3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerProfileDetailVC_tab3.m; sourceTree = "<group>"; };
 		3302CEDB180E16BF0021F533 /* PlayerProfileDetailVC_tab4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerProfileDetailVC_tab4.h; sourceTree = "<group>"; };
 		3302CEDC180E16BF0021F533 /* PlayerProfileDetailVC_tab4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerProfileDetailVC_tab4.m; sourceTree = "<group>"; };
+		33FBC82D1818AF770047E9F6 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		33FBC82E1818AF770047E9F6 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		33FBC8301818B2300047E9F6 /* LoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
+		33FBC8311818B2300047E9F6 /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +266,10 @@
 				00A952A7180B7920004547C4 /* HomePageVC.h */,
 				00A952A8180B7920004547C4 /* HomePageVC.m */,
 				00B7065017FB78280011EAAE /* Main_iPhone.storyboard */,
+				33FBC8301818B2300047E9F6 /* LoginView.h */,
+				33FBC8311818B2300047E9F6 /* LoginView.m */,
+				33FBC82D1818AF770047E9F6 /* LoginViewController.h */,
+				33FBC82E1818AF770047E9F6 /* LoginViewController.m */,
 				0095414D1804CF0C00E02794 /* TopPlayersTVC.h */,
 				0095414E1804CF0C00E02794 /* TopPlayersTVC.m */,
 				0095412A1803BDB300E02794 /* playerProfileDetailTBC.h */,
@@ -467,10 +477,12 @@
 				0095412C1803BDB300E02794 /* playerProfileDetailTBC.m in Sources */,
 				009541611804EDF500E02794 /* PlayerPhoto+Internet.m in Sources */,
 				0095414F1804CF0C00E02794 /* TopPlayersTVC.m in Sources */,
+				33FBC82F1818AF770047E9F6 /* LoginViewController.m in Sources */,
 				3302CEC8180DD75F0021F533 /* PlayerHdPhoto.m in Sources */,
 				00B7068C17FB94690011EAAE /* ClubCell.m in Sources */,
 				009541291803BAED00E02794 /* PlayerProfileDetailVC_tab1.m in Sources */,
 				00B7068E17FB94690011EAAE /* ClubPlayersTVC.m in Sources */,
+				33FBC8321818B2300047E9F6 /* LoginView.m in Sources */,
 				0095415E1804E39F00E02794 /* PlayerPhoto.m in Sources */,
 				00B7064F17FB78280011EAAE /* PGCAppDelegate.m in Sources */,
 				00A952AC180B7920004547C4 /* ICETutorialPage.m in Sources */,

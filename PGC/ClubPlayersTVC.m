@@ -91,7 +91,7 @@
     static NSString *CellIdentifier = @"ClubPlayer";
     PlayerCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[PlayerCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[PlayerCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
 
     NSMutableDictionary* dict;
@@ -106,7 +106,7 @@
     // Configure the cell...
     cell.tag = indexPath.row;
     
-    cell.imageView.image = nil; // or cell.poster.image = [UIImage imageNamed:@"placeholder.png"];
+    cell.imageView.image = nil;
     
     NSInteger playerFmId = [[dict objectForKey:@"fmId"] integerValue];
 
