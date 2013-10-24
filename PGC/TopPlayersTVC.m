@@ -64,7 +64,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"TopPlayer";
+    static NSString *CellIdentifier = @"TopPlayerCell";
     PlayerCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     if (cell == nil) {
         cell = [[PlayerCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
@@ -76,12 +76,12 @@
     
     cell.imageView.image = nil; // or cell.poster.image = [UIImage imageNamed:@"placeholder.png"];
     NSInteger playerFmId = [[dict objectForKey:@"fmId"] integerValue];
-    
-    
+
     [PlayerPhoto photoData:playerFmId afterDone:^(UIImage* image){
         if (cell.tag == indexPath.row) {
             cell.imageView.image = image;
             [cell setNeedsLayout];
+            [cell.imageView updateConstraints];
         }
     }];
 
@@ -108,6 +108,7 @@
     //[mat setAttributes:subAttrs range:range];
     [mat addAttribute:NSFontAttributeName value:boldFont range:range];
     
+    cell.imageView.image = [UIImage imageNamed:@"player-placeholder2.png"];
     cell.textLabel.attributedText = mat;
     cell.playerFmId = [[dict objectForKey:@"playerId"] integerValue];
     NSLog(@"%@", name);

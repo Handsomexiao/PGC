@@ -362,23 +362,6 @@
 
 - (void)initFormLoad
 {
-    // Init the pages texts, and pictures.
-    ICETutorialPage *layer1 = [[ICETutorialPage alloc] initWithSubTitle:@"Picture 1"
-                                                            description:@"Champs-Elysées by night"
-                                                            pictureName:@"tutorial_background_00@2x.jpg"];
-    ICETutorialPage *layer2 = [[ICETutorialPage alloc] initWithSubTitle:@"Picture 2"
-                                                            description:@"The Eiffel Tower with\n cloudy weather"
-                                                            pictureName:@"tutorial_background_01@2x.jpg"];
-    ICETutorialPage *layer3 = [[ICETutorialPage alloc] initWithSubTitle:@"Picture 3"
-                                                            description:@"An other famous street of Paris"
-                                                            pictureName:@"tutorial_background_02@2x.jpg"];
-    ICETutorialPage *layer4 = [[ICETutorialPage alloc] initWithSubTitle:@"Picture 4"
-                                                            description:@"The Eiffel Tower with a better weather"
-                                                            pictureName:@"tutorial_background_03@2x.jpg"];
-    ICETutorialPage *layer5 = [[ICETutorialPage alloc] initWithSubTitle:@"Picture 5"
-                                                            description:@"The Louvre's Museum Pyramide"
-                                                            pictureName:@"tutorial_background_04@2x.jpg"];
-    
     // Set the common style for SubTitles and Description (can be overrided on each page).
     ICETutorialLabelStyle *subStyle = [[ICETutorialLabelStyle alloc] init];
     [subStyle setFont:TUTORIAL_SUB_TITLE_FONT];
@@ -394,11 +377,7 @@
     
     // Load into an array.
     _pages = [[NSMutableArray alloc] init];
-    [_pages addObject:layer1];
-    [_pages addObject:layer2];
-    [_pages addObject:layer3];
-    [_pages addObject:layer4];
-    [_pages addObject:layer5];
+
    
     // Set the common styles, and start scrolling (auto scroll, and looping enabled by default)
     [self setCommonPageSubTitleStyle:subStyle];
@@ -458,7 +437,12 @@
                                            _pageControl.numberOfPages = [self.listData count];
                                            _pageControl.currentPage = 0;
                                            
-                                           [PlayerHdPhoto GetAllPlayerHdPhoto:self.listData];
+                                           [PlayerHdPhoto GetAllPlayerHdPhoto:self.listData afterDone:^(void){
+                                               [_pageControl setCurrentPage:0];
+                                               // Preset the origin state.
+                                               [self setOriginLayersState];
+                                               NSLog(@"Load PlayerHdPhoto done!");
+                                           }];
                                            
                                            [[self view] setBackgroundColor:[UIColor blackColor]];
                                            
@@ -481,29 +465,12 @@
                                            
                                            // Run the auto-scrolling.
                                            [self autoScrollToNextPage];
-                                           
-                                           
+
                                        });
                                    }
                                }
                            }];
     
-}
-
--(UIImage *)GetPlayerHdPhoto:(NSInteger)page
-{
-    NSString* urlString = [[NSString alloc] initWithFormat:@"http://ec2-54-215-136-21.us-west-1.compute.amazonaws.com:8080/vizoal/image/android/homepage/HdRez/%d.jpg",page];
-    NSURL *url = [NSURL URLWithString:urlString];
-    
-    NSError* error = nil;
-    NSData* data = [NSData dataWithContentsOfURL:url options:NSDataReadingUncached error:&error];
-    if (error) {
-        NSLog(@"%@", [error localizedDescription]);
-    } else {
-        NSLog(@"Data has loaded successfully.");
-    }
-    
-    return [[UIImage alloc] initWithData:data];
 }
 
 #pragma mark - MoreAction

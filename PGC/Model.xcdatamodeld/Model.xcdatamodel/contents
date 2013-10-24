@@ -9,7 +9,7 @@
         <attribute name="playerId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="PlayerPhoto" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="PlayerHdPhoto" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="PlayerHdPhoto" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="PlayerPhoto" positionX="0" positionY="0" width="128" height="75"/>
     </elements>
 </model>

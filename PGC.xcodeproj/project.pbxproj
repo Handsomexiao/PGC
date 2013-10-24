@@ -42,7 +42,6 @@
 		00B7064B17FB78280011EAAE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B7064A17FB78280011EAAE /* main.m */; };
 		00B7064F17FB78280011EAAE /* PGCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B7064E17FB78280011EAAE /* PGCAppDelegate.m */; };
 		00B7065217FB78280011EAAE /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00B7065017FB78280011EAAE /* Main_iPhone.storyboard */; };
-		00B7065817FB78280011EAAE /* PGCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B7065717FB78280011EAAE /* PGCViewController.m */; };
 		00B7065A17FB78280011EAAE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00B7065917FB78280011EAAE /* Images.xcassets */; };
 		00B7066117FB78280011EAAE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B7066017FB78280011EAAE /* XCTest.framework */; };
 		00B7066217FB78280011EAAE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B7063E17FB78270011EAAE /* Foundation.framework */; };
@@ -122,8 +121,6 @@
 		00B7064D17FB78280011EAAE /* PGCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGCAppDelegate.h; sourceTree = "<group>"; };
 		00B7064E17FB78280011EAAE /* PGCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGCAppDelegate.m; sourceTree = "<group>"; };
 		00B7065117FB78280011EAAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		00B7065617FB78280011EAAE /* PGCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGCViewController.h; sourceTree = "<group>"; };
-		00B7065717FB78280011EAAE /* PGCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGCViewController.m; sourceTree = "<group>"; };
 		00B7065917FB78280011EAAE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		00B7065F17FB78280011EAAE /* PGCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PGCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00B7066017FB78280011EAAE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -285,8 +282,6 @@
 				00B7068817FB94690011EAAE /* PlayerCell.m */,
 				00B7068917FB94690011EAAE /* ClubPlayersTVC.h */,
 				00B7068A17FB94690011EAAE /* ClubPlayersTVC.m */,
-				00B7065617FB78280011EAAE /* PGCViewController.h */,
-				00B7065717FB78280011EAAE /* PGCViewController.m */,
 				009F18A61802821A00BC385F /* Model */,
 				00B7065917FB78280011EAAE /* Images.xcassets */,
 				00B7064517FB78280011EAAE /* Supporting Files */,
@@ -464,7 +459,6 @@
 				00B7068D17FB94690011EAAE /* PlayerCell.m in Sources */,
 				3302CED7180E16A40021F533 /* PlayerProfileDetailVC_tab2.m in Sources */,
 				00B7068B17FB94690011EAAE /* ClubTVC.m in Sources */,
-				00B7065817FB78280011EAAE /* PGCViewController.m in Sources */,
 				00A952AB180B7920004547C4 /* HomePageVC.m in Sources */,
 				00B7069317FBBFDB0011EAAE /* PlayerProfileVC.m in Sources */,
 				3302CEDA180E16B20021F533 /* PlayerProfileDetailVC_tab3.m in Sources */,

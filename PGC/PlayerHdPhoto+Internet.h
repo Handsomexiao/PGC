@@ -12,6 +12,6 @@
 
 +(void)photoHdData:(NSInteger)page afterDone:(void (^)(UIImage* image))myblock;
 +(NSManagedObjectContext *)useDocument;
-+(void)GetAllPlayerHdPhoto:(NSArray *)lastData;
++(void)GetAllPlayerHdPhoto:(NSArray *)lastData afterDone:(void (^)(void))myblock;
 
 @end
