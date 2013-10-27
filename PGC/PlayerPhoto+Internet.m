@@ -46,15 +46,18 @@
                         }
                     }
                     
-                    PlayerPhoto* playerPhoto = [NSEntityDescription insertNewObjectForEntityForName:@"PlayerPhoto"
-                                                                             inManagedObjectContext:[self useDocument]];
-                    
-                    playerPhoto.photo = NewphotoData;
-                    playerPhoto.playerId = [[NSNumber alloc] initWithInt:playerId];
-                    
-                    UIImage* image = [[UIImage alloc] initWithData:NewphotoData];
-                    // reflash view
-                    myblock(image);
+                    NSManagedObjectContext *context = [self useDocument];
+                    if (context) {
+                        PlayerPhoto* playerPhoto = [NSEntityDescription insertNewObjectForEntityForName:@"PlayerPhoto"
+                                                                                 inManagedObjectContext:[self useDocument]];
+                        
+                        playerPhoto.photo = NewphotoData;
+                        playerPhoto.playerId = [[NSNumber alloc] initWithInt:playerId];
+                        
+                        UIImage* image = [[UIImage alloc] initWithData:NewphotoData];
+                        // reflash view
+                        myblock(image);
+                    }
                 }
             });
         

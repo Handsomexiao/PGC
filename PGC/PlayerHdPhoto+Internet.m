@@ -64,16 +64,19 @@
                         }
                     }
                     
-                    PlayerHdPhoto* playerPhoto = [NSEntityDescription insertNewObjectForEntityForName:@"PlayerHdPhoto"
-                                                                               inManagedObjectContext:[self useDocument]];
-                    
-                    playerPhoto.photo = NewphotoData;
-                    playerPhoto.page = [[NSNumber alloc] initWithInt:page];
-                    
-                    NSLog(@"get playerHdPhoto ok--%d",page);
-                    
-                    [[self useDocument] save:nil];
-                    myblock();
+                    NSManagedObjectContext* context = [self useDocument];
+                    if (context) {
+                        PlayerHdPhoto* playerPhoto = [NSEntityDescription insertNewObjectForEntityForName:@"PlayerHdPhoto"
+                                                                                   inManagedObjectContext:[self useDocument]];
+                        
+                        playerPhoto.photo = NewphotoData;
+                        playerPhoto.page = [[NSNumber alloc] initWithInt:page];
+                        
+                        NSLog(@"get playerHdPhoto ok--%ld",(long)page);
+                        
+                        [[self useDocument] save:nil];
+                        myblock();
+                    }
                 }
             });
         });
