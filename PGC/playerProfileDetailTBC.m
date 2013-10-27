@@ -28,6 +28,17 @@
 {
     // code here
     NSLog(@"select a");
+    
+    UIImage *anImage = [UIImage imageNamed:@"Vizicon2.png"];
+    NSArray *Items   = [NSArray arrayWithObjects:
+                        @"A text line",
+                        anImage, nil];
+    
+    UIActivityViewController *ActivityView =
+    [[UIActivityViewController alloc]
+     initWithActivityItems:Items applicationActivities:nil];
+    [self presentViewController:ActivityView animated:YES completion:nil];
+    
 }
 
 - (IBAction)B:(id)sender
@@ -49,7 +60,7 @@
         }
     }
     
-    UIBarButtonItem *AButton = [[UIBarButtonItem alloc] initWithTitle:@"A" style:UIBarButtonItemStyleBordered target:self action:@selector(A:)];
+    UIBarButtonItem *AButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Vizicon2.png"] landscapeImagePhone:[UIImage imageNamed:@"Vizicon2.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(A:)];
     UIBarButtonItem *BButton = [[UIBarButtonItem alloc] initWithTitle:@"B" style:UIBarButtonItemStyleBordered target:self action:@selector(B:)];
     
     self.navigationItem.rightBarButtonItems = @[AButton, BButton];
