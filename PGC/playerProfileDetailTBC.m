@@ -8,6 +8,9 @@
 
 #import "playerProfileDetailTBC.h"
 #import "PlayerProfileVC.h"
+#import "APActivityProvider.h"
+#import "APActivityIcon.h"
+
 
 @interface playerProfileDetailTBC ()
 
@@ -29,15 +32,37 @@
     // code here
     NSLog(@"select a");
     
-    UIImage *anImage = [UIImage imageNamed:@"Vizicon2.png"];
-    NSArray *Items   = [NSArray arrayWithObjects:
-                        @"A text line",
-                        anImage, nil];
+    APActivityProvider *ActivityProvider = [[APActivityProvider alloc] init];
+    UIImage *ImageAtt = [UIImage imageNamed:@"country-placeholder.png"];
+    NSArray *Items = @[ActivityProvider, ImageAtt];
     
-    UIActivityViewController *ActivityView =
-    [[UIActivityViewController alloc]
-     initWithActivityItems:Items applicationActivities:nil];
+    APActivityIcon *ca = [[APActivityIcon alloc] init];
+    NSArray *Acts = @[ca];
+    
+    UIActivityViewController *ActivityView = [[UIActivityViewController alloc]
+                                               initWithActivityItems:Items
+                                               applicationActivities:Acts];
+    [ActivityView setExcludedActivityTypes:
+     @[UIActivityTypeAssignToContact,
+       UIActivityTypeCopyToPasteboard,
+       UIActivityTypePrint,
+       UIActivityTypeSaveToCameraRoll,
+       UIActivityTypePostToWeibo]];
+    
     [self presentViewController:ActivityView animated:YES completion:nil];
+    [ActivityView setCompletionHandler:^(NSString *act, BOOL done)
+     {
+         NSString *ServiceMsg = nil;
+         if ( [act isEqualToString:UIActivityTypeMail] )           ServiceMsg = @"Mail sended!";
+         if ( [act isEqualToString:UIActivityTypePostToTwitter] )  ServiceMsg = @"Post on twitter, ok!";
+         if ( [act isEqualToString:UIActivityTypePostToFacebook] ) ServiceMsg = @"Post on facebook, ok!";
+         if ( [act isEqualToString:UIActivityTypeMessage] )        ServiceMsg = @"SMS sended!";
+         if ( done )
+         {
+             UIAlertView *Alert = [[UIAlertView alloc] initWithTitle:ServiceMsg message:@"" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+             [Alert show];
+         }
+     }];
     
 }
 
@@ -60,10 +85,13 @@
         }
     }
     
-    UIBarButtonItem *AButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Vizicon2.png"] landscapeImagePhone:[UIImage imageNamed:@"Vizicon2.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(A:)];
+    
+    UIBarButtonItem *AButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
+                                                               target:self
+                                                               action:@selector(A:)];
     UIBarButtonItem *BButton = [[UIBarButtonItem alloc] initWithTitle:@"B" style:UIBarButtonItemStyleBordered target:self action:@selector(B:)];
     
-    self.navigationItem.rightBarButtonItems = @[AButton, BButton];
+    self.navigationItem.rightBarButtonItems = @[AButton,BButton];    
 }
 
 
