@@ -75,8 +75,10 @@
                         NSLog(@"get playerHdPhoto ok--%ld",(long)page);
                         
                         [[self useDocument] save:nil];
-                        myblock();
+                        
                     }
+                    
+                    myblock();
                 }
             });
         });

@@ -69,6 +69,11 @@
     return self.listData.count;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 64;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"ClubCell";
@@ -90,7 +95,7 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (cell.tag == indexPath.row) {
                     cell.imageView.image = image;
-                    [cell setNeedsLayout];
+                    [cell updateConstraints];
                 }
             });
         }

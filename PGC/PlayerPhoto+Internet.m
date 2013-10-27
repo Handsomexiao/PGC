@@ -53,11 +53,11 @@
                         
                         playerPhoto.photo = NewphotoData;
                         playerPhoto.playerId = [[NSNumber alloc] initWithInt:playerId];
-                        
-                        UIImage* image = [[UIImage alloc] initWithData:NewphotoData];
-                        // reflash view
-                        myblock(image);
                     }
+                    
+                    UIImage* image = [[UIImage alloc] initWithData:NewphotoData];
+                    // reflash view
+                    myblock(image);
                 }
             });
         

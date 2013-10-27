@@ -48,9 +48,13 @@
     
     // Configure the cell...
 
+    NSString *thePath = [[NSBundle mainBundle] pathForResource:@"player-placeholder2" ofType:@"png"];
+    self.Photo.image = [[UIImage alloc] initWithContentsOfFile:thePath];
+    
     NSInteger playerFmId = [[dict objectForKey:@"fmId"] integerValue];
     [PlayerPhoto photoData:playerFmId afterDone:^(UIImage* image){
         self.Photo.image = image;
+        [self.Photo updateConstraints];
     }];
     
     self.name.text = [dict objectForKey:@"fullName"];
@@ -69,6 +73,8 @@
 {
     [super viewDidLoad];
     [self startRequest];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
