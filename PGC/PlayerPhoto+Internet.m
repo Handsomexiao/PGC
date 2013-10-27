@@ -24,9 +24,7 @@
     NSArray *matches = [[self useDocument] executeFetchRequest:request
                                               error:&error];
     
-    if (!matches || ([matches count] > 1)) {
-        // handle error
-    } else if (![matches count]) {
+    if (!matches || [matches count] != 1) {
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://ec2-54-215-136-21.us-west-1.compute.amazonaws.com:8080/vizoal/image/android/player/2.0/%d.png",playerId]];
         NSLog(@"new get playerPhoto--%@",url);
         
@@ -42,8 +40,10 @@
                     NSError *error = nil;
                     NSArray *matches = [[self useDocument] executeFetchRequest:request
                                                                          error:&error];
-                    for (id d in matches) {
-                        [[self useDocument] deleteObject:d];
+                    if (matches) {
+                        for (id d in matches) {
+                            [[self useDocument] deleteObject:d];
+                        }
                     }
                     
                     PlayerPhoto* playerPhoto = [NSEntityDescription insertNewObjectForEntityForName:@"PlayerPhoto"
@@ -93,7 +93,6 @@
             [document openWithCompletionHandler:^(BOOL success) {
                 managedObjectContext = document.managedObjectContext;
             }];
-            
             NSLog(@"a closed NSManagedObjectContext! reopen");
         } else {
             managedObjectContext = document.managedObjectContext;

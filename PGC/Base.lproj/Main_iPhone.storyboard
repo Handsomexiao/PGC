@@ -452,6 +452,10 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="sHg-a9-dnZ">
+                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="miI-uz-DWm" kind="relationship" relationship="rootViewController" id="nJx-Tk-Txe"/>
                     </connections>
@@ -642,6 +646,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="YUm-eB-znl"/>
+        <segue reference="OES-bJ-xJc"/>
     </inferredMetricsTieBreakers>
 </document>
