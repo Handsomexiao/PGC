@@ -362,6 +362,12 @@
 
 - (void)initFormLoad
 {
+    _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0,  418, 320, 20)];
+    [_pageControl setNeedsLayout];
+    _pageControl.currentPageIndicatorTintColor = [UIColor colorWithRed:0.0 green:0.0 blue:1.0 alpha:0.5];
+    _pageControl.pageIndicatorTintColor = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:0.5];
+    [self.view addSubview:_pageControl];
+    
     // Set the common style for SubTitles and Description (can be overrided on each page).
     ICETutorialLabelStyle *subStyle = [[ICETutorialLabelStyle alloc] init];
     [subStyle setFont:TUTORIAL_SUB_TITLE_FONT];

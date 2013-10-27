@@ -34,7 +34,7 @@ typedef void (^ButtonBlock)(UIButton *button);
     __weak IBOutlet UIImageView *_frontLayerView;
     __weak IBOutlet UILabel *_overlayTitle;
     __weak IBOutlet UIScrollView *_scrollView;
-    __weak IBOutlet UIPageControl *_pageControl;
+    IBOutlet UIPageControl *_pageControl;
     
     CGSize _windowSize;
     ScrollingState _currentState;
