@@ -27,6 +27,15 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    FBLoginView *loginView = [[FBLoginView alloc] init];
+    // Align the button in the center horizontally
+    loginView.frame = CGRectOffset(loginView.frame,
+                                   5,
+                                   100);
+    [self.view addSubview:loginView];
+    [loginView sizeToFit];
+    
 }
 
 - (void)didReceiveMemoryWarning

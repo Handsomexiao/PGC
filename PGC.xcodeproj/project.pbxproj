@@ -65,6 +65,7 @@
 		3302CED7180E16A40021F533 /* PlayerProfileDetailVC_tab2.m in Sources */ = {isa = PBXBuildFile; fileRef = 3302CED6180E16A40021F533 /* PlayerProfileDetailVC_tab2.m */; };
 		3302CEDA180E16B20021F533 /* PlayerProfileDetailVC_tab3.m in Sources */ = {isa = PBXBuildFile; fileRef = 3302CED9180E16B20021F533 /* PlayerProfileDetailVC_tab3.m */; };
 		3302CEDD180E16BF0021F533 /* PlayerProfileDetailVC_tab4.m in Sources */ = {isa = PBXBuildFile; fileRef = 3302CEDC180E16BF0021F533 /* PlayerProfileDetailVC_tab4.m */; };
+		331B9955181F0321001F3795 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 331B9954181F0321001F3795 /* FacebookSDK.framework */; };
 		33FBC82F1818AF770047E9F6 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FBC82E1818AF770047E9F6 /* LoginViewController.m */; };
 		33FBC8321818B2300047E9F6 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FBC8311818B2300047E9F6 /* LoginView.m */; };
 /* End PBXBuildFile section */
@@ -161,6 +162,7 @@
 		3302CED9180E16B20021F533 /* PlayerProfileDetailVC_tab3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerProfileDetailVC_tab3.m; sourceTree = "<group>"; };
 		3302CEDB180E16BF0021F533 /* PlayerProfileDetailVC_tab4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerProfileDetailVC_tab4.h; sourceTree = "<group>"; };
 		3302CEDC180E16BF0021F533 /* PlayerProfileDetailVC_tab4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerProfileDetailVC_tab4.m; sourceTree = "<group>"; };
+		331B9954181F0321001F3795 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		33FBC82D1818AF770047E9F6 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		33FBC82E1818AF770047E9F6 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		33FBC8301818B2300047E9F6 /* LoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00B7064117FB78280011EAAE /* CoreGraphics.framework in Frameworks */,
+				331B9955181F0321001F3795 /* FacebookSDK.framework in Frameworks */,
 				00B7064317FB78280011EAAE /* UIKit.framework in Frameworks */,
 				00B7063F17FB78270011EAAE /* Foundation.framework in Frameworks */,
 			);
@@ -257,6 +260,7 @@
 		00B7063D17FB78270011EAAE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				331B9954181F0321001F3795 /* FacebookSDK.framework */,
 				00B7063E17FB78270011EAAE /* Foundation.framework */,
 				00B7064017FB78280011EAAE /* CoreGraphics.framework */,
 				00B7064217FB78280011EAAE /* UIKit.framework */,
@@ -634,6 +638,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/xiaoshuai/Documents/devolper/PGC,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PGC/PGC-Prefix.pch";
 				INFOPLIST_FILE = "PGC/PGC-Info.plist";
@@ -651,6 +659,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/xiaoshuai/Documents/devolper/PGC,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PGC/PGC-Prefix.pch";
 				INFOPLIST_FILE = "PGC/PGC-Info.plist";
