@@ -10,7 +10,7 @@
 
 @interface PlayerProfileVC : UIViewController
 //保存数据列表
-@property (nonatomic,strong) NSMutableArray* listData;
+@property (nonatomic,strong) NSDictionary* listData;
 @property NSInteger PlayerFmId;
 
 @end
