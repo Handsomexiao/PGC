@@ -20,10 +20,10 @@
 
 @implementation PlayerProfileVC
 
-- (NSMutableArray *)listData
+- (NSDictionary *)listData
 {
     if (!_listData) {
-        _listData = [[NSMutableArray alloc] init];
+        _listData = [[NSDictionary alloc] init];
     }
     return _listData;
 }

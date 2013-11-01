@@ -8,6 +8,7 @@
 
 #import "PlayerProfileVC.h"
 
-@interface PlayerProfileDetailVC_tab4 : PlayerProfileVC
+@interface PlayerProfileDetailVC_tab4 : PlayerProfileVC <UITableViewDataSource,UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
