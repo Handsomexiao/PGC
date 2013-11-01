@@ -186,11 +186,6 @@
 }
 
 #pragma mark - Overlay management
-// Setup the Title Label.
-- (void)setOverlayTitle{
-    // ...or change by an UIImageView if you need it.
-    [_overlayTitle setText:@"Welcome"];
-}
 
 // Setup the SubTitle/Description style/text.
 - (void)setOverlayTexts{

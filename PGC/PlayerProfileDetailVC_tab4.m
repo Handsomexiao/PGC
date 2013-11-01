@@ -45,6 +45,7 @@ static NSString * const RCellIdentifier = @"HRChatCell";
     const NSString *RMineKey = @"ismine";
     
     NSString *path = [[NSBundle mainBundle] pathForResource:@"messages" ofType:@"plist"];
+    
     NSArray *dataArray = [NSArray arrayWithContentsOfFile:path];
     if (!dataArray)
     {
@@ -80,6 +81,7 @@ static NSString * const RCellIdentifier = @"HRChatCell";
 {
     HRChatCell *cell = [tableView dequeueReusableCellWithIdentifier:RCellIdentifier];
     [cell bindMessage:_msgList[indexPath.row]];
+    cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
 
@@ -88,6 +90,21 @@ static NSString * const RCellIdentifier = @"HRChatCell";
     [textField resignFirstResponder];
     
     return YES;
+}
+- (IBAction)SendCommit:(UIBarButtonItem *)sender {
+    Message *message = [[Message alloc] init];
+    message.msg = [self.CommitText.text description];
+    message.mine = true;
+    [_msgList addObject:message];
+    self.CommitText.text = nil;
+    
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"messages" ofType:@"plist"];
+    [_msgList writeToFile:path atomically:YES];
+    
+    [self.tableView reloadData];
+    
+    
 }
 
 @end

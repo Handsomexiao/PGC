@@ -27,7 +27,7 @@
     return self;
 }
 
-- (IBAction)A:(id)sender
+- (IBAction)Share:(id)sender
 {
     // code here
     NSLog(@"select a");
@@ -88,8 +88,8 @@
     
     UIBarButtonItem *AButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
                                                                target:self
-                                                               action:@selector(A:)];
-    UIBarButtonItem *BButton = [[UIBarButtonItem alloc] initWithTitle:@"B" style:UIBarButtonItemStyleBordered target:self action:@selector(B:)];
+                                                               action:@selector(Share:)];
+    UIBarButtonItem *BButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:@selector(B:)];
     
     self.navigationItem.rightBarButtonItems = @[AButton,BButton];    
 }

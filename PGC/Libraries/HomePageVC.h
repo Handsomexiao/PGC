@@ -32,7 +32,6 @@ typedef void (^ButtonBlock)(UIButton *button);
 
     __weak IBOutlet UIImageView *_backLayerView;
     __weak IBOutlet UIImageView *_frontLayerView;
-    __weak IBOutlet UILabel *_overlayTitle;
     __weak IBOutlet UIScrollView *_scrollView;
     IBOutlet UIPageControl *_pageControl;
     
