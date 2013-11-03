@@ -310,23 +310,51 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="item 1" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haq-He-hvc">
-                                <rect key="frame" x="20" y="223" width="280" height="295"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ITH-ZH-eph">
+                                <rect key="frame" x="20" y="225" width="280" height="296"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <prototypes>
+                                    <tableViewCell contentMode="left" selectionStyle="none" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="ProfileCell" textLabel="7bx-SK-D8b" detailTextLabel="Qde-Df-hjC" style="IBUITableViewCellStyleValue1" id="ECn-wO-JY8">
+                                        <rect key="frame" x="0.0" y="22" width="280" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ECn-wO-JY8" id="IGV-WS-3p1">
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7bx-SK-D8b">
+                                                    <rect key="frame" x="15" y="11" width="33" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qde-Df-hjC">
+                                                    <rect key="frame" x="221" y="11" width="44" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="TAU-Mb-PKB" id="CqH-cf-Mcw"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" systemItem="contacts" id="WO2-FI-boF"/>
                     <connections>
-                        <outlet property="DetailTextView" destination="haq-He-hvc" id="w84-WU-F2Z"/>
                         <outlet property="Photo" destination="dez-9C-nxf" id="Cg6-fP-vVx"/>
                         <outlet property="clubName" destination="hmi-3c-CtQ" id="1Hy-x5-dKl"/>
                         <outlet property="country" destination="Xhq-WX-GwJ" id="Vcn-Bb-mPL"/>
                         <outlet property="name" destination="QRY-jd-UHq" id="Cvp-g8-AEC"/>
+                        <outlet property="tableView" destination="ITH-ZH-eph" id="Dat-Z5-mWK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8tk-Dt-u9P" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -646,6 +674,7 @@
     </scenes>
     <resources>
         <image name="club placeholder.png" width="215" height="215"/>
+        <image name="player-placeholder2.png" width="215" height="215"/>
         <image name="player-placeholder2.png" width="215" height="215"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

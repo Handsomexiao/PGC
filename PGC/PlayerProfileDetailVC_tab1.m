@@ -8,9 +8,11 @@
 
 #import "PlayerProfileDetailVC_tab1.h"
 
-@interface PlayerProfileDetailVC_tab1 ()
-@property (weak, nonatomic) IBOutlet UITextView *DetailTextView;
+@interface PlayerProfileDetailVC_tab1 () <UITableViewDataSource>
+@property (strong,nonatomic) NSMutableArray* msgListName;
+@property (strong,nonatomic) NSMutableArray* msgListInfo;
 
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @end
 
 @implementation PlayerProfileDetailVC_tab1
@@ -36,6 +38,24 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(NSMutableArray *)msgListName
+{
+    if (!_msgListName) {
+        _msgListName = [[NSMutableArray alloc] init];
+    }
+    
+    return _msgListName;
+}
+
+-(NSMutableArray *)msgListInfo
+{
+    if (!_msgListInfo) {
+        _msgListInfo = [[NSMutableArray alloc] init];
+    }
+    
+    return _msgListInfo;
+}
+
 -(void)moreInfo
 {
     //self.DetailTextView.text = [NSString stringWithFormat:@"%@",self.listData];
@@ -52,28 +72,51 @@
                            @"height",@"Height",
                            @"weight",@"Weight",
                            @"preferFoot",@"Prefer Foot",nil];
-    NSMutableAttributedString* allText = [[NSMutableAttributedString alloc] init];
+    NSMutableAttributedString* allName = [[NSMutableAttributedString alloc] init];
+
     
     NSArray* allkey = [table allKeys];
     for (NSString* key in allkey) {
         NSString* name = nil;
+        NSString* info = nil;
 
-        name = [[NSString alloc] initWithFormat:@"%@ : %@ \n", key ,[dict objectForKey:[[table objectForKey:key] description]]];
-        NSMutableAttributedString *mat = [[NSMutableAttributedString alloc] initWithString:name];
+ 
+        name = [[NSString alloc] initWithFormat:@"%@", key];
+        info = [[NSString alloc] initWithFormat:@"%@", [dict objectForKey:[[table objectForKey:key] description]]];
+        NSMutableAttributedString *matName = [[NSMutableAttributedString alloc] initWithString:name];
+        NSMutableAttributedString *matInfo = [[NSMutableAttributedString alloc] initWithString:info];
 
         //an NSDictionary of NSString => UIColor pairs
         NSRange range = [name rangeOfString:key];
-        CGFloat fontSize = 18.0;
+        CGFloat fontSize = 16.0;
         UIFont *boldFont = [UIFont boldSystemFontOfSize:fontSize];
-        //[mat setAttributes:subAttrs range:range];
-        [mat addAttribute:NSFontAttributeName value:boldFont range:range];
-        
-        [allText appendAttributedString:mat];
-    }
-    
-    self.DetailTextView.attributedText = allText;
+        UIFont *normalFont = [UIFont systemFontOfSize:fontSize];
 
+        NSRange allrange;
+        allrange.location = 0;
+        allrange.length = [info length];
+        [matName addAttribute:NSFontAttributeName value:boldFont range:range];
+        
+        [matInfo addAttribute:NSFontAttributeName value:normalFont range:allrange];
+
+        [self.msgListName addObject:matName];
+        [self.msgListInfo addObject:matInfo];
+    }
+
+    [self.tableView reloadData];
     
 }
 
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.msgListName count];
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProfileCell"];
+    cell.textLabel.attributedText = self.msgListName[indexPath.row];
+    cell.detailTextLabel.attributedText = self.msgListInfo[indexPath.row];
+    return cell;
+}
 @end

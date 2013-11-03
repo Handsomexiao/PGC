@@ -71,6 +71,7 @@ static NSString * const RCellIdentifier = @"HRChatCell";
 {
     Message *msg = _msgList[indexPath.row];
     UIFont *font = [UIFont systemFontOfSize:RChatFontSize];
+    //CGFloat height = [msg.msg boundingRectWithSize:CGSizeMake(150, 10000) options:NSStringDrawingUsesFontLeading attributes:nil context:nil].size.height;
     CGFloat height = [msg.msg sizeWithFont:font constrainedToSize:CGSizeMake(150, 10000)].height;
     CGFloat lineHeight = [font lineHeight];
     
