@@ -8,9 +8,10 @@
 
 #import "PlayerProfileDetailVC_tab3.h"
 
-@interface PlayerProfileDetailVC_tab3 ()
-@property (weak, nonatomic) IBOutlet UITextView *DetailTextView;
-
+@interface PlayerProfileDetailVC_tab3 () <UITableViewDataSource>
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong,nonatomic) NSMutableArray* msgListName;
+@property (strong,nonatomic) NSMutableArray* msgListInfo;
 @end
 
 @implementation PlayerProfileDetailVC_tab3
@@ -37,6 +38,24 @@
 }
 
 
+-(NSMutableArray *)msgListName
+{
+    if (!_msgListName) {
+        _msgListName = [[NSMutableArray alloc] init];
+    }
+    
+    return _msgListName;
+}
+
+-(NSMutableArray *)msgListInfo
+{
+    if (!_msgListInfo) {
+        _msgListInfo = [[NSMutableArray alloc] init];
+    }
+    
+    return _msgListInfo;
+}
+
 -(void)moreInfo
 {
     //self.DetailTextView.text = [NSString stringWithFormat:@"%@",self.listData];
@@ -48,24 +67,38 @@
     NSArray* clubRecord = [[NSArray alloc] init];
     clubRecord = [dict objectForKey:@"playerClubRecordList"];
     
-    NSMutableAttributedString* allText = [[NSMutableAttributedString alloc] init];
-
     for (NSDictionary* rec in clubRecord) {
         NSString* name = nil;
-        name = [[NSString alloc] initWithFormat:@"%@ : %@  -> %@\n", [[rec objectForKey:@"clubName"] description],[[rec objectForKey:@"seasonFrom"] description],[[rec objectForKey:@"seasonEnd"] description]];
+        NSString* info = nil;
+
+        name = [[NSString alloc] initWithFormat:@"%@", [[rec objectForKey:@"clubName"] description]];
+        info = [[NSString alloc] initWithFormat:@"%@  -> %@",[[rec objectForKey:@"seasonFrom"] description],[[rec objectForKey:@"seasonEnd"] description]];
         NSMutableAttributedString *mat = [[NSMutableAttributedString alloc] initWithString:name];
         
         //an NSDictionary of NSString => UIColor pairs
         NSRange range = [name rangeOfString:[rec objectForKey:@"clubName"]];
-        CGFloat fontSize = 18.0;
+        CGFloat fontSize = 12.0;
         UIFont *boldFont = [UIFont boldSystemFontOfSize:fontSize];
         //[mat setAttributes:subAttrs range:range];
         [mat addAttribute:NSFontAttributeName value:boldFont range:range];
         
-        [allText appendAttributedString:mat];
+        [self.msgListName addObject:mat];
+        [self.msgListInfo addObject:info];
     }
-
     
-    self.DetailTextView.attributedText = allText;
+    [self.tableView reloadData];
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.msgListName count];
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProfileCell3"];
+    cell.textLabel.attributedText = self.msgListName[indexPath.row];
+    cell.detailTextLabel.text = self.msgListInfo[indexPath.row];
+    return cell;
 }
 @end
