@@ -505,7 +505,7 @@
     else
     {
         NSString* choice = [actionSheet buttonTitleAtIndex:buttonIndex];
-        if ([choice isEqualToString:@"Login"]) {
+        if ([choice isEqualToString:@"LogIn"]) {
             NSLog(@"login");
             LoginViewController *login = [[LoginViewController alloc] init];
             [self.navigationController pushViewController:login animated:YES];
