@@ -8,6 +8,7 @@
 
 #import "HomePageVC.h"
 #import "PlayerHdPhoto+Internet.h"
+#import "LoginViewController.h"
 
 
 @interface HomePageVC ()
@@ -498,12 +499,21 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 0) {
-        NSLog(@"index = 0");
+    if (buttonIndex == actionSheet.cancelButtonIndex) {
+        NSLog(@"Cancel");
     }
-    else if(buttonIndex == 1)
+    else
     {
-        NSLog(@"index = 1");
+        NSString* choice = [actionSheet buttonTitleAtIndex:buttonIndex];
+        if ([choice isEqualToString:@"Login"]) {
+            NSLog(@"login");
+            LoginViewController *login = [[LoginViewController alloc] init];
+            [self.navigationController pushViewController:login animated:YES];
+        }
+        else if([choice isEqualToString:@"Setting"])
+        {
+            NSLog(@"Setting");
+        }
     }
 }
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="KYB-Ty-R9z">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="KYB-Ty-R9z">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <scenes>
         <!--Home PageVC - Football Players-->
@@ -98,7 +98,6 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="5ax-AD-RB0">
                             <connections>
                                 <action selector="MoreAction:" destination="miI-uz-DWm" id="fua-OR-9y5"/>
-                                <segue destination="kmc-y5-0bu" kind="push" id="t4V-wo-ZvB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -115,7 +114,7 @@
         <!--Login View Controller-->
         <scene sceneID="MH1-FQ-l8Q">
             <objects>
-                <viewController id="kmc-y5-0bu" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginView" id="kmc-y5-0bu" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZmZ-4D-sWy"/>
                         <viewControllerLayoutGuide type="bottom" id="7vg-pg-W9h"/>
@@ -702,7 +701,6 @@
     </scenes>
     <resources>
         <image name="club placeholder.png" width="215" height="215"/>
-        <image name="player-placeholder2.png" width="215" height="215"/>
         <image name="player-placeholder2.png" width="215" height="215"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
