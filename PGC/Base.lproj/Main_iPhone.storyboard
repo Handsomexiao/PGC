@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="KYB-Ty-R9z">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="KYB-Ty-R9z">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
         <!--Home PageVC - Football Players-->
@@ -81,7 +81,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <connections>
-                                            <segue destination="SrA-qu-Jwx" kind="push" id="jqk-0i-GCJ"/>
+                                            <segue destination="yWI-2M-nUt" kind="push" id="HE6-kC-F9M"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -109,7 +109,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="76u-Ye-mH4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-179" y="0.0"/>
+            <point key="canvasLocation" x="-368" y="5"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="MH1-FQ-l8Q">
@@ -272,7 +272,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="584" y="-11"/>
+            <point key="canvasLocation" x="747" y="-11"/>
         </scene>
         <!--Player Profile DetailVC tab1-->
         <scene sceneID="P2R-Jz-WjH">
@@ -388,7 +388,60 @@
                     </items>
                 </toolbar>
             </objects>
-            <point key="canvasLocation" x="998" y="-11"/>
+            <point key="canvasLocation" x="1089" y="-12"/>
+        </scene>
+        <!--Table View Controller - League-->
+        <scene sceneID="cGC-nd-BKL">
+            <objects>
+                <tableViewController id="yWI-2M-nUt" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="bXu-VD-OLn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LeagueCell" textLabel="pAJ-5r-SV8" detailTextLabel="dmu-3B-LQN" imageView="vCT-uy-fcz" rowHeight="64" style="IBUITableViewCellStyleSubtitle" id="ecj-Td-5ge">
+                                <rect key="frame" x="0.0" y="86" width="320" height="64"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ecj-Td-5ge" id="Slr-8E-9X9">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="63"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pAJ-5r-SV8">
+                                            <rect key="frame" x="93" y="13" width="34" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dmu-3B-LQN">
+                                            <rect key="frame" x="93" y="35" width="43" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="11.png" id="vCT-uy-fcz">
+                                            <rect key="frame" x="15" y="0.0" width="63" height="63"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <connections>
+                                    <segue destination="SrA-qu-Jwx" kind="push" id="sgL-ES-AKd"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="yWI-2M-nUt" id="6f2-Ve-VAN"/>
+                            <outlet property="delegate" destination="yWI-2M-nUt" id="80j-eF-b8b"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="League" id="8ag-EV-rGO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lKo-pl-C3Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="19" y="-11"/>
         </scene>
         <!--ClubTVC - Clubs-->
         <scene sceneID="KNX-R1-Ig8">
@@ -447,7 +500,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ksC-G0-lYd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="195" y="-11"/>
+            <point key="canvasLocation" x="382" y="-12"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="o9P-d4-b9I">
@@ -469,7 +522,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DmB-h4-tbI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-556" y="0.0"/>
+            <point key="canvasLocation" x="-709" y="0.0"/>
         </scene>
         <!--Player Profile DetailVC tab4-->
         <scene sceneID="m1l-pB-s0N">
@@ -675,19 +728,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="item 1" translatesAutoresizingMaskIntoConstraints="NO" id="QJH-Xq-pkb">
-                                <rect key="frame" x="20" y="223" width="280" height="295"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Soccer-Field----Green.png" translatesAutoresizingMaskIntoConstraints="NO" id="wVQ-Hx-gwQ">
+                                <rect key="frame" x="0.0" y="265" width="320" height="216"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="bookmarks" id="oPz-uo-gLx"/>
                     <connections>
-                        <outlet property="DetailTextView" destination="QJH-Xq-pkb" id="Zsa-HK-h4v"/>
                         <outlet property="Photo" destination="24z-no-oBY" id="duL-9Z-lST"/>
                         <outlet property="clubName" destination="EMi-mq-9xC" id="Qzk-p7-vLG"/>
                         <outlet property="country" destination="REf-Yp-WuL" id="Nic-fV-7ei"/>
@@ -700,6 +749,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="11.png" width="150" height="150"/>
+        <image name="Soccer-Field----Green.png" width="576" height="403"/>
         <image name="club placeholder.png" width="215" height="215"/>
         <image name="player-placeholder2.png" width="215" height="215"/>
     </resources>

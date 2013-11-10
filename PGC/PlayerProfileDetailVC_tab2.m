@@ -10,7 +10,7 @@
 
 @interface PlayerProfileDetailVC_tab2 ()
 
-@property (strong, nonatomic) IBOutlet UITextView *DetailTextView;
+//@property (strong, nonatomic) IBOutlet UITextView *DetailTextView;
 @end
 
 @implementation PlayerProfileDetailVC_tab2
@@ -65,7 +65,7 @@
     }
     
     
-    self.DetailTextView.attributedText = allText;
+    //self.DetailTextView.attributedText = allText;
 }
 
 @end

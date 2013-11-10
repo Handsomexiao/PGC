@@ -67,6 +67,12 @@
 		33058BA81823212200BFC5FF /* mychat_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 33058BA41823212200BFC5FF /* mychat_normal.png */; };
 		33058BA91823212200BFC5FF /* other_focused.png in Resources */ = {isa = PBXBuildFile; fileRef = 33058BA51823212200BFC5FF /* other_focused.png */; };
 		33058BAA1823212200BFC5FF /* other_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 33058BA61823212200BFC5FF /* other_normal.png */; };
+		3360450B183036F0005D8EEB /* 11.png in Resources */ = {isa = PBXBuildFile; fileRef = 33604506183036F0005D8EEB /* 11.png */; };
+		3360450C183036F0005D8EEB /* 16.png in Resources */ = {isa = PBXBuildFile; fileRef = 33604507183036F0005D8EEB /* 16.png */; };
+		3360450D183036F0005D8EEB /* 22.png in Resources */ = {isa = PBXBuildFile; fileRef = 33604508183036F0005D8EEB /* 22.png */; };
+		3360450E183036F0005D8EEB /* 32.png in Resources */ = {isa = PBXBuildFile; fileRef = 33604509183036F0005D8EEB /* 32.png */; };
+		3360450F183036F0005D8EEB /* 67.png in Resources */ = {isa = PBXBuildFile; fileRef = 3360450A183036F0005D8EEB /* 67.png */; };
+		336045121830378B005D8EEB /* LeagueTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 336045111830378B005D8EEB /* LeagueTVC.m */; };
 		33FBC82F1818AF770047E9F6 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FBC82E1818AF770047E9F6 /* LoginViewController.m */; };
 		33FBC8321818B2300047E9F6 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FBC8311818B2300047E9F6 /* LoginView.m */; };
 /* End PBXBuildFile section */
@@ -167,6 +173,13 @@
 		33058BA41823212200BFC5FF /* mychat_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mychat_normal.png; sourceTree = "<group>"; };
 		33058BA51823212200BFC5FF /* other_focused.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = other_focused.png; sourceTree = "<group>"; };
 		33058BA61823212200BFC5FF /* other_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = other_normal.png; sourceTree = "<group>"; };
+		33604506183036F0005D8EEB /* 11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 11.png; sourceTree = "<group>"; };
+		33604507183036F0005D8EEB /* 16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 16.png; sourceTree = "<group>"; };
+		33604508183036F0005D8EEB /* 22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 22.png; sourceTree = "<group>"; };
+		33604509183036F0005D8EEB /* 32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 32.png; sourceTree = "<group>"; };
+		3360450A183036F0005D8EEB /* 67.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 67.png; sourceTree = "<group>"; };
+		336045101830378B005D8EEB /* LeagueTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueTVC.h; sourceTree = "<group>"; };
+		336045111830378B005D8EEB /* LeagueTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeagueTVC.m; sourceTree = "<group>"; };
 		33FBC82D1818AF770047E9F6 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		33FBC82E1818AF770047E9F6 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		33FBC8301818B2300047E9F6 /* LoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
@@ -238,6 +251,11 @@
 				007C9CDD18176B8200DA235C /* player-placeholder2.png */,
 				007C9CDE18176B8200DA235C /* country-placeholder.png */,
 				007C9CDF18176B8200DA235C /* Soccer-Field----Green.png */,
+				33604506183036F0005D8EEB /* 11.png */,
+				33604507183036F0005D8EEB /* 16.png */,
+				33604508183036F0005D8EEB /* 22.png */,
+				33604509183036F0005D8EEB /* 32.png */,
+				3360450A183036F0005D8EEB /* 67.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -284,6 +302,8 @@
 				00A952A7180B7920004547C4 /* HomePageVC.h */,
 				00A952A8180B7920004547C4 /* HomePageVC.m */,
 				00B7065017FB78280011EAAE /* Main_iPhone.storyboard */,
+				336045101830378B005D8EEB /* LeagueTVC.h */,
+				336045111830378B005D8EEB /* LeagueTVC.m */,
 				33FBC8301818B2300047E9F6 /* LoginView.h */,
 				33FBC8311818B2300047E9F6 /* LoginView.m */,
 				33FBC82D1818AF770047E9F6 /* LoginViewController.h */,
@@ -460,10 +480,12 @@
 				33058BA71823212200BFC5FF /* mychat_focused.png in Resources */,
 				009F18A5180242CB00BC385F /* 16.png in Resources */,
 				007C9CE218176B8200DA235C /* country-placeholder.png in Resources */,
+				3360450F183036F0005D8EEB /* 67.png in Resources */,
 				33058BA91823212200BFC5FF /* other_focused.png in Resources */,
 				007C9CE118176B8200DA235C /* player-placeholder2.png in Resources */,
 				007C9CE018176B8200DA235C /* club placeholder.png in Resources */,
 				00B7065A17FB78280011EAAE /* Images.xcassets in Resources */,
+				3360450C183036F0005D8EEB /* 16.png in Resources */,
 				33058BA81823212200BFC5FF /* mychat_normal.png in Resources */,
 				00B7065217FB78280011EAAE /* Main_iPhone.storyboard in Resources */,
 				00A952BC180B7952004547C4 /* background-gradient.png in Resources */,
@@ -472,11 +494,14 @@
 				00B7064917FB78280011EAAE /* InfoPlist.strings in Resources */,
 				00A952C1180B7952004547C4 /* Default.png in Resources */,
 				33058B9618231D3000BFC5FF /* HRChatCell.xib in Resources */,
+				3360450E183036F0005D8EEB /* 32.png in Resources */,
 				33058BA1182320B800BFC5FF /* me.png in Resources */,
+				3360450B183036F0005D8EEB /* 11.png in Resources */,
 				00B7069817FBCA760011EAAE /* Vizicon2.png in Resources */,
 				00080BB8181D94B800CCF4BF /* Vizoal-Icon-Green.png in Resources */,
 				00A952BD180B7952004547C4 /* background-gradient@2x.png in Resources */,
 				33058BAA1823212200BFC5FF /* other_normal.png in Resources */,
+				3360450D183036F0005D8EEB /* 22.png in Resources */,
 				00B7069917FBCA760011EAAE /* Vizoal-Icon-Green.png in Resources */,
 				00A952BF180B7952004547C4 /* button-background@2x.png in Resources */,
 				33058BA2182320B800BFC5FF /* other.png in Resources */,
@@ -514,6 +539,7 @@
 				33058B9B18231D5B00BFC5FF /* Message.m in Sources */,
 				00080BBB181DD9AB00CCF4BF /* APActivityProvider.m in Sources */,
 				33FBC82F1818AF770047E9F6 /* LoginViewController.m in Sources */,
+				336045121830378B005D8EEB /* LeagueTVC.m in Sources */,
 				3302CEC8180DD75F0021F533 /* PlayerHdPhoto.m in Sources */,
 				00B7068C17FB94690011EAAE /* ClubCell.m in Sources */,
 				009541291803BAED00E02794 /* PlayerProfileDetailVC_tab1.m in Sources */,
