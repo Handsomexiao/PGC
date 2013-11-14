@@ -66,8 +66,8 @@
 {
     NSDictionary* table = [[NSDictionary alloc] initWithObjectsAndKeys:
                            @"fullName",@"Full Name",
-                           @"cityOfBirth",@"Place of Birth",
-                           @"dateOfBirth",@"Date of Birth",
+                           @"cityOfBirth",@"Hometown",
+                           @"dateOfBirth",@"Birthday",
                            @"nationOfBirthName",@"Nationality",
                            @"height",@"Height",
                            @"weight",@"Weight",
