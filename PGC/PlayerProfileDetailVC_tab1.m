@@ -65,40 +65,46 @@
 -(void)SetDatilText:(NSDictionary*)dict
 {
     NSDictionary* table = [[NSDictionary alloc] initWithObjectsAndKeys:
-                           @"fullName",@"Full Name",
-                           @"cityOfBirth",@"Hometown",
-                           @"dateOfBirth",@"Birthday",
-                           @"nationOfBirthName",@"Nationality",
-                           @"height",@"Height",
-                           @"weight",@"Weight",
-                           @"preferFoot",@"Prefer Foot",nil];
-    NSMutableAttributedString* allName = [[NSMutableAttributedString alloc] init];
+                                                      @"Full Name",@"fullName",
+                                                      @"Hometown",@"cityOfBirth",
+                                                      @"Birthday",@"dateOfBirth",
+                                                      @"Nationality",@"nationOfBirthName",
+                                                      @"Height",@"height",
+                                                      @"Weight",@"weight",
+                                                      @"Prefer Foot",@"preferFoot",nil];
 
+    NSArray* myindex = [[NSArray alloc] initWithObjects:
+                               @"fullName",
+                               @"cityOfBirth",
+                               @"dateOfBirth",
+                               @"nationOfBirthName",
+                               @"height",
+                               @"weight",
+                               @"preferFoot",
+                      nil];
     
-    NSArray* allkey = [table allKeys];
-    for (NSString* key in allkey) {
+    for (NSString* index in myindex) {
+        
         NSString* name = nil;
         NSString* info = nil;
-
- 
-        name = [[NSString alloc] initWithFormat:@"%@", key];
-        info = [[NSString alloc] initWithFormat:@"%@", [dict objectForKey:[[table objectForKey:key] description]]];
+        name = [[NSString alloc] initWithFormat:@"%@", [[table objectForKey:index] description]];
+        info = [[NSString alloc] initWithFormat:@"%@", [[dict objectForKey:index] description]];
         NSMutableAttributedString *matName = [[NSMutableAttributedString alloc] initWithString:name];
         NSMutableAttributedString *matInfo = [[NSMutableAttributedString alloc] initWithString:info];
-
+        
         //an NSDictionary of NSString => UIColor pairs
-        NSRange range = [name rangeOfString:key];
+        NSRange range = [name rangeOfString:name];
         CGFloat fontSize = 16.0;
         UIFont *boldFont = [UIFont boldSystemFontOfSize:fontSize];
         UIFont *normalFont = [UIFont systemFontOfSize:fontSize];
-
+        
         NSRange allrange;
         allrange.location = 0;
         allrange.length = [info length];
         [matName addAttribute:NSFontAttributeName value:boldFont range:range];
         
         [matInfo addAttribute:NSFontAttributeName value:normalFont range:allrange];
-
+        
         [self.msgListName addObject:matName];
         [self.msgListInfo addObject:matInfo];
     }

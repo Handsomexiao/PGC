@@ -57,7 +57,18 @@
         [self.Photo updateConstraints];
     }];
     
-    self.name.text = [dict objectForKey:@"fullName"];
+    NSString* name = nil;
+    if ([[[dict objectForKey:@"firstName"] description] compare:@""]) {
+        name = [[NSString alloc] initWithFormat:@"%@ %@",[[dict objectForKey:@"firstName"] description] ,[[dict objectForKey:@"lastName"] description]];
+    }
+    else
+    {
+        name = [[NSString alloc] initWithFormat:@"%@",[dict objectForKey:@"lastName"]];
+    }
+    
+    self.title = name;
+    
+    self.name.text = name;
     self.country.text = [dict objectForKey:@"nationOfBirthName"];
     self.clubName.text = [dict objectForKey:@"currentClubName"];
     
