@@ -7,105 +7,139 @@
 //
 
 #import "PlayerProfileDetailVC_tab4.h"
-#import "Message.h"
-#import "HRChatCell.h"
-
-@interface PlayerProfileDetailVC_tab4 () <UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate>
-{
-    NSMutableArray *_msgList;
-}
+@interface PlayerProfileDetailVC_tab4 ()
+@property (strong, nonatomic) IBOutlet UIView *commitView;
 @end
 
-static NSString * const RCellIdentifier = @"HRChatCell";
 @implementation PlayerProfileDetailVC_tab4
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+#pragma mark - Initialization
+- (UIButton *)sendButton
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    // Override to use a custom send button
+    // The button's frame is set automatically for you
+    return [UIButton defaultSendButton];
 }
 
+#pragma mark - View lifecycle
+- (UIView *)commitView
+{
+    if(!_commitView) _commitView = [[UIView alloc] init];
+    
+    return _commitView;
+}
+
+- (UIView*)getCommitView
+{
+    return self.commitView;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self loadData];
-	// Do any additional setup after loading the view.
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.delegate = self;
+    self.dataSource = self;
     
-    UINib *chatNib = [UINib nibWithNibName:@"HRChatCell" bundle:[NSBundle bundleForClass:[HRChatCell class]]];
-    [self.tableView registerNib:chatNib forCellReuseIdentifier:RCellIdentifier];
+    self.title = @"Messages";
+    
+    self.messages = [[NSMutableArray alloc] initWithObjects:
+                     @"Testing some messages here.",
+                     @"Options for avatars: none, circles, or squares",
+                     @"This is a complete re-write and refactoring.",
+                     @"It's easy to implement. Sound effects and images included. Animations are smooth and messages can be of arbitrary size!",
+                     nil];
+    
+    self.timestamps = [[NSMutableArray alloc] initWithObjects:
+                       [NSDate distantPast],
+                       [NSDate distantPast],
+                       [NSDate distantPast],
+                       [NSDate date],
+                       nil];
+    
+    //self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFastForward
+    //                                                                                       target:self
+    //                                                                                       action:@selector(buttonPressed:)];
 }
 
-- (void)loadData
+- (void)buttonPressed:(UIButton*)sender
 {
-    const NSString *RMsgKey = @"msg";
-    const NSString *RMineKey = @"ismine";
-    
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"messages" ofType:@"plist"];
-    
-    NSArray *dataArray = [NSArray arrayWithContentsOfFile:path];
-    if (!dataArray)
-    {
-        NSLog(@"读取文件失败");
-        return;
-    }
-    
-    _msgList = [NSMutableArray arrayWithCapacity:dataArray.count];
-    [dataArray enumerateObjectsUsingBlock:^(NSDictionary *dict, NSUInteger idx, BOOL *stop) {
-        Message *message = [[Message alloc] init];
-        message.msg = dict[RMsgKey];
-        message.mine = [dict[RMineKey] boolValue];
-        [_msgList addObject:message];
-    }];
+    // Testing pushing/popping messages view
+    //DemoViewController *vc = [[DemoViewController alloc] initWithNibName:nil bundle:nil];
+    //[self.navigationController pushViewController:vc animated:YES];
 }
 
+#pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _msgList.count;
+    return self.messages.count;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+#pragma mark - Messages view delegate
+- (void)sendPressed:(UIButton *)sender withText:(NSString *)text
 {
-    Message *msg = _msgList[indexPath.row];
-    UIFont *font = [UIFont systemFontOfSize:RChatFontSize];
-    //CGFloat height = [msg.msg boundingRectWithSize:CGSizeMake(150, 10000) options:NSStringDrawingUsesFontLeading attributes:nil context:nil].size.height;
-    CGFloat height = [msg.msg sizeWithFont:font constrainedToSize:CGSizeMake(150, 10000)].height;
-    CGFloat lineHeight = [font lineHeight];
+    [self.messages addObject:text];
     
-    return RCellHeight + height - lineHeight;
+    [self.timestamps addObject:[NSDate date]];
+    
+    if((self.messages.count - 1) % 2)
+        [JSMessageSoundEffect playMessageSentSound];
+    else
+        [JSMessageSoundEffect playMessageReceivedSound];
+    
+    [self finishSend];
+    
+    [self.inputToolBarView removeFromSuperview];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (JSBubbleMessageType)messageTypeForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    HRChatCell *cell = [tableView dequeueReusableCellWithIdentifier:RCellIdentifier];
-    [cell bindMessage:_msgList[indexPath.row]];
-    cell.backgroundColor = [UIColor clearColor];
-    return cell;
+    return (indexPath.row % 2) ? JSBubbleMessageTypeIncoming : JSBubbleMessageTypeOutgoing;
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
+- (JSBubbleMessageStyle)messageStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [textField resignFirstResponder];
-    
-    return YES;
+    return JSBubbleMessageStyleSquare;
 }
-- (IBAction)SendCommit:(UIBarButtonItem *)sender {
-    Message *message = [[Message alloc] init];
-    message.msg = [self.CommitText.text description];
-    message.mine = true;
-    [_msgList addObject:message];
-    self.CommitText.text = nil;
-    
-    
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"messages" ofType:@"plist"];
-    [_msgList writeToFile:path atomically:YES];
-    
-    [self.tableView reloadData];
-    
-    
+
+- (JSMessagesViewTimestampPolicy)timestampPolicy
+{
+    return JSMessagesViewTimestampPolicyEveryThree;
+}
+
+- (JSMessagesViewAvatarPolicy)avatarPolicy
+{
+    return JSMessagesViewAvatarPolicyBoth;
+}
+
+- (JSAvatarStyle)avatarStyle
+{
+    return JSAvatarStyleSquare;
+}
+
+//  Optional delegate method
+//  Required if using `JSMessagesViewTimestampPolicyCustom`
+//
+//  - (BOOL)hasTimestampForRowAtIndexPath:(NSIndexPath *)indexPath
+//
+
+#pragma mark - Messages view data source
+- (NSString *)textForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [self.messages objectAtIndex:indexPath.row];
+}
+
+- (NSDate *)timestampForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [self.timestamps objectAtIndex:indexPath.row];
+}
+
+- (UIImage *)avatarImageForIncomingMessage
+{
+    return nil;
+}
+
+- (UIImage *)avatarImageForOutgoingMessage
+{
+    return nil;
 }
 
 @end

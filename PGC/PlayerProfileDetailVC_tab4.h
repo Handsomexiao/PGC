@@ -7,9 +7,11 @@
 //
 
 #import "PlayerProfileVC.h"
+#import "JSMessagesViewController.h"
 
-@interface PlayerProfileDetailVC_tab4 : PlayerProfileVC <UITableViewDataSource,UITableViewDelegate>
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) IBOutlet UITextField *CommitText;
+@interface PlayerProfileDetailVC_tab4 : JSMessagesViewController <JSMessagesViewDelegate, JSMessagesViewDataSource>
+
+@property (strong, nonatomic) NSMutableArray *messages;
+@property (strong, nonatomic) NSMutableArray *timestamps;
 
 @end
