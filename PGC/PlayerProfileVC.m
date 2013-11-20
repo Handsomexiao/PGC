@@ -96,7 +96,7 @@
 
 -(void)startRequest
 {
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://ec2-54-215-136-21.us-west-1.compute.amazonaws.com:8080/vizoal/services/player/%d",self.PlayerFmId]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://ec2-54-215-136-21.us-west-1.compute.amazonaws.com:8080/vizoal/services/player/%ld",(long)self.PlayerFmId]];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     
     NSLog(@"%@",url);

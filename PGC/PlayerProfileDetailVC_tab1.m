@@ -63,8 +63,7 @@
     //self.DetailTextView.text = [NSString stringWithFormat:@"%@",self.listData];
     [self SetDatilText:self.listData];
     
-    dispatch_queue_t queue = dispatch_queue_create("ImageDownloader", NULL);
-    dispatch_async(queue, ^{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSInteger club_fm_id = [[self.listData objectForKey:@"club_fm_id"] integerValue];
         NSString* urlString = [[NSString alloc] initWithFormat:@"http://ec2-54-215-136-21.us-west-1.compute.amazonaws.com:8080/vizoal/image/android/club_logo/3.0/%d.png",club_fm_id];
         NSData* imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString] options:NSDataReadingMappedIfSafe error:nil];

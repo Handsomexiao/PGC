@@ -39,7 +39,7 @@ typedef void (^ButtonBlock)(UIButton *button);
     ScrollingState _currentState;
     
     NSMutableArray *_pages;
-    int _currentPageIndex;
+    long _currentPageIndex;
     
     BOOL _autoScrollEnabled;
     BOOL _autoScrollLooping;

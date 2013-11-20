@@ -58,6 +58,7 @@
     return nil;
 }
 
+
 #pragma mark - InitWithNibName
 
 -(id)initWithNibName:(NSBundle *)nibBundleOrNil{
@@ -131,7 +132,7 @@
         return;
     
     // Jump to the next page...
-    int nextPage = _currentPageIndex + 1;
+    long nextPage = _currentPageIndex + 1;
     if (nextPage == [self numberOfPages]){
         // ...stop the auto-scrolling or...
         if (!_autoScrollLooping){
@@ -280,7 +281,7 @@
 
 // Setup the layers with the page index.
 - (void)setLayersPicturesWithIndex:(NSInteger)index{
-    _currentPageIndex = index;
+    _currentPageIndex = index ;
     [self setLayersPrimaryAlphaWithPageIndex:index];
     [self setFrontLayerPictureWithPageIndex:index];
     [self setBackLayerPictureWithPageIndex:index];
@@ -348,6 +349,7 @@
 }
 
 #pragma mark - ScrollView delegate
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     // Get scrolling position, and send the alpha values.
     float scrollingPosition = scrollView.contentOffset.x / _windowSize.width;

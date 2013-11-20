@@ -9,19 +9,19 @@
             <objects>
                 <viewController id="miI-uz-DWm" customClass="HomePageVC" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="c96-k9-aIt"/>
-                        <viewControllerLayoutGuide type="bottom" id="Se9-bo-agK"/>
+                        <viewControllerLayoutGuide type="top" id="Ye7-KL-iPt"/>
+                        <viewControllerLayoutGuide type="bottom" id="9W0-VR-XPx"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="NFv-Ao-fLa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U8d-43-ndy">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U8d-43-ndy">
                                 <rect key="frame" x="0.0" y="63" width="320" height="505"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GwK-4t-VBi">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GwK-4t-VBi">
                                 <rect key="frame" x="0.0" y="63" width="320" height="505"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -35,7 +35,7 @@
                                     <outlet property="delegate" destination="miI-uz-DWm" id="N5Q-Fx-66T"/>
                                 </connections>
                             </scrollView>
-                            <tableView opaque="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" directionalLockEnabled="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4GZ-iK-U39">
+                            <tableView opaque="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="130" directionalLockEnabled="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4GZ-iK-U39">
                                 <rect key="frame" x="0.0" y="438" width="320" height="130"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -116,8 +116,8 @@
             <objects>
                 <viewController storyboardIdentifier="LoginView" id="kmc-y5-0bu" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="amb-cC-nv9"/>
-                        <viewControllerLayoutGuide type="bottom" id="zdR-ZL-Ujh"/>
+                        <viewControllerLayoutGuide type="top" id="F53-Xd-NQr"/>
+                        <viewControllerLayoutGuide type="bottom" id="N4C-Ek-1DT"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Vwy-U3-cm6" customClass="loginView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -283,8 +283,8 @@
             <objects>
                 <viewController id="TAU-Mb-PKB" customClass="PlayerProfileDetailVC_tab1" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="IcC-oT-ZDX"/>
-                        <viewControllerLayoutGuide type="bottom" id="KgK-zO-BfW"/>
+                        <viewControllerLayoutGuide type="top" id="Jwv-3v-eAg"/>
+                        <viewControllerLayoutGuide type="bottom" id="x58-JE-XQe"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ERV-Jo-QDR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -562,8 +562,8 @@
             <objects>
                 <viewController id="tDo-Xu-Pw2" customClass="PlayerProfileDetailVC_tab4" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="BKN-Rd-OGu"/>
-                        <viewControllerLayoutGuide type="bottom" id="UoC-ts-fbl"/>
+                        <viewControllerLayoutGuide type="top" id="h9A-qT-BHQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="5iN-5A-UbN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tah-AE-CUF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -581,8 +581,8 @@
             <objects>
                 <viewController id="FVb-gn-98J" customClass="PlayerProfileDetailVC_tab3" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5qL-cE-Ukw"/>
-                        <viewControllerLayoutGuide type="bottom" id="vVd-Ju-IYS"/>
+                        <viewControllerLayoutGuide type="top" id="2xb-b5-wCg"/>
+                        <viewControllerLayoutGuide type="bottom" id="gPm-t0-sJ1"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Tto-h1-GLZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -675,8 +675,8 @@
             <objects>
                 <viewController id="8df-3z-IzC" customClass="PlayerProfileDetailVC_tab2" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="pvY-ow-Sde"/>
-                        <viewControllerLayoutGuide type="bottom" id="4wX-q9-tew"/>
+                        <viewControllerLayoutGuide type="top" id="1sy-Us-dcb"/>
+                        <viewControllerLayoutGuide type="bottom" id="sCz-Tp-zyd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="sHY-oF-RQF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
