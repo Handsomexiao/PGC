@@ -12,6 +12,8 @@
 @property (strong,nonatomic) NSMutableArray* msgListName;
 @property (strong,nonatomic) NSMutableArray* msgListInfo;
 
+@property (strong, nonatomic) IBOutlet UIImageView *CountryImage;
+@property (strong, nonatomic) IBOutlet UIImageView *ClubImage;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @end
 
@@ -60,7 +62,21 @@
 {
     //self.DetailTextView.text = [NSString stringWithFormat:@"%@",self.listData];
     [self SetDatilText:self.listData];
-}
+    
+    dispatch_queue_t queue = dispatch_queue_create("ImageDownloader", NULL);
+    dispatch_async(queue, ^{
+        NSInteger club_fm_id = [[self.listData objectForKey:@"club_fm_id"] integerValue];
+        NSString* urlString = [[NSString alloc] initWithFormat:@"http://ec2-54-215-136-21.us-west-1.compute.amazonaws.com:8080/vizoal/image/android/club_logo/3.0/%d.png",club_fm_id];
+        NSData* imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString] options:NSDataReadingMappedIfSafe error:nil];
+        UIImage* image = [[UIImage alloc] initWithData:imageData];
+        
+        if (image) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                    self.ClubImage.image = image;
+                    [self.ClubImage updateConstraints];
+            });
+        }
+    });}
 
 -(void)SetDatilText:(NSDictionary*)dict
 {
