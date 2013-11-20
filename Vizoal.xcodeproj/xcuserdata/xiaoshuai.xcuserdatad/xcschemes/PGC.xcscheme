@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00B7063A17FB78270011EAAE"
                BuildableName = "PGC.app"
-               BlueprintName = "PGC"
-               ReferencedContainer = "container:PGC.xcodeproj">
+               BlueprintName = "Vizoal"
+               ReferencedContainer = "container:Vizoal.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00B7065E17FB78280011EAAE"
                BuildableName = "PGCTests.xctest"
-               BlueprintName = "PGCTests"
-               ReferencedContainer = "container:PGC.xcodeproj">
+               BlueprintName = "VizoalTests"
+               ReferencedContainer = "container:Vizoal.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,8 +44,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "00B7063A17FB78270011EAAE"
             BuildableName = "PGC.app"
-            BlueprintName = "PGC"
-            ReferencedContainer = "container:PGC.xcodeproj">
+            BlueprintName = "Vizoal"
+            ReferencedContainer = "container:Vizoal.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "00B7063A17FB78270011EAAE"
             BuildableName = "PGC.app"
-            BlueprintName = "PGC"
-            ReferencedContainer = "container:PGC.xcodeproj">
+            BlueprintName = "Vizoal"
+            ReferencedContainer = "container:Vizoal.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -81,8 +81,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "00B7063A17FB78270011EAAE"
             BuildableName = "PGC.app"
-            BlueprintName = "PGC"
-            ReferencedContainer = "container:PGC.xcodeproj">
+            BlueprintName = "Vizoal"
+            ReferencedContainer = "container:Vizoal.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -155,21 +155,21 @@
 		00A952B4180B7952004547C4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		00A952B5180B7952004547C4 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		00A952B6180B7952004547C4 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		00B7063B17FB78270011EAAE /* PGC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PGC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		00B7063B17FB78270011EAAE /* Vizoal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vizoal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00B7063E17FB78270011EAAE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		00B7064017FB78280011EAAE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		00B7064217FB78280011EAAE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		00B7064617FB78280011EAAE /* PGC-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PGC-Info.plist"; sourceTree = "<group>"; };
+		00B7064617FB78280011EAAE /* Vizoal-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Vizoal-Info.plist"; sourceTree = "<group>"; };
 		00B7064817FB78280011EAAE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		00B7064A17FB78280011EAAE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		00B7064C17FB78280011EAAE /* PGC-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PGC-Prefix.pch"; sourceTree = "<group>"; };
+		00B7064C17FB78280011EAAE /* Vizoal-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Vizoal-Prefix.pch"; sourceTree = "<group>"; };
 		00B7064D17FB78280011EAAE /* PGCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGCAppDelegate.h; sourceTree = "<group>"; };
 		00B7064E17FB78280011EAAE /* PGCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGCAppDelegate.m; sourceTree = "<group>"; };
 		00B7065117FB78280011EAAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		00B7065917FB78280011EAAE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		00B7065F17FB78280011EAAE /* PGCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PGCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00B7065F17FB78280011EAAE /* VizoalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VizoalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00B7066017FB78280011EAAE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		00B7066817FB78280011EAAE /* PGCTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PGCTests-Info.plist"; sourceTree = "<group>"; };
+		00B7066817FB78280011EAAE /* VizoalTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VizoalTests-Info.plist"; sourceTree = "<group>"; };
 		00B7066A17FB78280011EAAE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		00B7066C17FB78280011EAAE /* PGCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGCTests.m; sourceTree = "<group>"; };
 		00B7067617FB7D500011EAAE /* content_iPhone.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = content_iPhone.plist; path = ../content_iPhone.plist; sourceTree = "<group>"; };
@@ -347,8 +347,8 @@
 		00B7063C17FB78270011EAAE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				00B7063B17FB78270011EAAE /* PGC.app */,
-				00B7065F17FB78280011EAAE /* PGCTests.xctest */,
+				00B7063B17FB78270011EAAE /* Vizoal.app */,
+				00B7065F17FB78280011EAAE /* VizoalTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -423,11 +423,11 @@
 				00B7069617FBCA760011EAAE /* Vizicon2.png */,
 				009F18A4180242CB00BC385F /* 16.png */,
 				00B7069717FBCA760011EAAE /* Vizoal-Icon-Green.png */,
-				00B7064617FB78280011EAAE /* PGC-Info.plist */,
+				00B7064617FB78280011EAAE /* Vizoal-Info.plist */,
 				00B7067617FB7D500011EAAE /* content_iPhone.plist */,
 				00B7064717FB78280011EAAE /* InfoPlist.strings */,
 				00B7064A17FB78280011EAAE /* main.m */,
-				00B7064C17FB78280011EAAE /* PGC-Prefix.pch */,
+				00B7064C17FB78280011EAAE /* Vizoal-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -444,7 +444,7 @@
 		00B7066717FB78280011EAAE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				00B7066817FB78280011EAAE /* PGCTests-Info.plist */,
+				00B7066817FB78280011EAAE /* VizoalTests-Info.plist */,
 				00B7066917FB78280011EAAE /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -550,9 +550,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00B7063A17FB78270011EAAE /* PGC */ = {
+		00B7063A17FB78270011EAAE /* Vizoal */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00B7067017FB78280011EAAE /* Build configuration list for PBXNativeTarget "PGC" */;
+			buildConfigurationList = 00B7067017FB78280011EAAE /* Build configuration list for PBXNativeTarget "Vizoal" */;
 			buildPhases = (
 				00B7063717FB78270011EAAE /* Sources */,
 				00B7063817FB78270011EAAE /* Frameworks */,
@@ -562,14 +562,14 @@
 			);
 			dependencies = (
 			);
-			name = PGC;
+			name = Vizoal;
 			productName = PGC;
-			productReference = 00B7063B17FB78270011EAAE /* PGC.app */;
+			productReference = 00B7063B17FB78270011EAAE /* Vizoal.app */;
 			productType = "com.apple.product-type.application";
 		};
-		00B7065E17FB78280011EAAE /* PGCTests */ = {
+		00B7065E17FB78280011EAAE /* VizoalTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00B7067317FB78280011EAAE /* Build configuration list for PBXNativeTarget "PGCTests" */;
+			buildConfigurationList = 00B7067317FB78280011EAAE /* Build configuration list for PBXNativeTarget "VizoalTests" */;
 			buildPhases = (
 				00B7065B17FB78280011EAAE /* Sources */,
 				00B7065C17FB78280011EAAE /* Frameworks */,
@@ -580,9 +580,9 @@
 			dependencies = (
 				00B7066517FB78280011EAAE /* PBXTargetDependency */,
 			);
-			name = PGCTests;
+			name = VizoalTests;
 			productName = PGCTests;
-			productReference = 00B7065F17FB78280011EAAE /* PGCTests.xctest */;
+			productReference = 00B7065F17FB78280011EAAE /* VizoalTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -603,7 +603,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 00B7063617FB78270011EAAE /* Build configuration list for PBXProject "PGC" */;
+			buildConfigurationList = 00B7063617FB78270011EAAE /* Build configuration list for PBXProject "Vizoal" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -616,8 +616,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				00B7063A17FB78270011EAAE /* PGC */,
-				00B7065E17FB78280011EAAE /* PGCTests */,
+				00B7063A17FB78270011EAAE /* Vizoal */,
+				00B7065E17FB78280011EAAE /* VizoalTests */,
 			);
 		};
 /* End PBXProject section */
@@ -754,7 +754,7 @@
 /* Begin PBXTargetDependency section */
 		00B7066517FB78280011EAAE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 00B7063A17FB78270011EAAE /* PGC */;
+			target = 00B7063A17FB78270011EAAE /* Vizoal */;
 			targetProxy = 00B7066417FB78280011EAAE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -874,9 +874,9 @@
 					/Users/shuaixiao/Documents/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PGC/PGC-Prefix.pch";
-				INFOPLIST_FILE = "PGC/PGC-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "PGC/Vizoal-Prefix.pch";
+				INFOPLIST_FILE = "PGC/Vizoal-Info.plist";
+				PRODUCT_NAME = Vizoal;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -896,9 +896,9 @@
 					/Users/shuaixiao/Documents/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PGC/PGC-Prefix.pch";
-				INFOPLIST_FILE = "PGC/PGC-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "PGC/Vizoal-Prefix.pch";
+				INFOPLIST_FILE = "PGC/Vizoal-Info.plist";
+				PRODUCT_NAME = Vizoal;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -921,8 +921,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "PGCTests/PGCTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "PGCTests/VizoalTests-Info.plist";
+				PRODUCT_NAME = VizoalTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -940,8 +940,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PGC/PGC-Prefix.pch";
-				INFOPLIST_FILE = "PGCTests/PGCTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "PGCTests/VizoalTests-Info.plist";
+				PRODUCT_NAME = VizoalTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -950,7 +950,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00B7063617FB78270011EAAE /* Build configuration list for PBXProject "PGC" */ = {
+		00B7063617FB78270011EAAE /* Build configuration list for PBXProject "Vizoal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00B7066E17FB78280011EAAE /* Debug */,
@@ -959,7 +959,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		00B7067017FB78280011EAAE /* Build configuration list for PBXNativeTarget "PGC" */ = {
+		00B7067017FB78280011EAAE /* Build configuration list for PBXNativeTarget "Vizoal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00B7067117FB78280011EAAE /* Debug */,
@@ -968,7 +968,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		00B7067317FB78280011EAAE /* Build configuration list for PBXNativeTarget "PGCTests" */ = {
+		00B7067317FB78280011EAAE /* Build configuration list for PBXNativeTarget "VizoalTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00B7067417FB78280011EAAE /* Debug */,
