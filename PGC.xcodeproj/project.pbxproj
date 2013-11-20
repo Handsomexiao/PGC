@@ -100,12 +100,13 @@
 		3311F27B1836E363009F7807 /* UIColor+JSMessagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3311F24E1836E363009F7807 /* UIColor+JSMessagesView.m */; };
 		3311F27C1836E363009F7807 /* UIImage+JSMessagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3311F2501836E363009F7807 /* UIImage+JSMessagesView.m */; };
 		3311F27D1836E363009F7807 /* UIView+AnimationOptionsForCurve.m in Sources */ = {isa = PBXBuildFile; fileRef = 3311F2521836E363009F7807 /* UIView+AnimationOptionsForCurve.m */; };
-		3360450B183036F0005D8EEB /* 11.png in Resources */ = {isa = PBXBuildFile; fileRef = 33604506183036F0005D8EEB /* 11.png */; };
-		3360450C183036F0005D8EEB /* 16.png in Resources */ = {isa = PBXBuildFile; fileRef = 33604507183036F0005D8EEB /* 16.png */; };
-		3360450D183036F0005D8EEB /* 22.png in Resources */ = {isa = PBXBuildFile; fileRef = 33604508183036F0005D8EEB /* 22.png */; };
-		3360450E183036F0005D8EEB /* 32.png in Resources */ = {isa = PBXBuildFile; fileRef = 33604509183036F0005D8EEB /* 32.png */; };
-		3360450F183036F0005D8EEB /* 67.png in Resources */ = {isa = PBXBuildFile; fileRef = 3360450A183036F0005D8EEB /* 67.png */; };
 		336045121830378B005D8EEB /* LeagueTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 336045111830378B005D8EEB /* LeagueTVC.m */; };
+		33EC31EC183C3CF800A7F315 /* 11.png in Resources */ = {isa = PBXBuildFile; fileRef = 33EC31E7183C3CF800A7F315 /* 11.png */; };
+		33EC31ED183C3CF800A7F315 /* 15.png in Resources */ = {isa = PBXBuildFile; fileRef = 33EC31E8183C3CF800A7F315 /* 15.png */; };
+		33EC31EE183C3CF800A7F315 /* 17.png in Resources */ = {isa = PBXBuildFile; fileRef = 33EC31E9183C3CF800A7F315 /* 17.png */; };
+		33EC31EF183C3CF800A7F315 /* 19.png in Resources */ = {isa = PBXBuildFile; fileRef = 33EC31EA183C3CF800A7F315 /* 19.png */; };
+		33EC31F0183C3CF800A7F315 /* 21.png in Resources */ = {isa = PBXBuildFile; fileRef = 33EC31EB183C3CF800A7F315 /* 21.png */; };
+		33EC31F3183C3DE400A7F315 /* LeagueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33EC31F2183C3DE400A7F315 /* LeagueCell.m */; };
 		33FBC82F1818AF770047E9F6 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FBC82E1818AF770047E9F6 /* LoginViewController.m */; };
 		33FBC8321818B2300047E9F6 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FBC8311818B2300047E9F6 /* LoginView.m */; };
 /* End PBXBuildFile section */
@@ -248,13 +249,15 @@
 		3311F2501836E363009F7807 /* UIImage+JSMessagesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JSMessagesView.m"; sourceTree = "<group>"; };
 		3311F2511836E363009F7807 /* UIView+AnimationOptionsForCurve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AnimationOptionsForCurve.h"; sourceTree = "<group>"; };
 		3311F2521836E363009F7807 /* UIView+AnimationOptionsForCurve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AnimationOptionsForCurve.m"; sourceTree = "<group>"; };
-		33604506183036F0005D8EEB /* 11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 11.png; sourceTree = "<group>"; };
-		33604507183036F0005D8EEB /* 16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 16.png; sourceTree = "<group>"; };
-		33604508183036F0005D8EEB /* 22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 22.png; sourceTree = "<group>"; };
-		33604509183036F0005D8EEB /* 32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 32.png; sourceTree = "<group>"; };
-		3360450A183036F0005D8EEB /* 67.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 67.png; sourceTree = "<group>"; };
 		336045101830378B005D8EEB /* LeagueTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueTVC.h; sourceTree = "<group>"; };
 		336045111830378B005D8EEB /* LeagueTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeagueTVC.m; sourceTree = "<group>"; };
+		33EC31E7183C3CF800A7F315 /* 11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 11.png; sourceTree = "<group>"; };
+		33EC31E8183C3CF800A7F315 /* 15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 15.png; sourceTree = "<group>"; };
+		33EC31E9183C3CF800A7F315 /* 17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 17.png; sourceTree = "<group>"; };
+		33EC31EA183C3CF800A7F315 /* 19.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 19.png; sourceTree = "<group>"; };
+		33EC31EB183C3CF800A7F315 /* 21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 21.png; sourceTree = "<group>"; };
+		33EC31F1183C3DE400A7F315 /* LeagueCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueCell.h; sourceTree = "<group>"; };
+		33EC31F2183C3DE400A7F315 /* LeagueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeagueCell.m; sourceTree = "<group>"; };
 		33FBC82D1818AF770047E9F6 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		33FBC82E1818AF770047E9F6 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		33FBC8301818B2300047E9F6 /* LoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
@@ -314,6 +317,7 @@
 		00A952AF180B7952004547C4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				33EC31E6183C3CF800A7F315 /* league */,
 				00A952B0180B7952004547C4 /* background-gradient.png */,
 				00A952B1180B7952004547C4 /* background-gradient@2x.png */,
 				00A952B2180B7952004547C4 /* button-background.png */,
@@ -326,11 +330,6 @@
 				007C9CDD18176B8200DA235C /* player-placeholder2.png */,
 				007C9CDE18176B8200DA235C /* country-placeholder.png */,
 				007C9CDF18176B8200DA235C /* Soccer-Field----Green.png */,
-				33604506183036F0005D8EEB /* 11.png */,
-				33604507183036F0005D8EEB /* 16.png */,
-				33604508183036F0005D8EEB /* 22.png */,
-				33604509183036F0005D8EEB /* 32.png */,
-				3360450A183036F0005D8EEB /* 67.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -379,6 +378,8 @@
 				00B7065017FB78280011EAAE /* Main_iPhone.storyboard */,
 				336045101830378B005D8EEB /* LeagueTVC.h */,
 				336045111830378B005D8EEB /* LeagueTVC.m */,
+				33EC31F1183C3DE400A7F315 /* LeagueCell.h */,
+				33EC31F2183C3DE400A7F315 /* LeagueCell.m */,
 				33FBC8301818B2300047E9F6 /* LoginView.h */,
 				33FBC8311818B2300047E9F6 /* LoginView.m */,
 				33FBC82D1818AF770047E9F6 /* LoginViewController.h */,
@@ -534,6 +535,18 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
+		33EC31E6183C3CF800A7F315 /* league */ = {
+			isa = PBXGroup;
+			children = (
+				33EC31E7183C3CF800A7F315 /* 11.png */,
+				33EC31E8183C3CF800A7F315 /* 15.png */,
+				33EC31E9183C3CF800A7F315 /* 17.png */,
+				33EC31EA183C3CF800A7F315 /* 19.png */,
+				33EC31EB183C3CF800A7F315 /* 21.png */,
+			);
+			path = league;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -618,13 +631,13 @@
 				00A952C2180B7952004547C4 /* Default@2x.png in Resources */,
 				007C9CE318176B8200DA235C /* Soccer-Field----Green.png in Resources */,
 				00A952C0180B7952004547C4 /* Default-568h@2x.png in Resources */,
+				33EC31F0183C3CF800A7F315 /* 21.png in Resources */,
 				009F18A5180242CB00BC385F /* 16.png in Resources */,
 				3311F26B1836E363009F7807 /* bubble-square-outgoing-selected@2x.png in Resources */,
 				3311F2721836E363009F7807 /* input-field.png in Resources */,
 				3311F25D1836E363009F7807 /* bubble-default-incoming-selected@2x.png in Resources */,
 				3311F2671836E363009F7807 /* bubble-square-incoming-selected@2x.png in Resources */,
 				007C9CE218176B8200DA235C /* country-placeholder.png in Resources */,
-				3360450F183036F0005D8EEB /* 67.png in Resources */,
 				3311F26F1836E363009F7807 /* bubble-typing@2x.png in Resources */,
 				007C9CE118176B8200DA235C /* player-placeholder2.png in Resources */,
 				3311F26D1836E363009F7807 /* bubble-square-outgoing@2x.png in Resources */,
@@ -632,31 +645,32 @@
 				007C9CE018176B8200DA235C /* club placeholder.png in Resources */,
 				00B7065A17FB78280011EAAE /* Images.xcassets in Resources */,
 				3311F2791836E363009F7807 /* messageSent.aiff in Resources */,
-				3360450C183036F0005D8EEB /* 16.png in Resources */,
 				3311F25C1836E363009F7807 /* bubble-default-incoming-selected.png in Resources */,
 				3311F2611836E363009F7807 /* bubble-default-outgoing-green@2x.png in Resources */,
 				3311F2731836E363009F7807 /* input-field@2x.png in Resources */,
+				33EC31EF183C3CF800A7F315 /* 19.png in Resources */,
 				00B7065217FB78280011EAAE /* Main_iPhone.storyboard in Resources */,
 				00A952BC180B7952004547C4 /* background-gradient.png in Resources */,
 				00A952BE180B7952004547C4 /* button-background.png in Resources */,
 				3311F2761836E363009F7807 /* send.png in Resources */,
 				00B7064917FB78280011EAAE /* InfoPlist.strings in Resources */,
+				33EC31EE183C3CF800A7F315 /* 17.png in Resources */,
 				3311F25B1836E363009F7807 /* bubble-default-incoming-green@2x.png in Resources */,
 				3311F2601836E363009F7807 /* bubble-default-outgoing-green.png in Resources */,
 				00A952C1180B7952004547C4 /* Default.png in Resources */,
 				3311F2741836E363009F7807 /* send-highlighted.png in Resources */,
-				3360450E183036F0005D8EEB /* 32.png in Resources */,
 				3311F25F1836E363009F7807 /* bubble-default-incoming@2x.png in Resources */,
 				3311F2661836E363009F7807 /* bubble-square-incoming-selected.png in Resources */,
-				3360450B183036F0005D8EEB /* 11.png in Resources */,
 				3311F2701836E363009F7807 /* input-bar.png in Resources */,
 				3311F26E1836E363009F7807 /* bubble-typing.png in Resources */,
 				3311F26A1836E363009F7807 /* bubble-square-outgoing-selected.png in Resources */,
 				00B7069817FBCA760011EAAE /* Vizicon2.png in Resources */,
 				3311F2621836E363009F7807 /* bubble-default-outgoing-selected.png in Resources */,
 				3311F2641836E363009F7807 /* bubble-default-outgoing.png in Resources */,
+				33EC31ED183C3CF800A7F315 /* 15.png in Resources */,
 				3311F2751836E363009F7807 /* send-highlighted@2x.png in Resources */,
 				00080BB8181D94B800CCF4BF /* Vizoal-Icon-Green.png in Resources */,
+				33EC31EC183C3CF800A7F315 /* 11.png in Resources */,
 				3311F25E1836E363009F7807 /* bubble-default-incoming.png in Resources */,
 				3311F2691836E363009F7807 /* bubble-square-incoming@2x.png in Resources */,
 				3311F2651836E363009F7807 /* bubble-default-outgoing@2x.png in Resources */,
@@ -664,7 +678,6 @@
 				00A952BD180B7952004547C4 /* background-gradient@2x.png in Resources */,
 				3311F2771836E363009F7807 /* send@2x.png in Resources */,
 				3311F2711836E363009F7807 /* input-bar@2x.png in Resources */,
-				3360450D183036F0005D8EEB /* 22.png in Resources */,
 				00B7069917FBCA760011EAAE /* Vizoal-Icon-Green.png in Resources */,
 				3311F2631836E363009F7807 /* bubble-default-outgoing-selected@2x.png in Resources */,
 				3311F25A1836E363009F7807 /* bubble-default-incoming-green.png in Resources */,
@@ -701,6 +714,7 @@
 				00B7064B17FB78280011EAAE /* main.m in Sources */,
 				3302CEDD180E16BF0021F533 /* PlayerProfileDetailVC_tab4.m in Sources */,
 				3311F2571836E363009F7807 /* JSMessageSoundEffect.m in Sources */,
+				33EC31F3183C3DE400A7F315 /* LeagueCell.m in Sources */,
 				0095412C1803BDB300E02794 /* playerProfileDetailTBC.m in Sources */,
 				009541611804EDF500E02794 /* PlayerPhoto+Internet.m in Sources */,
 				0095414F1804CF0C00E02794 /* TopPlayersTVC.m in Sources */,

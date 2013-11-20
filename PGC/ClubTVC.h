@@ -13,7 +13,7 @@
 @property (nonatomic,strong) NSString *teamName;
 @property (nonatomic,strong) UIImage *teamImage;
 
-@property NSInteger clubId;
+@property NSInteger leagueId;
 
 
 @end
