@@ -249,6 +249,7 @@
 		3311F2501836E363009F7807 /* UIImage+JSMessagesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JSMessagesView.m"; sourceTree = "<group>"; };
 		3311F2511836E363009F7807 /* UIView+AnimationOptionsForCurve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AnimationOptionsForCurve.h"; sourceTree = "<group>"; };
 		3311F2521836E363009F7807 /* UIView+AnimationOptionsForCurve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AnimationOptionsForCurve.m"; sourceTree = "<group>"; };
+		3318C961183D980D0084D380 /* Vizoal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Vizoal.entitlements; sourceTree = "<group>"; };
 		336045101830378B005D8EEB /* LeagueTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueTVC.h; sourceTree = "<group>"; };
 		336045111830378B005D8EEB /* LeagueTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeagueTVC.m; sourceTree = "<group>"; };
 		33EC31E7183C3CF800A7F315 /* 11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 11.png; sourceTree = "<group>"; };
@@ -337,6 +338,7 @@
 		00B7063217FB78270011EAAE = {
 			isa = PBXGroup;
 			children = (
+				3318C961183D980D0084D380 /* Vizoal.entitlements */,
 				00B7064417FB78280011EAAE /* PGC */,
 				00B7066617FB78280011EAAE /* PGCTests */,
 				00B7063D17FB78270011EAAE /* Frameworks */,
@@ -597,6 +599,11 @@
 				TargetAttributes = {
 					00B7063A17FB78270011EAAE = {
 						DevelopmentTeam = Z93DRG9D63;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
 					};
 					00B7065E17FB78280011EAAE = {
 						TestTargetID = 00B7063A17FB78270011EAAE;

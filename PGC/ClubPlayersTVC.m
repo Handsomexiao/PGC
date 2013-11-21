@@ -130,20 +130,15 @@
         name = [[NSString alloc] initWithFormat:@"%@",[dict objectForKey:@"lastName"]];
     }
     
-    //an NSDictionary of NSString => UIColor pairs
+    
     NSRange range = [name rangeOfString:[[dict objectForKey:@"lastName"] description]];
+    UIFont *boldFont = [UIFont boldSystemFontOfSize:([UIFont systemFontSize] + 3)];//[UIFont systemFontSize];
     
-    CGFloat fontSize = [UIFont systemFontSize];
-    
-    NSDictionary *attributes = [cell.textLabel.attributedText attributesAtIndex:0 effectiveRange:NULL];
-    UIFont *font = attributes[NSFontAttributeName];
-    if (font) fontSize = font.pointSize;
-    UIFont *boldFont = [UIFont boldSystemFontOfSize:fontSize];
     NSMutableAttributedString *mat = [[NSMutableAttributedString alloc] initWithString:name];
-    //[mat setAttributes:subAttrs range:range];
-    [mat addAttribute:NSFontAttributeName value:boldFont range:range];
+    [mat addAttribute:NSFontAttributeName  value:boldFont range:range];
     
     cell.textLabel.attributedText = mat;
+    
     cell.playerFmId = [[dict objectForKey:@"playerId"] integerValue];
     NSLog(@"%@", name);
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@",[dict objectForKey:@"nickName"],[dict objectForKey:@"nationOfBirthName"]];
