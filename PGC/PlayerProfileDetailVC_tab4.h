@@ -11,7 +11,8 @@
 
 @interface PlayerProfileDetailVC_tab4 : JSMessagesViewController <JSMessagesViewDelegate, JSMessagesViewDataSource>
 
-@property (strong, nonatomic) NSMutableArray *messages;
+@property (strong, nonatomic) NSMutableArray *commitMessages;
 @property (strong, nonatomic) NSMutableArray *timestamps;
+@property NSInteger PlayerFmId;
 
 @end

@@ -10,6 +10,7 @@
 #import "PlayerProfileVC.h"
 #import "APActivityProvider.h"
 #import "APActivityIcon.h"
+#import "PlayerProfileDetailVC_tab4.h"
 
 
 @interface playerProfileDetailTBC ()
@@ -81,6 +82,12 @@
         if([Vc isKindOfClass:[PlayerProfileVC class]])
         {
             PlayerProfileVC* plays = (PlayerProfileVC*)Vc;
+            plays.playerFmId = self.playerFmId;
+        }
+        
+        if([Vc isKindOfClass:[PlayerProfileDetailVC_tab4 class]])
+        {
+            PlayerProfileDetailVC_tab4* plays = (PlayerProfileDetailVC_tab4*)Vc;
             plays.playerFmId = self.playerFmId;
         }
     }
