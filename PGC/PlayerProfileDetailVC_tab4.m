@@ -136,12 +136,12 @@
 
 - (JSMessagesViewAvatarPolicy)avatarPolicy
 {
-    return JSMessagesViewAvatarPolicyBoth;
+    return JSMessagesViewAvatarPolicyNone;
 }
 
 - (JSAvatarStyle)avatarStyle
 {
-    return JSAvatarStyleSquare;
+    return JSAvatarStyleNone;
 }
 
 //  Optional delegate method
@@ -181,7 +181,7 @@
 
 -(void)getCommit
 {
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://ec2-54-215-136-21.us-west-1.compute.amazonaws.com:8080/vizoal/services/playerComment/%d",self.PlayerFmId]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://ec2-54-215-136-21.us-west-1.compute.amazonaws.com:8080/vizoal/services/playerComment/%ld",(long)self.PlayerFmId]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url
                                              cachePolicy:NSURLRequestUseProtocolCachePolicy
                                          timeoutInterval:60.0];
@@ -205,6 +205,15 @@
                                    if ([resultCodeObj integerValue] >=0)
                                    {
                                        self.commitMessages = [resDic objectForKey:@"result"];
+
+                                       NSMutableArray *array = [NSMutableArray arrayWithCapacity:[self.commitMessages count]];
+                                       NSEnumerator *enumerator = [self.commitMessages reverseObjectEnumerator];
+                                       for (id element in enumerator) {
+                                           [array addObject:element];
+                                       }
+                                       
+                                       self.commitMessages = array;
+                                       
                                        if (![self.commitMessages isKindOfClass:[NSMutableArray class]])
                                        {
                                            self.commitMessages = nil;

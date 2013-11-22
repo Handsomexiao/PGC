@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00B7063A17FB78270011EAAE"
-               BuildableName = "PGC.app"
+               BuildableName = "Vizoal.app"
                BlueprintName = "Vizoal"
                ReferencedContainer = "container:Vizoal.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00B7065E17FB78280011EAAE"
-               BuildableName = "PGCTests.xctest"
+               BuildableName = "VizoalTests.xctest"
                BlueprintName = "VizoalTests"
                ReferencedContainer = "container:Vizoal.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "00B7063A17FB78270011EAAE"
-            BuildableName = "PGC.app"
+            BuildableName = "Vizoal.app"
             BlueprintName = "Vizoal"
             ReferencedContainer = "container:Vizoal.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "00B7063A17FB78270011EAAE"
-            BuildableName = "PGC.app"
+            BuildableName = "Vizoal.app"
             BlueprintName = "Vizoal"
             ReferencedContainer = "container:Vizoal.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "00B7063A17FB78270011EAAE"
-            BuildableName = "PGC.app"
+            BuildableName = "Vizoal.app"
             BlueprintName = "Vizoal"
             ReferencedContainer = "container:Vizoal.xcodeproj">
          </BuildableReference>
