@@ -31,11 +31,6 @@
     return _commitView;
 }
 
-- (UIView*)getCommitView
-{
-    return self.commitView;
-}
-
 - (NSMutableArray*)commitMessages
 {
     if(!_commitMessages) _commitMessages = [[NSMutableArray alloc] init];
@@ -94,8 +89,8 @@
 #pragma mark - Messages view delegate
 - (void)sendPressed:(UIButton *)sender withText:(NSString *)text
 {
-    NSArray *keys = [NSArray arrayWithObjects:@"playerId", @"userName", @"comment",nil];
-    NSArray *objects = [NSArray arrayWithObjects:[NSString stringWithFormat:@"%ld", (long)self.PlayerFmId], @"Handsome", text ,nil];
+    NSArray *keys = [NSArray arrayWithObjects:@"playerId", @"userName", @"comment",@"playerCommentId",@"post_date",nil];
+    NSArray *objects = [NSArray arrayWithObjects:[NSString stringWithFormat:@"%ld", (long)self.PlayerFmId], @"Handsome", text ,@"0",[[[NSDate alloc ] init] description], nil];
     
     NSDictionary *jsonDictionary = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
     
@@ -110,6 +105,7 @@
         [JSMessageSoundEffect playMessageSentSound];
     else
         [JSMessageSoundEffect playMessageReceivedSound];
+    
     
     [self finishSend];
     
@@ -206,19 +202,72 @@
                                    {
                                        self.commitMessages = [resDic objectForKey:@"result"];
 
-                                       NSMutableArray *array = [NSMutableArray arrayWithCapacity:[self.commitMessages count]];
-                                       NSEnumerator *enumerator = [self.commitMessages reverseObjectEnumerator];
-                                       for (id element in enumerator) {
-                                           [array addObject:element];
+                                       if (![self.commitMessages isKindOfClass:[NSMutableArray class]])
+                                       {
+                                           self.commitMessages = nil;
                                        }
-                                       
-                                       self.commitMessages = array;
+                                       else
+                                       {
+                                           NSMutableArray *array = [NSMutableArray arrayWithCapacity:[self.commitMessages count]];
+                                           NSEnumerator *enumerator = [self.commitMessages reverseObjectEnumerator];
+                                           for (id element in enumerator) {
+                                               [array addObject:element];
+                                           }
+                                           
+                                           self.commitMessages = array;
+                                       }
+                                   }
+                               }
+                               
+                               dispatch_async(dispatch_get_main_queue(), ^{
+                                   [self.tableView reloadData];
+                               });
+                           }];
+    
+    
+}
+
+-(void)getMoreCommit
+{
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://ec2-54-215-136-21.us-west-1.compute.amazonaws.com:8080/vizoal/services/playerComment/old/%ld/%ld",(long)self.PlayerFmId,(long)self.lastCommitId]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url
+                                             cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                         timeoutInterval:60.0];
+    
+    NSLog(@"%@",url);
+    
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:queue
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                               if ([data length] > 0 && connectionError == nil)
+                               {
+                                   NSLog(@"request finished");
+                                   
+                                   NSDictionary *resDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+                                   NSNumber *resultCodeObj = [resDic objectForKey:@"ResultCode"];
+                                   
+                                   NSLog(@"%@", resDic);
+                                   
+                                   if ([resultCodeObj integerValue] >=0)
+                                   {
+                                       self.commitMessages = [resDic objectForKey:@"result"];
                                        
                                        if (![self.commitMessages isKindOfClass:[NSMutableArray class]])
                                        {
                                            self.commitMessages = nil;
                                        }
-
+                                       else
+                                       {
+                                           NSMutableArray *array = [NSMutableArray arrayWithCapacity:[self.commitMessages count]];
+                                           NSEnumerator *enumerator = [self.commitMessages reverseObjectEnumerator];
+                                           for (id element in enumerator) {
+                                               [array addObject:element];
+                                           }
+                                           
+                                           self.commitMessages = array;
+                                       }
                                    }
                                }
                                
@@ -283,5 +332,8 @@
     
     
 }
+
+
+
 
 @end

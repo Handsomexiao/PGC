@@ -14,5 +14,6 @@
 @property (strong, nonatomic) NSMutableArray *commitMessages;
 @property (strong, nonatomic) NSMutableArray *timestamps;
 @property NSInteger PlayerFmId;
+@property NSInteger lastCommitId;
 
 @end
