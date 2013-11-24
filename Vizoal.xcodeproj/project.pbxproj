@@ -101,6 +101,11 @@
 		3311F27C1836E363009F7807 /* UIImage+JSMessagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3311F2501836E363009F7807 /* UIImage+JSMessagesView.m */; };
 		3311F27D1836E363009F7807 /* UIView+AnimationOptionsForCurve.m in Sources */ = {isa = PBXBuildFile; fileRef = 3311F2521836E363009F7807 /* UIView+AnimationOptionsForCurve.m */; };
 		336045121830378B005D8EEB /* LeagueTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 336045111830378B005D8EEB /* LeagueTVC.m */; };
+		338F68A318428C99007A6BD9 /* Player-position-icon-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 338F689E18428C99007A6BD9 /* Player-position-icon-1.png */; };
+		338F68A418428C99007A6BD9 /* Player-position-icon-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 338F689F18428C99007A6BD9 /* Player-position-icon-2.png */; };
+		338F68A518428C99007A6BD9 /* Player-position-icon-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 338F68A018428C99007A6BD9 /* Player-position-icon-3.png */; };
+		338F68A618428C99007A6BD9 /* Player-position-icon-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 338F68A118428C99007A6BD9 /* Player-position-icon-4.png */; };
+		338F68A718428C99007A6BD9 /* Player-position-icon-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 338F68A218428C99007A6BD9 /* Player-position-icon-5.png */; };
 		33EC31EC183C3CF800A7F315 /* 11.png in Resources */ = {isa = PBXBuildFile; fileRef = 33EC31E7183C3CF800A7F315 /* 11.png */; };
 		33EC31ED183C3CF800A7F315 /* 15.png in Resources */ = {isa = PBXBuildFile; fileRef = 33EC31E8183C3CF800A7F315 /* 15.png */; };
 		33EC31EE183C3CF800A7F315 /* 17.png in Resources */ = {isa = PBXBuildFile; fileRef = 33EC31E9183C3CF800A7F315 /* 17.png */; };
@@ -252,6 +257,11 @@
 		3318C961183D980D0084D380 /* Vizoal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Vizoal.entitlements; sourceTree = "<group>"; };
 		336045101830378B005D8EEB /* LeagueTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueTVC.h; sourceTree = "<group>"; };
 		336045111830378B005D8EEB /* LeagueTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeagueTVC.m; sourceTree = "<group>"; };
+		338F689E18428C99007A6BD9 /* Player-position-icon-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Player-position-icon-1.png"; sourceTree = "<group>"; };
+		338F689F18428C99007A6BD9 /* Player-position-icon-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Player-position-icon-2.png"; sourceTree = "<group>"; };
+		338F68A018428C99007A6BD9 /* Player-position-icon-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Player-position-icon-3.png"; sourceTree = "<group>"; };
+		338F68A118428C99007A6BD9 /* Player-position-icon-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Player-position-icon-4.png"; sourceTree = "<group>"; };
+		338F68A218428C99007A6BD9 /* Player-position-icon-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Player-position-icon-5.png"; sourceTree = "<group>"; };
 		33EC31E7183C3CF800A7F315 /* 11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 11.png; sourceTree = "<group>"; };
 		33EC31E8183C3CF800A7F315 /* 15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 15.png; sourceTree = "<group>"; };
 		33EC31E9183C3CF800A7F315 /* 17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 17.png; sourceTree = "<group>"; };
@@ -318,6 +328,11 @@
 		00A952AF180B7952004547C4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				338F689E18428C99007A6BD9 /* Player-position-icon-1.png */,
+				338F689F18428C99007A6BD9 /* Player-position-icon-2.png */,
+				338F68A018428C99007A6BD9 /* Player-position-icon-3.png */,
+				338F68A118428C99007A6BD9 /* Player-position-icon-4.png */,
+				338F68A218428C99007A6BD9 /* Player-position-icon-5.png */,
 				33EC31E6183C3CF800A7F315 /* league */,
 				00A952B0180B7952004547C4 /* background-gradient.png */,
 				00A952B1180B7952004547C4 /* background-gradient@2x.png */,
@@ -645,6 +660,7 @@
 				3311F25D1836E363009F7807 /* bubble-default-incoming-selected@2x.png in Resources */,
 				3311F2671836E363009F7807 /* bubble-square-incoming-selected@2x.png in Resources */,
 				007C9CE218176B8200DA235C /* country-placeholder.png in Resources */,
+				338F68A318428C99007A6BD9 /* Player-position-icon-1.png in Resources */,
 				3311F26F1836E363009F7807 /* bubble-typing@2x.png in Resources */,
 				007C9CE118176B8200DA235C /* player-placeholder2.png in Resources */,
 				3311F26D1836E363009F7807 /* bubble-square-outgoing@2x.png in Resources */,
@@ -662,9 +678,11 @@
 				3311F2761836E363009F7807 /* send.png in Resources */,
 				00B7064917FB78280011EAAE /* InfoPlist.strings in Resources */,
 				33EC31EE183C3CF800A7F315 /* 17.png in Resources */,
+				338F68A418428C99007A6BD9 /* Player-position-icon-2.png in Resources */,
 				3311F25B1836E363009F7807 /* bubble-default-incoming-green@2x.png in Resources */,
 				3311F2601836E363009F7807 /* bubble-default-outgoing-green.png in Resources */,
 				00A952C1180B7952004547C4 /* Default.png in Resources */,
+				338F68A718428C99007A6BD9 /* Player-position-icon-5.png in Resources */,
 				3311F2741836E363009F7807 /* send-highlighted.png in Resources */,
 				3311F25F1836E363009F7807 /* bubble-default-incoming@2x.png in Resources */,
 				3311F2661836E363009F7807 /* bubble-square-incoming-selected.png in Resources */,
@@ -679,6 +697,8 @@
 				00080BB8181D94B800CCF4BF /* Vizoal-Icon-Green.png in Resources */,
 				33EC31EC183C3CF800A7F315 /* 11.png in Resources */,
 				3311F25E1836E363009F7807 /* bubble-default-incoming.png in Resources */,
+				338F68A618428C99007A6BD9 /* Player-position-icon-4.png in Resources */,
+				338F68A518428C99007A6BD9 /* Player-position-icon-3.png in Resources */,
 				3311F2691836E363009F7807 /* bubble-square-incoming@2x.png in Resources */,
 				3311F2651836E363009F7807 /* bubble-default-outgoing@2x.png in Resources */,
 				3311F26C1836E363009F7807 /* bubble-square-outgoing.png in Resources */,
