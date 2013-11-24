@@ -715,13 +715,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Q4-A4-s3s">
-                                <rect key="frame" x="0.0" y="251" width="320" height="200"/>
+                                <rect key="frame" x="42" y="177" width="238" height="341"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Soccer-Field----Green.png" translatesAutoresizingMaskIntoConstraints="NO" id="wVQ-Hx-gwQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="soccerfield-Large.png" translatesAutoresizingMaskIntoConstraints="NO" id="wVQ-Hx-gwQ">
+                                        <rect key="frame" x="-42" y="0.0" width="320" height="341"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -745,9 +745,9 @@
     </scenes>
     <resources>
         <image name="11.png" width="150" height="150"/>
-        <image name="Soccer-Field----Green.png" width="576" height="403"/>
         <image name="club placeholder.png" width="215" height="215"/>
         <image name="player-placeholder2.png" width="215" height="215"/>
+        <image name="soccerfield-Large.png" width="1000" height="1429"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

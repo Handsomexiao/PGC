@@ -65,14 +65,14 @@
         
         [allText appendAttributedString:mat];
         
-        [self SetPositionImage:[rec objectForKey:@"name"]];
+        [self SetPositionImage:[rec objectForKey:@"name"] efficiency:[rec objectForKey:@"efficiency"]];
     }
     
     
     //self.DetailTextView.attributedText = allText;
 }
 
--(void)SetPositionImage:(NSString*)text
+-(void)SetPositionImage:(NSString*)text efficiency:(NSString*)efficiency
 {
     UILabel *label = [[UILabel alloc] init];
     label.text = text;
@@ -82,11 +82,22 @@
     
     CGRect aRect = CGRectMake(0, 0, 21, 21);
     UIImageView *ImageView = [[UIImageView alloc] initWithFrame:aRect];
-    UIImage* image = [UIImage imageNamed:@"Player-position-icon-5.png"];
-    ImageView.image = image;
-    
-    //[self setLocationForView:label position:text];
-    //[self.positionView addSubview:label];
+
+    if ([efficiency compare:@"100%"]) {
+        ImageView.image = [UIImage imageNamed:@"Player-position-icon-1.png"];
+    }
+    else if ([efficiency compare:@"90%"]) {
+        ImageView.image = [UIImage imageNamed:@"Player-position-icon-2.png"];
+    }
+    else if ([efficiency compare:@"80%"]) {
+        ImageView.image = [UIImage imageNamed:@"Player-position-icon-3.png"];
+    }
+    else if ([efficiency compare:@"70%"]) {
+        ImageView.image = [UIImage imageNamed:@"Player-position-icon-4.png"];
+    }
+    else if ([efficiency compare:@"60%"]) {
+        ImageView.image = [UIImage imageNamed:@"Player-position-icon-5.png"];
+    }
     
     [self setLocationForView:text LabelView:label imageView:ImageView];
     [self.positionView addSubview:label];
@@ -98,74 +109,75 @@
 
 - (void)setLocationForView:(NSString*)Position LabelView:(UIView *)Label imageView:(UIView*)image
 {
-    CGRect sinkBounds = CGRectInset(self.positionView.bounds, Label.frame.size.width/2, Label.frame.size.height/2);
+    CGRect sinkBounds = CGRectInset(self.positionView.bounds, 0, 0);
     
     CGFloat x = 0;
     CGFloat y = 0;
-    CGFloat positionLayer = (int)sinkBounds.size.width/7;
+    CGFloat positionLayer = (int)sinkBounds.size.height/7;
     
-    CGFloat leftPosition = sinkBounds.size.height/5;
-    CGFloat rightPosition = sinkBounds.size.height - sinkBounds.size.height/5;
+    CGFloat leftPosition = sinkBounds.size.width/7;
+    CGFloat rightPosition = sinkBounds.size.width - sinkBounds.size.width/7;
 
     if ([Position compare:@"ST"] == NSOrderedSame) {
-        x = (int)sinkBounds.size.width;
-        y = (int)sinkBounds.size.height/2;
+        x = (int)sinkBounds.size.width/2;
+        y = positionLayer;
     }
     else if ([Position compare:@"AMC"] == NSOrderedSame) {
-        x = (int)sinkBounds.size.width - (positionLayer * 1);
-        y = (int)sinkBounds.size.height/2;
+        x = (int)sinkBounds.size.width/2;
+        y = (positionLayer * 2);
     }
     else if ([Position compare:@"MC"] == NSOrderedSame) {
-        x = (int)sinkBounds.size.width - (positionLayer * 2);
-        y = (int)sinkBounds.size.height/2;
+        x = (int)sinkBounds.size.width/2;
+        y = (positionLayer * 3);
     }
     else if ([Position compare:@"DMC"] == NSOrderedSame) {
-        x = (int)sinkBounds.size.width - (positionLayer * 3);
-        y = (int)sinkBounds.size.height/2;
+        x = (int)sinkBounds.size.width/2;
+        y = (positionLayer * 4);
     }
     else if ([Position compare:@"DC"] == NSOrderedSame) {
-        x = (int)sinkBounds.size.width - (positionLayer * 4);
-        y = (int)sinkBounds.size.height/2;
-    }
-    else if ([Position compare:@"SW"] == NSOrderedSame) {
-        x = (int)sinkBounds.size.width - (positionLayer * 5);
-        y = (int)sinkBounds.size.height/2;
+        x = (int)sinkBounds.size.width/2;
+        y = (positionLayer * 5);
     }
     else if ([Position compare:@"GK"] == NSOrderedSame) {
-        x = (int)sinkBounds.size.width - (positionLayer * 6);
-        y = (int)sinkBounds.size.height/2;
+        x = (int)sinkBounds.size.width/2;
+        y = (int)sinkBounds.size.height * 9/10 + 5;
     }
     else if ([Position compare:@"AML"] == NSOrderedSame) {
-        x = (int)sinkBounds.size.width - (positionLayer * 1);
-        y = leftPosition;
-    }
-    else if ([Position compare:@"AMR"] == NSOrderedSame) {
-        x = (int)sinkBounds.size.width - (positionLayer * 1);
-        y = rightPosition;
+        x = leftPosition;
+        y = (positionLayer * 2);
     }
     else if ([Position compare:@"ML"] == NSOrderedSame) {
-        x = (int)sinkBounds.size.width - (positionLayer * 2);
-        y = leftPosition;
-    }
-    else if ([Position compare:@"MR"] == NSOrderedSame) {
-        x = (int)sinkBounds.size.width - (positionLayer * 2);
-        y = rightPosition;
+        x = leftPosition;
+        y = (positionLayer * 3);
     }
     else if ([Position compare:@"WBL"] == NSOrderedSame) {
-        x = (int)sinkBounds.size.width - (positionLayer * 3);
-        y = leftPosition;
-    }
-    else if ([Position compare:@"WBR"] == NSOrderedSame) {
-        x = (int)sinkBounds.size.width - (positionLayer * 3);
-        y = rightPosition;
+        x = leftPosition;
+        y = (positionLayer * 4);
     }
     else if ([Position compare:@"DL"] == NSOrderedSame) {
-        x = (int)sinkBounds.size.width - (positionLayer * 4);
-        y = leftPosition;
+        x = leftPosition;
+        y = (positionLayer * 5);
+    }
+    
+    else if ([Position compare:@"AMR"] == NSOrderedSame) {
+        x = rightPosition;
+        y = (positionLayer * 2);
+    }
+    else if ([Position compare:@"MR"] == NSOrderedSame) {
+        x = rightPosition;
+        y = (positionLayer * 3);
+    }
+    else if ([Position compare:@"WBR"] == NSOrderedSame) {
+        x = rightPosition;
+        y = (positionLayer * 4);
     }
     else if ([Position compare:@"DR"] == NSOrderedSame) {
-        x = (int)sinkBounds.size.width - (positionLayer * 4);
-        y = rightPosition;
+        x = rightPosition;
+        y = (positionLayer * 5);
+    }
+    else
+    {
+        
     }
     
     Label.center = CGPointMake(x, y+21);

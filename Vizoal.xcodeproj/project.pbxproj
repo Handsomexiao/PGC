@@ -52,6 +52,7 @@
 		00B7069317FBBFDB0011EAAE /* PlayerProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B7069217FBBFDB0011EAAE /* PlayerProfileVC.m */; };
 		00B7069817FBCA760011EAAE /* Vizicon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 00B7069617FBCA760011EAAE /* Vizicon2.png */; };
 		00B7069917FBCA760011EAAE /* Vizoal-Icon-Green.png in Resources */ = {isa = PBXBuildFile; fileRef = 00B7069717FBCA760011EAAE /* Vizoal-Icon-Green.png */; };
+		00EFC7E51842B5A1006E75A3 /* soccerfield-Large.png in Resources */ = {isa = PBXBuildFile; fileRef = 00EFC7E41842B5A1006E75A3 /* soccerfield-Large.png */; };
 		3302CEC8180DD75F0021F533 /* PlayerHdPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 3302CEC7180DD75F0021F533 /* PlayerHdPhoto.m */; };
 		3302CECB180DD77A0021F533 /* PlayerHdPhoto+Internet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3302CECA180DD77A0021F533 /* PlayerHdPhoto+Internet.m */; };
 		3302CED7180E16A40021F533 /* PlayerProfileDetailVC_tab2.m in Sources */ = {isa = PBXBuildFile; fileRef = 3302CED6180E16A40021F533 /* PlayerProfileDetailVC_tab2.m */; };
@@ -190,6 +191,7 @@
 		00B7069217FBBFDB0011EAAE /* PlayerProfileVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerProfileVC.m; sourceTree = "<group>"; };
 		00B7069617FBCA760011EAAE /* Vizicon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Vizicon2.png; sourceTree = "<group>"; };
 		00B7069717FBCA760011EAAE /* Vizoal-Icon-Green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Vizoal-Icon-Green.png"; sourceTree = "<group>"; };
+		00EFC7E41842B5A1006E75A3 /* soccerfield-Large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "soccerfield-Large.png"; sourceTree = "<group>"; };
 		3302CEC6180DD75F0021F533 /* PlayerHdPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerHdPhoto.h; sourceTree = "<group>"; };
 		3302CEC7180DD75F0021F533 /* PlayerHdPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerHdPhoto.m; sourceTree = "<group>"; };
 		3302CEC9180DD77A0021F533 /* PlayerHdPhoto+Internet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PlayerHdPhoto+Internet.h"; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 				338F68A218428C99007A6BD9 /* Player-position-icon-5.png */,
 				33EC31E6183C3CF800A7F315 /* league */,
 				00A952B0180B7952004547C4 /* background-gradient.png */,
+				00EFC7E41842B5A1006E75A3 /* soccerfield-Large.png */,
 				00A952B1180B7952004547C4 /* background-gradient@2x.png */,
 				00A952B2180B7952004547C4 /* button-background.png */,
 				00080BB6181D94B800CCF4BF /* Vizoal-Icon-Green.png */,
@@ -656,6 +659,7 @@
 				33EC31F0183C3CF800A7F315 /* 21.png in Resources */,
 				009F18A5180242CB00BC385F /* 16.png in Resources */,
 				3311F26B1836E363009F7807 /* bubble-square-outgoing-selected@2x.png in Resources */,
+				00EFC7E51842B5A1006E75A3 /* soccerfield-Large.png in Resources */,
 				3311F2721836E363009F7807 /* input-field.png in Resources */,
 				3311F25D1836E363009F7807 /* bubble-default-incoming-selected@2x.png in Resources */,
 				3311F2671836E363009F7807 /* bubble-square-incoming-selected@2x.png in Resources */,
