@@ -55,7 +55,7 @@
 {
     // Return the number of rows in the section.
     if (self.listData) {
-        return self.listData.count;
+        return self.listData.count * 2;
     }
     else{
         return 0;
@@ -64,17 +64,26 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ((indexPath.row % 2) == 0) {
+        return 6;
+    }
+    
     return 52;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ((indexPath.row % 2) == 0) {
+        static NSString *CellIdentifier = @"TopPlayerCell-space";
+        PlayerCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        return cell;
+    }
     static NSString *CellIdentifier = @"TopPlayerCell";
     PlayerCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     if (cell == nil) {
         cell = [[PlayerCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
-    NSMutableDictionary* dict = self.listData[indexPath.row];
+    NSMutableDictionary* dict = self.listData[indexPath.row/2];
     
     // Configure the cell...
     cell.tag = indexPath.row;
@@ -112,6 +121,7 @@
     cell.playerFmId = [[dict objectForKey:@"playerId"] integerValue];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ | %@",[dict objectForKey:@"nationOfBirthName"],[dict objectForKey:@"currentClubName"]];
     
+    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
     return cell;
 }
 
