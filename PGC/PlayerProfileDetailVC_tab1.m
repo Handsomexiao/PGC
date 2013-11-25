@@ -100,46 +100,76 @@
     NSDictionary* table = [[NSDictionary alloc] initWithObjectsAndKeys:
                                                       @"Full Name",@"fullName",
                                                       @"Hometown",@"cityOfBirth",
+                                                      @"Age",@"Age",
                                                       @"Birthday",@"dateOfBirth",
                                                       @"Nationality",@"nationOfBirthName",
                                                       @"Height",@"height",
                                                       @"Weight",@"weight",
-                                                      @"Prefer Foot",@"preferFoot",nil];
+                                                      @"Strong Foot",@"preferFoot",
+                                                      @"Number",@"clubNumber",nil];
 
     NSArray* myindex = [[NSArray alloc] initWithObjects:
                                @"fullName",
                                @"cityOfBirth",
+                               @"Age",
                                @"dateOfBirth",
                                @"nationOfBirthName",
                                @"height",
                                @"weight",
                                @"preferFoot",
+                               @"clubNumber",
                       nil];
     
-    for (NSString* index in myindex) {
-        
+    CGFloat fontSize = 16.0;
+    
+    UIFont *boldFont = [UIFont boldSystemFontOfSize:fontSize];
+    UIFont *normalFont = [UIFont systemFontOfSize:fontSize];
+    
+    for (NSString* index in myindex)
+    {
         NSString* name = nil;
-        NSString* info = nil;
         name = [[NSString alloc] initWithFormat:@"%@", [[table objectForKey:index] description]];
-        info = [[NSString alloc] initWithFormat:@"%@", [[dict objectForKey:index] description]];
         NSMutableAttributedString *matName = [[NSMutableAttributedString alloc] initWithString:name];
-        NSMutableAttributedString *matInfo = [[NSMutableAttributedString alloc] initWithString:info];
-        
-        //an NSDictionary of NSString => UIColor pairs
         NSRange range = [name rangeOfString:name];
-        CGFloat fontSize = 16.0;
-        UIFont *boldFont = [UIFont boldSystemFontOfSize:fontSize];
-        UIFont *normalFont = [UIFont systemFontOfSize:fontSize];
-        
-        NSRange allrange;
-        allrange.location = 0;
-        allrange.length = [info length];
         [matName addAttribute:NSFontAttributeName value:boldFont range:range];
-        
-        [matInfo addAttribute:NSFontAttributeName value:normalFont range:allrange];
-        
         [self.msgListName addObject:matName];
-        [self.msgListInfo addObject:matInfo];
+        
+        if ([index  compare:@"Age"]  != NSOrderedSame)
+        {
+            NSString* info = nil;
+            info = [[NSString alloc] initWithFormat:@"%@", [[dict objectForKey:index] description]];
+            NSMutableAttributedString *matInfo = [[NSMutableAttributedString alloc] initWithString:info];
+            NSRange allrange;
+            allrange.location = 0;
+            allrange.length = [info length];
+            [matInfo addAttribute:NSFontAttributeName value:normalFont range:allrange];
+            [self.msgListInfo addObject:matInfo];
+        }
+        else
+        {
+            NSString* info = nil;
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+            NSDate *birthday = [dateFormatter dateFromString:[dict objectForKey:@"dateOfBirth"]];
+            NSDate *now = [[NSDate alloc] init];
+            NSLog(@"cur: %@, birth: %@",now,birthday);
+            
+            NSDateComponents* ageComponents = [[NSCalendar currentCalendar]
+                                               components:NSYearCalendarUnit
+                                               fromDate:birthday
+                                               toDate:now
+                                               options:0];
+            NSInteger age = [ageComponents year];
+            
+            info = [[NSString alloc] initWithFormat:@"%d", age ];
+            NSMutableAttributedString *matInfo = [[NSMutableAttributedString alloc] initWithString:info];
+            NSRange allrange;
+            allrange.location = 0;
+            allrange.length = [info length];
+            [matInfo addAttribute:NSFontAttributeName value:normalFont range:allrange];
+            [self.msgListInfo addObject:matInfo];
+        }
+
     }
 
     [self.tableView reloadData];

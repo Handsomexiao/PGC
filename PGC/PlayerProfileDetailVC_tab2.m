@@ -68,7 +68,6 @@
         [self SetPositionImage:[rec objectForKey:@"name"] efficiency:[rec objectForKey:@"efficiency"]];
     }
     
-    
     //self.DetailTextView.attributedText = allText;
 }
 
@@ -83,19 +82,19 @@
     CGRect aRect = CGRectMake(0, 0, 21, 21);
     UIImageView *ImageView = [[UIImageView alloc] initWithFrame:aRect];
 
-    if ([efficiency compare:@"100%"]) {
+    if ([efficiency compare:@"100%"] == NSOrderedSame) {
         ImageView.image = [UIImage imageNamed:@"Player-position-icon-1.png"];
     }
-    else if ([efficiency compare:@"90%"]) {
+    else if ([efficiency compare:@"90%"] == NSOrderedSame) {
         ImageView.image = [UIImage imageNamed:@"Player-position-icon-2.png"];
     }
-    else if ([efficiency compare:@"80%"]) {
+    else if ([efficiency compare:@"80%"] == NSOrderedSame) {
         ImageView.image = [UIImage imageNamed:@"Player-position-icon-3.png"];
     }
-    else if ([efficiency compare:@"70%"]) {
+    else if ([efficiency compare:@"70%"] == NSOrderedSame) {
         ImageView.image = [UIImage imageNamed:@"Player-position-icon-4.png"];
     }
-    else if ([efficiency compare:@"60%"]) {
+    else if ([efficiency compare:@"60%"] == NSOrderedSame) {
         ImageView.image = [UIImage imageNamed:@"Player-position-icon-5.png"];
     }
     
@@ -177,7 +176,8 @@
     }
     else
     {
-        
+        Label.hidden = true;
+        image.hidden = true;
     }
     
     Label.center = CGPointMake(x, y+21);
