@@ -68,7 +68,7 @@
         
         [self SetPositionImage:[rec objectForKey:@"name"] efficiency:[rec objectForKey:@"efficiency"]];
         
-        if ([[rec objectForKey:@"efficiency"] compare:@"100%"] == NSOrderedSame) {
+        if ([[[rec objectForKey:@"efficiency"] description] compare:@"100%"] == NSOrderedSame) {
             self.OptimalPosition.text = [NSString stringWithFormat:@"Optimal Position: %@", [rec objectForKey:@"name"]];
         }
     }
