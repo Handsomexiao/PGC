@@ -11,6 +11,7 @@
 @interface PlayerProfileDetailVC_tab2 ()
 
 //@property (strong, nonatomic) IBOutlet UITextView *DetailTextView;
+@property (strong, nonatomic) IBOutlet UILabel *OptimalPosition;
 
 @property (strong, nonatomic) IBOutlet UIView *positionView;
 @end
@@ -66,6 +67,10 @@
         [allText appendAttributedString:mat];
         
         [self SetPositionImage:[rec objectForKey:@"name"] efficiency:[rec objectForKey:@"efficiency"]];
+        
+        if ([[rec objectForKey:@"efficiency"] compare:@"100%"] == NSOrderedSame) {
+            self.OptimalPosition.text = [NSString stringWithFormat:@"Optimal Position: %@", [rec objectForKey:@"name"]];
+        }
     }
     
     //self.DetailTextView.attributedText = allText;

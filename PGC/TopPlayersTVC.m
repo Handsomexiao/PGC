@@ -82,22 +82,14 @@
     cell.tag = indexPath.row;
     
     
-    cell.imageView.image = nil; // or cell.poster.image = [UIImage imageNamed:@"placeholder.png"];
-    cell.imageView.image = [UIImage imageNamed:@"player-placeholder2.png"];
+    cell.imageView.image = nil;
+    CGSize size = CGSizeMake(TABLE_CELL_H*0.9,TABLE_CELL_H*0.9);
+    cell.imageView.image = [self imageScaledToSizeWithImage:[UIImage imageNamed:@"player-placeholder2.png"] andsizeee:size];
 
     NSInteger playerFmId = [[dict objectForKey:@"fmId"] integerValue];
     [PlayerPhoto photoData:playerFmId afterDone:^(UIImage* image){
         if (cell.tag == indexPath.row) {
-            CGSize size = CGSizeMake(TABLE_CELL_H*0.8,TABLE_CELL_H*0.8);
             cell.imageView.image = [self imageScaledToSizeWithImage:image andsizeee:size];
-            
-            [cell.imageView sizeToFit];
-//            
-//            CGRect frame = cell.imageView.frame;
-//            frame.size.height = TABLE_CELL_H*0.9;
-//            frame.size.width = TABLE_CELL_H*0.9;
-//            cell.imageView.frame = frame;
-            
             [cell.imageView updateConstraints];
         }
     }];

@@ -25,6 +25,8 @@
 @implementation ClubPlayersTVC
 
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+#define TABLE_CELL_H 60
+
 
 -(NSMutableArray*)listData
 {
@@ -87,7 +89,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 60;
+    return TABLE_CELL_H;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -111,12 +113,13 @@
     cell.tag = indexPath.row;
     
     cell.imageView.image = nil;
-    cell.imageView.image = [UIImage imageNamed:@"player-placeholder2.png"];
+    CGSize size = CGSizeMake(TABLE_CELL_H*0.9,TABLE_CELL_H*0.9);
+    cell.imageView.image = [self imageScaledToSizeWithImage:[UIImage imageNamed:@"player-placeholder2.png"] andsizeee:size];
     
     NSInteger playerFmId = [[dict objectForKey:@"fmId"] integerValue];
     [PlayerPhoto photoData:playerFmId afterDone:^(UIImage* image){
         if (cell.tag == indexPath.row) {
-            cell.imageView.image = image;
+            cell.imageView.image = [self imageScaledToSizeWithImage:image andsizeee:size];
             [cell.imageView updateConstraints];
         }
     }];
@@ -144,6 +147,28 @@
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@",[dict objectForKey:@"nickName"],[dict objectForKey:@"nationOfBirthName"]];
     
     return cell;
+}
+
+- (UIImage *)imageScaledToSizeWithImage:(UIImage *)imagewww andsizeee:(CGSize)size
+{
+    //avoid redundant drawing
+    if (CGSizeEqualToSize(imagewww.size, size))
+    {
+        return imagewww;
+    }
+    
+    //create drawing context
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0.0f);
+    
+    //draw
+    [imagewww drawInRect:CGRectMake(0.0f, 0.0f, size.width, size.height)];
+    
+    //capture resultant image
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    //return image
+    return image;
 }
 
 -(void)startRequest
