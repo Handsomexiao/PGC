@@ -21,6 +21,8 @@
 @implementation TopPlayersTVC
 
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+#define TABLE_CELL_H 60
+
 
 -(NSMutableArray*)listData
 {
@@ -55,7 +57,7 @@
 {
     // Return the number of rows in the section.
     if (self.listData) {
-        return self.listData.count * 2;
+        return self.listData.count;
     }
     else{
         return 0;
@@ -64,26 +66,17 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ((indexPath.row % 2) == 0) {
-        return 6;
-    }
-    
-    return 52;
+    return TABLE_CELL_H;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ((indexPath.row % 2) == 0) {
-        static NSString *CellIdentifier = @"TopPlayerCell-space";
-        PlayerCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-        return cell;
-    }
     static NSString *CellIdentifier = @"TopPlayerCell";
     PlayerCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     if (cell == nil) {
         cell = [[PlayerCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
-    NSMutableDictionary* dict = self.listData[indexPath.row/2];
+    NSMutableDictionary* dict = self.listData[indexPath.row];
     
     // Configure the cell...
     cell.tag = indexPath.row;
@@ -95,7 +88,16 @@
     NSInteger playerFmId = [[dict objectForKey:@"fmId"] integerValue];
     [PlayerPhoto photoData:playerFmId afterDone:^(UIImage* image){
         if (cell.tag == indexPath.row) {
-            cell.imageView.image = image;
+            CGSize size = CGSizeMake(TABLE_CELL_H*0.8,TABLE_CELL_H*0.8);
+            cell.imageView.image = [self imageScaledToSizeWithImage:image andsizeee:size];
+            
+            [cell.imageView sizeToFit];
+//            
+//            CGRect frame = cell.imageView.frame;
+//            frame.size.height = TABLE_CELL_H*0.9;
+//            frame.size.width = TABLE_CELL_H*0.9;
+//            cell.imageView.frame = frame;
+            
             [cell.imageView updateConstraints];
         }
     }];
@@ -159,6 +161,28 @@
     
     
     
+}
+
+- (UIImage *)imageScaledToSizeWithImage:(UIImage *)imagewww andsizeee:(CGSize)size
+{
+    //avoid redundant drawing
+    if (CGSizeEqualToSize(imagewww.size, size))
+    {
+        return imagewww;
+    }
+    
+    //create drawing context
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0.0f);
+    
+    //draw
+    [imagewww drawInRect:CGRectMake(0.0f, 0.0f, size.width, size.height)];
+    
+    //capture resultant image
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    //return image
+    return image;
 }
 
 
