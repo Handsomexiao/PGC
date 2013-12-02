@@ -14,7 +14,7 @@
 @interface HomePageVC ()
 
 //保存数据列表
-@property (nonatomic,strong) NSMutableArray* listData;
+@property (nonatomic,strong) NSMutableArray* HomePagelistData;
 
 @end
 
@@ -44,14 +44,12 @@
     if (indexPath.item == 0) {
         static NSString *CellIdentifier = @"FirstSelect1";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-        NSLog(@"Top Player OK");
         return cell;
     }
     else
     {
         static NSString *CellIdentifier = @"FirstSelect2";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-        NSLog(@"Brower OK");
         return cell;
     }
     
@@ -219,9 +217,10 @@
                       commonStyle:(ICETutorialLabelStyle *)commonStyle
                             index:(NSUInteger)index{
     // SubTitles.
-    UILabel *overlayLabel = [[UILabel alloc] initWithFrame:CGRectMake((index  * _windowSize.width),
-                                                                      _windowSize.height - [commonStyle offset],
-                                                                      _windowSize.width,
+    CGSize TextLabelSize = _scrollView.bounds.size;
+    UILabel *overlayLabel = [[UILabel alloc] initWithFrame:CGRectMake((index  * TextLabelSize.width),
+                                                                      TextLabelSize.height - [commonStyle offset],
+                                                                      TextLabelSize.width,
                                                                       TUTORIAL_LABEL_HEIGHT)];
     [overlayLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
     [overlayLabel setNumberOfLines:[commonStyle linesNumber]];
@@ -433,10 +432,10 @@
                                    
                                    if ([resultCodeObj integerValue] >=0)
                                    {
-                                       self.listData = [resDic objectForKey:@"result"];
+                                       self.HomePagelistData = [resDic objectForKey:@"result"];
                                        _pages = nil;
                                        _pages = [[NSMutableArray alloc] init];
-                                       for (NSDictionary* dic in self.listData) {
+                                       for (NSDictionary* dic in self.HomePagelistData) {
                                            ICETutorialPage *layer = [[ICETutorialPage alloc] initWithSubTitle:[dic objectForKey:@"name"]
                                                                                                   description:@""
                                                                                                   pictureName:@""];
@@ -444,10 +443,10 @@
                                            [_pages addObject:layer];
                                        }
                                        dispatch_async(dispatch_get_main_queue(), ^{
-                                           _pageControl.numberOfPages = [self.listData count];
+                                           _pageControl.numberOfPages = [self.HomePagelistData count];
                                            _pageControl.currentPage = 0;
                                            
-                                           [PlayerHdPhoto GetAllPlayerHdPhoto:self.listData afterDone:^(void){
+                                           [PlayerHdPhoto GetAllPlayerHdPhoto:self.HomePagelistData afterDone:^(void){
                                                [_pageControl setCurrentPage:0];
                                                // Preset the origin state.
                                                [self setOriginLayersState];
