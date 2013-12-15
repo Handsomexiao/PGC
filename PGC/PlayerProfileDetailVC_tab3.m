@@ -101,4 +101,19 @@
     cell.detailTextLabel.text = self.msgListInfo[indexPath.row];
     return cell;
 }
+
+-(void)NextView
+{
+    
+    NSUInteger number = self.tabBarController.selectedIndex + 1;
+    if (number >= 4) {
+        return;
+    }
+    
+    self.tabBarController.selectedViewController
+    = [self.tabBarController.viewControllers objectAtIndex:number];
+    
+    NSLog(@"NextView! %d",number);
+    
+}
 @end

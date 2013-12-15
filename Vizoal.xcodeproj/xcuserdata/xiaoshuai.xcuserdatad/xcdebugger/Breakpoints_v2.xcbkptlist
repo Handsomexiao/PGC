@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PGC/PlayerProfileDetailVC_tab2.m"
-            timestampString = "407627826.758884"
+            timestampString = "408827813.507765"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "176"
@@ -32,6 +32,22 @@
             startingLineNumber = "221"
             endingLineNumber = "221"
             landmarkName = "-overlayLabelWithText:layer:commonStyle:index:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PGC/PlayerProfileVC.m"
+            timestampString = "408827844.599487"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "-NextView"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

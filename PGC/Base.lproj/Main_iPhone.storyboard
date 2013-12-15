@@ -374,6 +374,10 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="PjN-Kh-uhc" appends="YES" id="nV4-hj-sh2"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="contacts" id="WO2-FI-boF"/>
                     <connections>
@@ -387,6 +391,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8tk-Dt-u9P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="PjN-Kh-uhc"/>
             </objects>
             <point key="canvasLocation" x="1532" y="-338"/>
         </scene>
@@ -782,6 +787,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="OES-bJ-xJc"/>
+        <segue reference="YUm-eB-znl"/>
     </inferredMetricsTieBreakers>
 </document>

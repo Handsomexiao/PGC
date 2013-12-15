@@ -8,13 +8,15 @@
 
 #import "PlayerProfileDetailVC_tab1.h"
 
-@interface PlayerProfileDetailVC_tab1 () <UITableViewDataSource>
+@interface PlayerProfileDetailVC_tab1 () <UITableViewDataSource, UIGestureRecognizerDelegate>
 @property (strong,nonatomic) NSMutableArray* msgListName;
 @property (strong,nonatomic) NSMutableArray* msgListInfo;
 
 @property (strong, nonatomic) IBOutlet UIImageView *CountryImage;
 @property (strong, nonatomic) IBOutlet UIImageView *ClubImage;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+
+
 @end
 
 @implementation PlayerProfileDetailVC_tab1
@@ -32,6 +34,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+
+
+    
 }
 
 - (void)didReceiveMemoryWarning

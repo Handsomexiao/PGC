@@ -59,6 +59,12 @@
     CGRect newBounds = self.tableView.bounds;
     newBounds.origin.y = newBounds.origin.y + self.SearchBar.bounds.size.height;
     self.tableView.bounds = newBounds;
+    
+    //self.searchDisplayController = [[UISearchDisplayController alloc]
+    //                    initWithSearchBar:self.SearchBar contentsController:self];
+    self.searchDisplayController.delegate = self;
+    self.searchDisplayController.searchResultsDataSource = self;
+    self.searchDisplayController.searchResultsDelegate = self;
 }
 
 
@@ -203,9 +209,6 @@
                                    [self.tableView reloadData];
                                });
                            }];
-    
-    
-    
 }
 
 
@@ -270,7 +273,8 @@
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
-    [searchBar resignFirstResponder];
+    NSLog(@"cancel checked!");
+    [self.SearchBar resignFirstResponder];
 }
 
 @end

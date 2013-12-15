@@ -85,8 +85,40 @@
     [super viewDidLoad];
     [self startRequest];
     
+    UISwipeGestureRecognizer *SwipGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(NextView)];
+    SwipGesture.numberOfTouchesRequired = 1;
+    SwipGesture.direction = UISwipeGestureRecognizerDirectionLeft;
+    
+    [self.view addGestureRecognizer:SwipGesture];
     
 }
+
+-(void)NextView
+{
+    NSUInteger controllerIndex = self.tabBarController.selectedIndex + 1;
+    if (controllerIndex >= 4) {
+        controllerIndex = 0;
+    }
+    
+    // Get views. controllerIndex is passed in as the controller we want to go to.
+    UIView * fromView = self.tabBarController.selectedViewController.view;
+    UIView * toView = [[self.tabBarController.viewControllers objectAtIndex:controllerIndex] view];
+
+    
+    // Transition using a page curl.
+    [UIView transitionFromView:fromView
+                        toView:toView
+                      duration:0.5
+                       options:(controllerIndex > self.tabBarController.selectedIndex ? UIViewAnimationOptionTransitionCrossDissolve : UIViewAnimationOptionTransitionFlipFromRight)
+                    completion:^(BOOL finished) {
+                        if (finished) {
+                            self.tabBarController.selectedIndex = controllerIndex;
+                        }
+                    }];
+    
+    NSLog(@"NextView! %d",controllerIndex);
+}
+
 
 - (void)didReceiveMemoryWarning
 {
