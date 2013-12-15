@@ -17,6 +17,9 @@
 @property NSInteger photoNum;
 @end
 
+#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+#define TABLE_CELL_H 60
+
 @implementation ClubTVC
 
 - (NSMutableArray *)listData
@@ -66,12 +69,16 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return self.listData.count;
+    if (self.listData) {
+        return self.listData.count;
+    }
+    
+    return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 60;
+    return TABLE_CELL_H;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -84,7 +91,7 @@
     // Configure the cell...
     cell.tag = indexPath.row;
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    dispatch_async(kBgQueue, ^{
         NSInteger club_fm_id = [[dict objectForKey:@"fmId"] integerValue];
         NSString* urlString = [[NSString alloc] initWithFormat:@"http://ec2-54-215-136-21.us-west-1.compute.amazonaws.com:8080/vizoal/image/android/club_logo/3.0/%ld.png",(long)club_fm_id];
         NSData* imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString] options:NSDataReadingMappedIfSafe error:nil];
