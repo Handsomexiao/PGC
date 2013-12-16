@@ -39,10 +39,7 @@
 #import "UIColor+JSMessagesView.h"
 #import "JSDismissiveTextView.h"
 
-#define INPUT_HEIGHT 40.0f
-
-#define NAV_HEIGHT 64.0f
-#define BAR_HEIGHT 48.0f
+#define INPUT_HEIGHT 46.0f
 
 @interface JSMessagesViewController () <JSDismissiveTextViewDelegate>
 
@@ -55,7 +52,6 @@
 @implementation JSMessagesViewController
 
 #pragma mark - Initialization
-
 - (void)setup
 {
     if([self.view isKindOfClass:[UIScrollView class]]) {
@@ -65,22 +61,39 @@
     
     CGSize size = self.view.frame.size;
 	
-    CGRect tableFrame = CGRectMake(0.0f, NAV_HEIGHT, size.width, size.height - INPUT_HEIGHT - BAR_HEIGHT);
+    CGRect tableFrame = CGRectMake(0.0f, 40.0f, size.width, size.height - 40 - INPUT_HEIGHT);
 	self.tableView = [[UITableView alloc] initWithFrame:tableFrame style:UITableViewStylePlain];
 	self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	self.tableView.dataSource = self;
 	self.tableView.delegate = self;
-	[self.view addSubview:self.tableView];
+	[self.view addSubview:self.tableView]; 
 	
-    [self setBackgroundColor:[UIColor messagesBackgroundColor]];
-    
-    CGRect inputFrame = CGRectMake(0.0f, size.height - INPUT_HEIGHT - BAR_HEIGHT, size.width, INPUT_HEIGHT);
+	UIButton* mediaButton = nil;
+	if (kAllowsMedia)
+	{
+		// set up the image and button frame
+		UIImage* image = [UIImage imageNamed:@"PhotoIcon"];
+		CGRect frame = CGRectMake(4, 0, image.size.width, image.size.height);
+		CGFloat yHeight = (INPUT_HEIGHT - frame.size.height) / 2.0f;
+		frame.origin.y = yHeight;
+		
+		// make the button
+		mediaButton = [[UIButton alloc] initWithFrame:frame];
+		[mediaButton setBackgroundImage:image forState:UIControlStateNormal];
+		
+		// button action
+		[mediaButton addTarget:self action:@selector(cameraAction:) forControlEvents:UIControlEventTouchUpInside];
+	}
+	
+    CGRect inputFrame = CGRectMake(0.0f, size.height - INPUT_HEIGHT, size.width, INPUT_HEIGHT);
     self.inputToolBarView = [[JSMessageInputView alloc] initWithFrame:inputFrame delegate:self];
     
     // TODO: refactor
     self.inputToolBarView.textView.dismissivePanGestureRecognizer = self.tableView.panGestureRecognizer;
     self.inputToolBarView.textView.keyboardDelegate = self;
-
+    
+    self.inputToolBarView.textView.placeHolder = @"说点什么呢？";
+    
     UIButton *sendButton = [self sendButton];
     sendButton.enabled = NO;
     sendButton.frame = CGRectMake(self.inputToolBarView.frame.size.width - 65.0f, 8.0f, 59.0f, 26.0f);
@@ -89,6 +102,27 @@
          forControlEvents:UIControlEventTouchUpInside];
     [self.inputToolBarView setSendButton:sendButton];
     [self.view addSubview:self.inputToolBarView];
+    
+	if (kAllowsMedia)
+	{
+		// adjust the size of the send button to balance out more with the camera button on the other side.
+		CGRect frame = self.inputToolBarView.sendButton.frame;
+		frame.size.width -= 16;
+		frame.origin.x += 16;
+		self.inputToolBarView.sendButton.frame = frame;
+		
+		// add the camera button
+		[self.inputToolBarView addSubview:mediaButton];
+        
+		// move the tet view over
+		frame = self.inputToolBarView.textView.frame;
+		frame.origin.x += mediaButton.frame.size.width + mediaButton.frame.origin.x;
+		frame.size.width -= mediaButton.frame.size.width + mediaButton.frame.origin.x;
+		frame.size.width += 16;		// from the send button adjustment above
+		self.inputToolBarView.textView.frame = frame;
+	}
+	
+    [self setBackgroundColor:[UIColor messagesBackgroundColor]];
 }
 
 - (UIButton *)sendButton
@@ -106,6 +140,9 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [self scrollToBottomAnimated:NO];
+    
+    
+    _originalTableViewContentInset = self.tableView.contentInset;
     
 	[[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(handleWillShowKeyboard:)
@@ -167,6 +204,14 @@
                       withText:[self.inputToolBarView.textView.text trimWhitespace]];
 }
 
+
+- (void)cameraAction:(id)sender
+{
+    if(self.delegate && [self.delegate respondsToSelector:@selector(cameraPressed:)]){
+        [self.delegate cameraPressed:sender];
+    }
+}
+
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -182,6 +227,7 @@
 {
     JSBubbleMessageType type = [self.delegate messageTypeForRowAtIndexPath:indexPath];
     JSBubbleMessageStyle bubbleStyle = [self.delegate messageStyleForRowAtIndexPath:indexPath];
+    JSBubbleMediaType mediaType = [self.delegate messageMediaTypeForRowAtIndexPath:indexPath];
     JSAvatarStyle avatarStyle = [self.delegate avatarStyle];
     
     BOOL hasTimestamp = [self shouldHaveTimestampForRowAtIndexPath:indexPath];
@@ -193,7 +239,7 @@
     if(!cell)
         cell = [[JSBubbleMessageCell alloc] initWithBubbleType:type
                                                    bubbleStyle:bubbleStyle
-                                                   avatarStyle:(hasAvatar) ? avatarStyle : JSAvatarStyleNone
+                                                   avatarStyle:(hasAvatar) ? avatarStyle : JSAvatarStyleNone mediaType:mediaType
                                                   hasTimestamp:hasTimestamp
                                                reuseIdentifier:CellID];
     
@@ -212,6 +258,9 @@
         }
     }
     
+	if (kAllowsMedia)
+		[cell setMedia:[self.dataSource dataForRowAtIndexPath:indexPath]];
+    
     [cell setMessage:[self.dataSource textForRowAtIndexPath:indexPath]];
     [cell setBackgroundColor:tableView.backgroundColor];
     return cell;
@@ -220,9 +269,15 @@
 #pragma mark - Table view delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [JSBubbleMessageCell neededHeightForText:[self.dataSource textForRowAtIndexPath:indexPath]
-                                          timestamp:[self shouldHaveTimestampForRowAtIndexPath:indexPath]
-                                             avatar:[self shouldHaveAvatarForRowAtIndexPath:indexPath]];
+    if(![self.delegate messageMediaTypeForRowAtIndexPath:indexPath]){
+        return [JSBubbleMessageCell neededHeightForText:[self.dataSource textForRowAtIndexPath:indexPath]
+                                              timestamp:[self shouldHaveTimestampForRowAtIndexPath:indexPath]
+                                                 avatar:[self shouldHaveAvatarForRowAtIndexPath:indexPath]];
+    }else{
+        return [JSBubbleMessageCell neededHeightForImage:[self.dataSource dataForRowAtIndexPath:indexPath]
+                                               timestamp:[self shouldHaveTimestampForRowAtIndexPath:indexPath]
+                                                  avatar:[self shouldHaveAvatarForRowAtIndexPath:indexPath]];
+    }
 }
 
 #pragma mark - Messages view controller
@@ -291,6 +346,17 @@
     }
 }
 
+
+- (void)scrollToRowAtIndexPath:(NSIndexPath *)indexPath
+			  atScrollPosition:(UITableViewScrollPosition)position
+					  animated:(BOOL)animated
+{
+	[self.tableView scrollToRowAtIndexPath:indexPath
+						  atScrollPosition:position
+								  animated:animated];
+}
+
+
 #pragma mark - Text view delegate
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
@@ -310,7 +376,11 @@
 - (void)textViewDidChange:(UITextView *)textView
 {
     CGFloat maxHeight = [JSMessageInputView maxHeight];
-    CGFloat textViewContentHeight = textView.contentSize.height;
+    CGSize size = [textView sizeThatFits:CGSizeMake(textView.frame.size.width, maxHeight)];
+    CGFloat textViewContentHeight = size.height;
+    
+    // End of textView.contentSize replacement code
+    
     BOOL isShrinking = textViewContentHeight < self.previousTextViewContentHeight;
     CGFloat changeInHeight = textViewContentHeight - self.previousTextViewContentHeight;
     
@@ -322,8 +392,8 @@
     }
     
     if(changeInHeight != 0.0f) {
-        if(!isShrinking)
-            [self.inputToolBarView adjustTextViewHeightBy:changeInHeight];
+        //        if(!isShrinking)
+        //            [self.inputToolBarView adjustTextViewHeightBy:changeInHeight];
         
         [UIView animateWithDuration:0.25f
                          animations:^{
@@ -336,16 +406,24 @@
                              self.tableView.scrollIndicatorInsets = insets;
                              [self scrollToBottomAnimated:NO];
                              
+                             if(isShrinking) {
+                                 // if shrinking the view, animate text view frame BEFORE input view frame
+                                 [self.inputToolBarView adjustTextViewHeightBy:changeInHeight];
+                             }
+                             
                              CGRect inputViewFrame = self.inputToolBarView.frame;
                              self.inputToolBarView.frame = CGRectMake(0.0f,
                                                                       inputViewFrame.origin.y - changeInHeight,
                                                                       inputViewFrame.size.width,
                                                                       inputViewFrame.size.height + changeInHeight);
+                             
+                             if(!isShrinking) {
+                                 [self.inputToolBarView adjustTextViewHeightBy:changeInHeight];
+                             }
                          }
                          completion:^(BOOL finished) {
-                             if(isShrinking)
-                                 [self.inputToolBarView adjustTextViewHeightBy:changeInHeight];
                          }];
+        
         
         self.previousTextViewContentHeight = MIN(textViewContentHeight, maxHeight);
     }
@@ -383,16 +461,14 @@
                          CGFloat messageViewFrameBottom = self.view.frame.size.height - INPUT_HEIGHT;
                          if(inputViewFrameY > messageViewFrameBottom)
                              inputViewFrameY = messageViewFrameBottom;
-
-                         self.inputToolBarView.frame = CGRectMake(inputViewFrame.origin.x,
-                                                           inputViewFrameY,
-                                                           inputViewFrame.size.width,
-                                                           inputViewFrame.size.height);
                          
-                         UIEdgeInsets insets = UIEdgeInsetsMake(0.0f,
-                                                                0.0f,
-                                                                self.view.frame.size.height - self.inputToolBarView.frame.origin.y - INPUT_HEIGHT,
-                                                                0.0f);
+                         self.inputToolBarView.frame = CGRectMake(inputViewFrame.origin.x,
+                                                                  inputViewFrameY,
+                                                                  inputViewFrame.size.width,
+                                                                  inputViewFrame.size.height);
+                         
+                         UIEdgeInsets insets = self.originalTableViewContentInset;
+                         insets.bottom = self.view.frame.size.height - self.inputToolBarView.frame.origin.y - inputViewFrame.size.height;
                          
                          self.tableView.contentInset = insets;
                          self.tableView.scrollIndicatorInsets = insets;
@@ -417,12 +493,14 @@
     self.inputToolBarView.frame = inputViewFrame;
 }
 
-- (void)keyboardWillSnapBackToPoint:(CGPoint)pt
-{
-    CGRect inputViewFrame = self.inputToolBarView.frame;
-    CGPoint keyboardOrigin = [self.view convertPoint:pt fromView:nil];
-    inputViewFrame.origin.y = keyboardOrigin.y - inputViewFrame.size.height;
-    self.inputToolBarView.frame = inputViewFrame;
-}
+//- (void)keyboardWillSnapBackToPoint:(CGPoint)pt
+//{
+//    CGRect inputViewFrame = self.inputToolBarView.frame;
+//    CGPoint keyboardOrigin = [self.view convertPoint:pt fromView:nil];
+//    inputViewFrame.origin.y = keyboardOrigin.y - inputViewFrame.size.height;
+//    self.inputToolBarView.frame = inputViewFrame;
+//    
+//    
+//}
 
 @end
