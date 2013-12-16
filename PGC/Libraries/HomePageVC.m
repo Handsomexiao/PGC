@@ -15,6 +15,7 @@
 
 //保存数据列表
 @property (nonatomic,strong) NSMutableArray* HomePagelistData;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -44,18 +45,34 @@
     if (indexPath.item == 0) {
         static NSString *CellIdentifier = @"FirstSelect1";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        
+        UIView *bgColorView = [[UIView alloc] init];
+        bgColorView.backgroundColor = [UIColor yellowColor];
+        bgColorView.layer.masksToBounds = YES;
+        [cell setSelectedBackgroundView:bgColorView];
+        
         return cell;
     }
     else
     {
         static NSString *CellIdentifier = @"FirstSelect2";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        
+        UIView *bgColorView = [[UIView alloc] init];
+        bgColorView.backgroundColor = [UIColor yellowColor];
+        bgColorView.layer.masksToBounds = YES;
+        [cell setSelectedBackgroundView:bgColorView];
+        
         return cell;
     }
     
     return nil;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Do some stuff when the row is selected
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 #pragma mark - InitWithNibName
 
@@ -95,6 +112,15 @@
     [self initFormLoad];
     
     [self startRequest];    
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    // Unselect the selected row if any
+    NSIndexPath*    selection = [self.tableView indexPathForSelectedRow];
+    if (selection) {
+        [self.tableView deselectRowAtIndexPath:selection animated:YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -367,8 +393,8 @@
 {
     _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0,  418, 320, 20)];
     [_pageControl setNeedsLayout];
-    _pageControl.currentPageIndicatorTintColor = [UIColor colorWithRed:0.0 green:0.0 blue:1.0 alpha:0.5];
-    _pageControl.pageIndicatorTintColor = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:0.5];
+    _pageControl.currentPageIndicatorTintColor = [UIColor yellowColor];
+    _pageControl.pageIndicatorTintColor = [UIColor grayColor];
     [self.view addSubview:_pageControl];
     
     // Set the common style for SubTitles and Description (can be overrided on each page).
@@ -461,7 +487,7 @@
                                            [_scrollView setContentSize:CGSizeMake([self numberOfPages] * _windowSize.width,
                                                                                   _scrollView.contentSize.height)];
                                            [_scrollView setPagingEnabled:YES];
-                                           
+                                                                                      
                                            // PageControl configuration.
                                            [_pageControl setNumberOfPages:[self numberOfPages]];
                                            [_pageControl setCurrentPage:0];

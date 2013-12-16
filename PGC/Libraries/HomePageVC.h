@@ -10,7 +10,7 @@
 #import "ICETutorialPage.h"
 
 #define TUTORIAL_LABEL_TEXT_COLOR               [UIColor whiteColor]
-#define TUTORIAL_LABEL_HEIGHT                   34
+#define TUTORIAL_LABEL_HEIGHT                   20
 #define TUTORIAL_SUB_TITLE_FONT                 [UIFont fontWithName:@"Helvetica-Bold" size:17.0f]
 #define TUTORIAL_SUB_TITLE_LINES_NUMBER         1
 #define TUTORIAL_SUB_TITLE_OFFSET               34
@@ -35,6 +35,7 @@ typedef void (^ButtonBlock)(UIButton *button);
     __weak IBOutlet UIScrollView *_scrollView;
     IBOutlet UIPageControl *_pageControl;
     
+
     CGSize _windowSize;
     ScrollingState _currentState;
     
