@@ -34,6 +34,7 @@
     NSLog(@"select a");
     
     APActivityProvider *ActivityProvider = [[APActivityProvider alloc] init];
+    
     UIImage *ImageAtt = [UIImage imageNamed:@"country-placeholder.png"];
     NSArray *Items = @[ActivityProvider, ImageAtt];
     
@@ -96,9 +97,9 @@
     UIBarButtonItem *AButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
                                                                target:self
                                                                action:@selector(Share:)];
-    UIBarButtonItem *BButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:@selector(B:)];
+    //UIBarButtonItem *BButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:@selector(B:)];
     
-    self.navigationItem.rightBarButtonItems = @[AButton,BButton];    
+    self.navigationItem.rightBarButtonItems = @[AButton];
 }
 
 
