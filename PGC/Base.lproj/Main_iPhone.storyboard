@@ -29,13 +29,6 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i3d-yY-crT">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="439"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <subviews>
-                                    <view alpha="0.49999999999999994" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xji-cF-yI5">
-                                        <rect key="frame" x="0.0" y="393" width="320" height="46"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <color key="backgroundColor" white="0.1501767792" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>

@@ -487,7 +487,20 @@
                                            [_scrollView setContentSize:CGSizeMake([self numberOfPages] * _windowSize.width,
                                                                                   _scrollView.contentSize.height)];
                                            [_scrollView setPagingEnabled:YES];
-                                                                                      
+                                           
+                                           CGRect frameOfTextView = _scrollView.bounds;
+                                           int a = [self  numberOfPages];
+                                           a = a + 2;
+                                           frameOfTextView.size.width = a * _windowSize.width;
+                                           frameOfTextView.size.height = 40;
+                                           frameOfTextView.origin.x = -_windowSize.width;
+                                           frameOfTextView.origin.y = 439 - frameOfTextView.size.height;
+                                           UIView* textView = [[UIView alloc] initWithFrame:frameOfTextView];
+                                           textView.alpha = 0.5;
+                                           textView.backgroundColor = [UIColor blackColor];
+                                           [_scrollView addSubview:textView];
+                                           
+                                           
                                            // PageControl configuration.
                                            [_pageControl setNumberOfPages:[self numberOfPages]];
                                            [_pageControl setCurrentPage:0];
