@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D00AD8A2-D29C-4E85-9180-CC77ABB21D18</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Vizoal</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>165E52F3-70F5-429A-960A-25D5880C9637</key>
+		<string>https://github.com/Handsomexiao/PGC.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Vizoal.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>165E52F3-70F5-429A-960A-25D5880C9637</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Handsomexiao/PGC.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>165E52F3-70F5-429A-960A-25D5880C9637</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>165E52F3-70F5-429A-960A-25D5880C9637</string>
+			<key>IDESourceControlWCCName</key>
+			<string>PGC</string>
+		</dict>
+	</array>
+</dict>
+</plist>

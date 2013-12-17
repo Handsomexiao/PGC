@@ -13,6 +13,30 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //判断如果由远程消息通知触发应用程序启动
+    
+    if ([launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey]!=nil) {
+        
+        NSLog(@"init frome remote ");
+        //获取应用badge数
+        int badge = [UIApplication sharedApplication].applicationIconBadgeNumber;
+        
+        if (badge>0) {
+            
+            badge--;
+            
+            [UIApplication sharedApplication].applicationIconBadgeNumber = badge;
+            
+        }
+        
+    }
+    
+    // Let the device know we want to receive push notifications
+	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+     (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    
+    UIRemoteNotificationType enabledTypes =[[UIApplication sharedApplication] enabledRemoteNotificationTypes];
+    
     return YES;
 }
 							
@@ -41,6 +65,42 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    
+    NSString *token = [NSString stringWithFormat:@"%@",deviceToken];
+    
+    NSLog(@"My Token is %@",token);
+    
+}
+
+//向APNS申请token失败
+
+- (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)err {
+    
+    NSString *str = [NSString stringWithFormat: @"%@", err];
+    
+    NSLog(@"Failed to get token,err %@",str);
+    
+}
+
+//获取到远程通知
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    
+    int badge = [UIApplication sharedApplication].applicationIconBadgeNumber;
+    
+    badge++;
+    
+    [UIApplication sharedApplication].applicationIconBadgeNumber = badge;
+    
+    for (id key in userInfo) {
+        
+        NSLog(@"key: %@, value: %@", key, [userInfo objectForKey:key]);
+        
+    }
+    
 }
 
 @end
