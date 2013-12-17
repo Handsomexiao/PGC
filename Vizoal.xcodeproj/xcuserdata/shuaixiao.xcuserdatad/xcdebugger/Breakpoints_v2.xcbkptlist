@@ -125,7 +125,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "141"
             endingLineNumber = "141"
-            landmarkName = "-configureWithType:bubbleStyle:avatarStyle:mediaType:timestamp:"
+            landmarkName = "-configureWithType:bubbleStyle:avatarStyle:timestamp:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

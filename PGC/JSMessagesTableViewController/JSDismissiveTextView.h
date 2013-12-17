@@ -1,4 +1,6 @@
 //
+//  JSDismissiveTextView.h
+//
 //  Taken from MADismissiveTextView
 //  https://github.com/mikeahmarani/MADismissiveTextView
 //
@@ -6,63 +8,42 @@
 //  Copyright (c) 2012 Mike Ahmarani. All rights reserved.
 //
 //
-//  Documentation
-//  http://cocoadocs.org/docsets/JSMessagesViewController
-//
-//
 //  The MIT License
 //  Copyright (c) 2013 Jesse Squires
-//  http://opensource.org/licenses/MIT
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+//  associated documentation files (the "Software"), to deal in the Software without restriction, including
+//  without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the
+//  following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+//  LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+//  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+//  IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
+//  OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
 #import <UIKit/UIKit.h>
 
-/**
- *  The delegate of a `JSDismissiveTextView` object must adopt the `JSDismissiveTextViewDelegate` protocol.
- */
 @protocol JSDismissiveTextViewDelegate <NSObject>
 
 @optional
-/**
- *  Tells the delegate that the keyboard has full appeared on screen.
- */
 - (void)keyboardDidShow;
-
-/**
- *  Tells the delegate that the keyboard origin has moved to the specified point.
- *
- *  @param point The origin of the keyboard's frame in its superview's coordinate system.
- */
-- (void)keyboardDidScrollToPoint:(CGPoint)point;
-
-/**
- *  Tells the delegate that the keyboard is about to be dismissed. The keyboard will be removed from from its superview and resign first responder.
- */
+- (void)keyboardDidScrollToPoint:(CGPoint)pt;
 - (void)keyboardWillBeDismissed;
-
-/**
- *  Tells the delegate that the keyboard origin is about to move back to the specified point.
- *
- *  @param point The new origin of the keyboard's frame after it has completed animation.
- */
-- (void)keyboardWillSnapBackToPoint:(CGPoint)point;
+- (void)keyboardWillSnapBackToPoint:(CGPoint)pt;
 
 @end
 
 
-/**
- *  An instance of `JSDismissiveTextView` is a means for displaying a text view that is contained as a subview of the keyboard's `inputAccessoryView` and responds to a pan gesture to dismiss the keyboard and end editing.
- */
+
 @interface JSDismissiveTextView : UITextView
 
-/**
- *  The object that acts as the delegate of the receiving text view.
- */
 @property (weak, nonatomic) id<JSDismissiveTextViewDelegate> keyboardDelegate;
-
-/**
- *  The pan gesture recognizer for the text view.
- */
 @property (strong, nonatomic) UIPanGestureRecognizer *dismissivePanGestureRecognizer;
 
 @end

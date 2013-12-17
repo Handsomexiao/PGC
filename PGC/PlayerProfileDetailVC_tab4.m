@@ -122,17 +122,7 @@
 
 - (JSBubbleMessageStyle)messageStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return JSBubbleMessageStyleFlat;
-}
-
-- (JSBubbleMediaType)messageMediaTypeForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if([[self.commitMessages objectAtIndex:indexPath.row] objectForKey:@"Text"]){
-        return JSBubbleMediaTypeText;
-    }else if ([[self.commitMessages objectAtIndex:indexPath.row] objectForKey:@"Image"]){
-        return JSBubbleMediaTypeImage;
-    }
-    
-    return -1;
+    return JSBubbleMessageStyleSquare;
 }
 
 - (JSMessagesViewTimestampPolicy)timestampPolicy
@@ -155,16 +145,6 @@
 //
 //  - (BOOL)hasTimestampForRowAtIndexPath:(NSIndexPath *)indexPath
 //
-
-- (JSInputBarStyle)inputBarStyle
-{
-    /*
-     JSInputBarStyleDefault,
-     JSInputBarStyleFlat
-     
-     */
-    return JSInputBarStyleFlat;
-}
 
 #pragma mark - Messages view data source
 - (NSString *)textForRowAtIndexPath:(NSIndexPath *)indexPath

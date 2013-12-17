@@ -34,15 +34,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
-
 #import "JSBubbleMessageCell.h"
 #import "JSMessageInputView.h"
 #import "JSMessageSoundEffect.h"
 #import "UIButton+JSMessagesView.h"
-
-
-#define kAllowsMedia		YES
 
 typedef enum {
     JSMessagesViewTimestampPolicyAll = 0,
@@ -63,10 +58,8 @@ typedef enum {
 @protocol JSMessagesViewDelegate <NSObject>
 @required
 - (void)sendPressed:(UIButton *)sender withText:(NSString *)text;
-- (void)cameraPressed:(id)sender;
 - (JSBubbleMessageType)messageTypeForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (JSBubbleMessageStyle)messageStyleForRowAtIndexPath:(NSIndexPath *)indexPath;
-- (JSBubbleMediaType)messageMediaTypeForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (JSMessagesViewTimestampPolicy)timestampPolicy;
 - (JSMessagesViewAvatarPolicy)avatarPolicy;
 - (JSAvatarStyle)avatarStyle;
@@ -84,20 +77,17 @@ typedef enum {
 - (NSDate *)timestampForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (UIImage *)avatarImageForIncomingMessage;
 - (UIImage *)avatarImageForOutgoingMessage;
-@optional
-- (id)dataForRowAtIndexPath:(NSIndexPath *)indexPath;
 @end
 
 
 
-@interface JSMessagesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextViewDelegate, JSMessageInputViewDelegate>
+@interface JSMessagesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextViewDelegate>
 
 @property (weak, nonatomic) id<JSMessagesViewDelegate> delegate;
 @property (weak, nonatomic) id<JSMessagesViewDataSource> dataSource;
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) JSMessageInputView *inputToolBarView;
 @property (assign, nonatomic) CGFloat previousTextViewContentHeight;
-@property (assign, nonatomic, readonly) UIEdgeInsets originalTableViewContentInset;
 
 #pragma mark - Initialization
 - (UIButton *)sendButton;

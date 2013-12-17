@@ -51,9 +51,6 @@
 - (UIImage *)makeStretchableSquareIncoming;
 - (UIImage *)makeStretchableSquareOutgoing;
 
-- (UIImage *)makeStretchableFlatIncoming;
-- (UIImage *)makeStretchableFlatOutgoing;
-
 #pragma mark - Incoming message bubbles
 + (UIImage *)bubbleDefaultIncoming;
 + (UIImage *)bubbleDefaultIncomingSelected;
@@ -63,9 +60,6 @@
 + (UIImage *)bubbleSquareIncoming;
 + (UIImage *)bubbleSquareIncomingSelected;
 
-+ (UIImage *)bubbleFlatIncoming;
-+ (UIImage *)bubbleFlatIncomingSelected;
-
 #pragma mark - Outgoing message bubbles
 + (UIImage *)bubbleDefaultOutgoing;
 + (UIImage *)bubbleDefaultOutgoingSelected;
@@ -74,8 +68,5 @@
 
 + (UIImage *)bubbleSquareOutgoing;
 + (UIImage *)bubbleSquareOutgoingSelected;
-
-+ (UIImage *)bubbleFlatOutgoing;
-+ (UIImage *)bubbleFlatOutgoingSelected;
 
 @end
