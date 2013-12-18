@@ -35,8 +35,6 @@
 	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:
      (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
     
-    UIRemoteNotificationType enabledTypes =[[UIApplication sharedApplication] enabledRemoteNotificationTypes];
-    
     return YES;
 }
 							
@@ -98,9 +96,25 @@
     for (id key in userInfo) {
         
         NSLog(@"key: %@, value: %@", key, [userInfo objectForKey:key]);
-        
     }
     
+    NSDictionary *text = [userInfo objectForKey:@"aps"];
+    
+    
+    UIApplicationState state = [application applicationState];
+    if (state == UIApplicationStateActive)
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"ALERT"
+                                                            message:[text objectForKey:@"alert"]  delegate:self
+                                                  cancelButtonTitle:@"DONE"
+                                                  otherButtonTitles:@"VIEW", nil];
+        [alertView show];
+    }
+    else
+    {
+        // just ignore it…
+    }
+
 }
 
 @end

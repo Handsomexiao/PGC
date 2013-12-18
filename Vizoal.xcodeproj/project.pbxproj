@@ -106,6 +106,8 @@
 		338F68A518428C99007A6BD9 /* Player-position-icon-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 338F68A018428C99007A6BD9 /* Player-position-icon-3.png */; };
 		338F68A618428C99007A6BD9 /* Player-position-icon-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 338F68A118428C99007A6BD9 /* Player-position-icon-4.png */; };
 		338F68A718428C99007A6BD9 /* Player-position-icon-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 338F68A218428C99007A6BD9 /* Player-position-icon-5.png */; };
+		33AA23821860CDD500E5458E /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33AA23811860CDD500E5458E /* GameKit.framework */; };
+		33AA23841860CDE700E5458E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33AA23831860CDE700E5458E /* MapKit.framework */; };
 		33EC31EC183C3CF800A7F315 /* 11.png in Resources */ = {isa = PBXBuildFile; fileRef = 33EC31E7183C3CF800A7F315 /* 11.png */; };
 		33EC31ED183C3CF800A7F315 /* 15.png in Resources */ = {isa = PBXBuildFile; fileRef = 33EC31E8183C3CF800A7F315 /* 15.png */; };
 		33EC31EE183C3CF800A7F315 /* 17.png in Resources */ = {isa = PBXBuildFile; fileRef = 33EC31E9183C3CF800A7F315 /* 17.png */; };
@@ -262,6 +264,8 @@
 		338F68A018428C99007A6BD9 /* Player-position-icon-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Player-position-icon-3.png"; sourceTree = "<group>"; };
 		338F68A118428C99007A6BD9 /* Player-position-icon-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Player-position-icon-4.png"; sourceTree = "<group>"; };
 		338F68A218428C99007A6BD9 /* Player-position-icon-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Player-position-icon-5.png"; sourceTree = "<group>"; };
+		33AA23811860CDD500E5458E /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		33AA23831860CDE700E5458E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		33EC31E7183C3CF800A7F315 /* 11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 11.png; sourceTree = "<group>"; };
 		33EC31E8183C3CF800A7F315 /* 15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 15.png; sourceTree = "<group>"; };
 		33EC31E9183C3CF800A7F315 /* 17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 17.png; sourceTree = "<group>"; };
@@ -284,6 +288,8 @@
 				00B7064117FB78280011EAAE /* CoreGraphics.framework in Frameworks */,
 				00B7064317FB78280011EAAE /* UIKit.framework in Frameworks */,
 				00B7063F17FB78270011EAAE /* Foundation.framework in Frameworks */,
+				33AA23841860CDE700E5458E /* MapKit.framework in Frameworks */,
+				33AA23821860CDD500E5458E /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +379,8 @@
 		00B7063D17FB78270011EAAE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				33AA23831860CDE700E5458E /* MapKit.framework */,
+				33AA23811860CDD500E5458E /* GameKit.framework */,
 				0010EAC51828BC2D006822D7 /* FacebookSDK.framework */,
 				00B7063E17FB78270011EAAE /* Foundation.framework */,
 				00B7064017FB78280011EAAE /* CoreGraphics.framework */,
@@ -615,8 +623,17 @@
 					00B7063A17FB78270011EAAE = {
 						DevelopmentTeam = Z93DRG9D63;
 						SystemCapabilities = {
+							com.apple.DataProtection = {
+								enabled = 1;
+							};
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
 							com.apple.iCloud = {
-								enabled = 0;
+								enabled = 1;
+							};
+							com.apple.iOS = {
+								enabled = 1;
 							};
 						};
 					};
@@ -893,6 +910,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = Vizoal.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -915,6 +933,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = Vizoal.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
