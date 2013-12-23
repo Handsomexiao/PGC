@@ -11,6 +11,8 @@
 		00080BBB181DD9AB00CCF4BF /* APActivityProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 00080BBA181DD9AB00CCF4BF /* APActivityProvider.m */; };
 		00080BBE181DDA2500CCF4BF /* APActivityIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 00080BBD181DDA2500CCF4BF /* APActivityIcon.m */; };
 		0010EAC61828BC2D006822D7 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0010EAC51828BC2D006822D7 /* FacebookSDK.framework */; };
+		00326FA71867C0F400B40DFC /* ViewPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00326FA21867C0F400B40DFC /* ViewPagerController.m */; };
+		00326FA81867C0F400B40DFC /* HostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00326FA41867C0F400B40DFC /* HostViewController.m */; };
 		007C9CE018176B8200DA235C /* club placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 007C9CDC18176B8200DA235C /* club placeholder.png */; };
 		007C9CE118176B8200DA235C /* player-placeholder2.png in Resources */ = {isa = PBXBuildFile; fileRef = 007C9CDD18176B8200DA235C /* player-placeholder2.png */; };
 		007C9CE218176B8200DA235C /* country-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 007C9CDE18176B8200DA235C /* country-placeholder.png */; };
@@ -133,6 +135,10 @@
 		00080BBC181DDA2500CCF4BF /* APActivityIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APActivityIcon.h; sourceTree = "<group>"; };
 		00080BBD181DDA2500CCF4BF /* APActivityIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APActivityIcon.m; sourceTree = "<group>"; };
 		0010EAC51828BC2D006822D7 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		00326FA11867C0F400B40DFC /* ViewPagerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewPagerController.h; sourceTree = "<group>"; };
+		00326FA21867C0F400B40DFC /* ViewPagerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewPagerController.m; sourceTree = "<group>"; };
+		00326FA31867C0F400B40DFC /* HostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HostViewController.h; sourceTree = "<group>"; };
+		00326FA41867C0F400B40DFC /* HostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HostViewController.m; sourceTree = "<group>"; };
 		007C9CDC18176B8200DA235C /* club placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "club placeholder.png"; sourceTree = "<group>"; };
 		007C9CDD18176B8200DA235C /* player-placeholder2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player-placeholder2.png"; sourceTree = "<group>"; };
 		007C9CDE18176B8200DA235C /* country-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "country-placeholder.png"; sourceTree = "<group>"; };
@@ -300,6 +306,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00326FAA1867C0FD00B40DFC /* ProfileDetail */ = {
+			isa = PBXGroup;
+			children = (
+				00326FA11867C0F400B40DFC /* ViewPagerController.h */,
+				00326FA21867C0F400B40DFC /* ViewPagerController.m */,
+				00326FA31867C0F400B40DFC /* HostViewController.h */,
+				00326FA41867C0F400B40DFC /* HostViewController.m */,
+			);
+			name = ProfileDetail;
+			sourceTree = "<group>";
+		};
 		009F18A61802821A00BC385F /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,6 +410,7 @@
 				00A952A7180B7920004547C4 /* HomePageVC.h */,
 				00A952A8180B7920004547C4 /* HomePageVC.m */,
 				00B7065017FB78280011EAAE /* Main_iPhone.storyboard */,
+				00326FAA1867C0FD00B40DFC /* ProfileDetail */,
 				336045101830378B005D8EEB /* LeagueTVC.h */,
 				336045111830378B005D8EEB /* LeagueTVC.m */,
 				33EC31F1183C3DE400A7F315 /* LeagueCell.h */,
@@ -484,7 +502,6 @@
 				3311F2251836E363009F7807 /* JSMessagesViewController.m */,
 				3311F2261836E363009F7807 /* NSString+JSMessagesView.h */,
 				3311F2271836E363009F7807 /* NSString+JSMessagesView.m */,
-				3311F2281836E363009F7807 /* Resources */,
 				3311F24B1836E363009F7807 /* UIButton+JSMessagesView.h */,
 				3311F24C1836E363009F7807 /* UIButton+JSMessagesView.m */,
 				3311F24D1836E363009F7807 /* UIColor+JSMessagesView.h */,
@@ -493,6 +510,7 @@
 				3311F2501836E363009F7807 /* UIImage+JSMessagesView.m */,
 				3311F2511836E363009F7807 /* UIView+AnimationOptionsForCurve.h */,
 				3311F2521836E363009F7807 /* UIView+AnimationOptionsForCurve.m */,
+				3311F2281836E363009F7807 /* Resources */,
 			);
 			path = JSMessagesTableViewController;
 			sourceTree = "<group>";
@@ -749,6 +767,7 @@
 				3311F27C1836E363009F7807 /* UIImage+JSMessagesView.m in Sources */,
 				3311F2551836E363009F7807 /* JSDismissiveTextView.m in Sources */,
 				33FBC82F1818AF770047E9F6 /* LoginViewController.m in Sources */,
+				00326FA81867C0F400B40DFC /* HostViewController.m in Sources */,
 				336045121830378B005D8EEB /* LeagueTVC.m in Sources */,
 				3302CEC8180DD75F0021F533 /* PlayerHdPhoto.m in Sources */,
 				00B7068C17FB94690011EAAE /* ClubCell.m in Sources */,
@@ -764,6 +783,7 @@
 				00B7064F17FB78280011EAAE /* PGCAppDelegate.m in Sources */,
 				00A952AC180B7920004547C4 /* ICETutorialPage.m in Sources */,
 				3302CECB180DD77A0021F533 /* PlayerHdPhoto+Internet.m in Sources */,
+				00326FA71867C0F400B40DFC /* ViewPagerController.m in Sources */,
 				0095415B1804E35C00E02794 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

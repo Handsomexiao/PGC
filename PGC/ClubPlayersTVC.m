@@ -12,6 +12,7 @@
 #import "PlayerProfileVC.h"
 #import "PlayerPhoto+Internet.h"
 #import "playerProfileDetailTBC.h"
+#import "HostViewController.h"
 
 @interface ClubPlayersTVC ()
 //保存数据列表
@@ -259,14 +260,34 @@
         if(sender == self.searchDisplayController.searchResultsTableView) {
             NSIndexPath *indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
             NSDictionary* dict = [self.filteredArray objectAtIndex:[indexPath row]];
-            playerProfileDetailTBC* plays = (playerProfileDetailTBC*)segue.destinationViewController;
-            plays.playerFmId = [[dict objectForKey:@"playerId"] integerValue];
+            
+            if([segue.destinationViewController isKindOfClass:[playerProfileDetailTBC class]])
+            {
+                playerProfileDetailTBC* plays = (playerProfileDetailTBC*)segue.destinationViewController;
+                plays.playerFmId = [[dict objectForKey:@"playerId"] integerValue];
+            }
+            
+            if([segue.destinationViewController isKindOfClass:[HostViewController class]])
+            {
+                HostViewController* plays = (HostViewController*)segue.destinationViewController;
+                plays.playerFmId = [[dict objectForKey:@"playerId"] integerValue];
+            }
         }
         else {
             NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
             NSDictionary* dict = [self.listData objectAtIndex:[indexPath row]];
-            playerProfileDetailTBC* plays = (playerProfileDetailTBC*)segue.destinationViewController;
-            plays.playerFmId = [[dict objectForKey:@"playerId"] integerValue];
+            
+            if([segue.destinationViewController isKindOfClass:[playerProfileDetailTBC class]])
+            {
+                playerProfileDetailTBC* plays = (playerProfileDetailTBC*)segue.destinationViewController;
+                plays.playerFmId = [[dict objectForKey:@"playerId"] integerValue];
+            }
+            
+            if([segue.destinationViewController isKindOfClass:[HostViewController class]])
+            {
+                HostViewController* plays = (HostViewController*)segue.destinationViewController;
+                plays.playerFmId = [[dict objectForKey:@"playerId"] integerValue];
+            }
         }
     }
 }

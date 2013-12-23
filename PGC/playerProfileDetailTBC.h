@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface playerProfileDetailTBC : UITabBarController
+@interface playerProfileDetailTBC : UIViewController
 
 @property NSInteger playerFmId;
 

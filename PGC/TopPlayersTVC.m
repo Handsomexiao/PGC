@@ -10,6 +10,7 @@
 #import "PlayerCell.h"
 #import "playerProfileDetailTBC.h"
 #import "PlayerPhoto+Internet.h"
+#import "HostViewController.h"
 
 @interface TopPlayersTVC ()
 
@@ -187,6 +188,12 @@
         if([segue.destinationViewController isKindOfClass:[playerProfileDetailTBC class]])
         {
             playerProfileDetailTBC* plays = (playerProfileDetailTBC*)segue.destinationViewController;
+            plays.playerFmId = player.playerFmId;
+        }
+        
+        if([segue.destinationViewController isKindOfClass:[HostViewController class]])
+        {
+            HostViewController* plays = (HostViewController*)segue.destinationViewController;
             plays.playerFmId = player.playerFmId;
         }
     }

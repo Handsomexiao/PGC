@@ -112,7 +112,8 @@
     // add commit
     [self addCommit:text];
     
-    [self.inputToolBarView removeFromSuperview];
+    [self.inputToolBarView resignFirstResponder];
+    //[self.inputToolBarView removeFromSuperview];
 }
 
 - (JSBubbleMessageType)messageTypeForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -221,6 +222,8 @@
                                
                                dispatch_async(dispatch_get_main_queue(), ^{
                                    [self.tableView reloadData];
+                                   
+                                   self.tabBarItem.badgeValue = [NSString stringWithFormat:@"%lu",(unsigned long)[self.commitMessages count]];
                                });
                            }];
     
