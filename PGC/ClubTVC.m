@@ -93,7 +93,7 @@
     
     dispatch_async(kBgQueue, ^{
         NSInteger club_fm_id = [[dict objectForKey:@"fmId"] integerValue];
-        NSString* urlString = [[NSString alloc] initWithFormat:@"http://ec2-54-215-136-21.us-west-1.compute.amazonaws.com:8080/vizoal/image/android/club_logo/3.0/%ld.png",(long)club_fm_id];
+        NSString* urlString = [[NSString alloc] initWithFormat:@"http://api.vizoal.com/vizoal/image/android/club_logo/3.0/%ld.png",(long)club_fm_id];
         NSData* imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString] options:NSDataReadingMappedIfSafe error:nil];
         UIImage* image = [[UIImage alloc] initWithData:imageData];
         
@@ -119,7 +119,7 @@
 
 -(void)startRequest
 {
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://ec2-54-215-136-21.us-west-1.compute.amazonaws.com:8080/vizoal/services/clublistByLeague/%ld",(long)self.leagueId]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.vizoal.com/vizoal/services/clublistByLeague/%ld",(long)self.leagueId]];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     

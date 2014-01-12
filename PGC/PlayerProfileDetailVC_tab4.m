@@ -177,7 +177,7 @@
 
 -(void)getCommit
 {
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://ec2-54-215-136-21.us-west-1.compute.amazonaws.com:8080/vizoal/services/playerComment/%ld",(long)self.PlayerFmId]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.vizoal.com/vizoal/services/playerComment/%ld",(long)self.PlayerFmId]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url
                                              cachePolicy:NSURLRequestUseProtocolCachePolicy
                                          timeoutInterval:60.0];
@@ -229,7 +229,7 @@
 
 -(void)getMoreCommit
 {
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://ec2-54-215-136-21.us-west-1.compute.amazonaws.com:8080/vizoal/services/playerComment/old/%ld/%ld",(long)self.PlayerFmId,(long)self.lastCommitId]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.vizoal.com/vizoal/services/playerComment/old/%ld/%ld",(long)self.PlayerFmId,(long)self.lastCommitId]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url
                                              cachePolicy:NSURLRequestUseProtocolCachePolicy
                                          timeoutInterval:60.0];
@@ -295,7 +295,7 @@
     }
     
     NSString *requestString = [NSString stringWithFormat:
-                               @"http://ec2-54-215-136-21.us-west-1.compute.amazonaws.com:8080/vizoal/services/playerComment"];
+                               @"http://api.vizoal.com/vizoal/services/playerComment"];
     
     NSURL *url = [NSURL URLWithString:requestString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];

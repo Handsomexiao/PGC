@@ -44,7 +44,7 @@
     NSInteger page = 0;
     for (NSDictionary *dict in lastData) {
         
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://ec2-54-215-136-21.us-west-1.compute.amazonaws.com:8080/vizoal/image/ios/homepage/iphone5/%@",[dict objectForKey:@"image"]]];
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.vizoal.com/vizoal/image/ios/homepage/iphone5/%@",[dict objectForKey:@"image"]]];
         NSLog(@"new get playerHdPhoto--%@",url);
         dispatch_async(kBgQueue, ^{
             NSData* NewphotoData = [NSData dataWithContentsOfURL:url];

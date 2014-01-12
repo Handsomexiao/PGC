@@ -25,7 +25,7 @@
                                               error:&error];
     
     if (!matches || [matches count] != 1) {
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://ec2-54-215-136-21.us-west-1.compute.amazonaws.com:8080/vizoal/image/android/player/2.0/%ld.png",(long)playerId]];
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.vizoal.com/vizoal/image/android/player/2.0/%ld.png",(long)playerId]];
         NSLog(@"new get playerPhoto--%@",url);
         
         dispatch_async(kBgQueue, ^{

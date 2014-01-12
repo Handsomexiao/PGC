@@ -69,7 +69,7 @@
     
     dispatch_async(kBgQueue, ^{
         NSInteger club_fm_id = [[self.listData objectForKey:@"club_fm_id"] integerValue];
-        NSString* urlString = [[NSString alloc] initWithFormat:@"http://ec2-54-215-136-21.us-west-1.compute.amazonaws.com:8080/vizoal/image/android/club_logo/3.0/%ld.png",(long)club_fm_id];
+        NSString* urlString = [[NSString alloc] initWithFormat:@"http://api.vizoal.com/vizoal/image/android/club_logo/3.0/%ld.png",(long)club_fm_id];
         NSData* imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString] options:NSDataReadingMappedIfSafe error:nil];
         UIImage* image = [[UIImage alloc] initWithData:imageData];
         
@@ -83,7 +83,7 @@
     
     dispatch_async(kBgQueue, ^{
         NSInteger nationDisplay = [[self.listData objectForKey:@"nationality_fmid"] integerValue];
-        NSString* urlString = [[NSString alloc] initWithFormat:@"http://ec2-54-215-136-21.us-west-1.compute.amazonaws.com:8080/vizoal/image/android/country_logo_profile/2.0/%ld.png",(long)nationDisplay];
+        NSString* urlString = [[NSString alloc] initWithFormat:@"http://api.vizoal.com/vizoal/image/android/country_logo_profile/2.0/%ld.png",(long)nationDisplay];
         NSLog(@"country photo:%@",urlString);
         NSData* imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString] options:NSDataReadingMappedIfSafe error:nil];
         UIImage* image = [[UIImage alloc] initWithData:imageData];

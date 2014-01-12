@@ -179,7 +179,7 @@
 
 -(void)startRequest
 {
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://ec2-54-215-136-21.us-west-1.compute.amazonaws.com:8080/vizoal/services/playerlistByClub/%d",self.cludId]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.vizoal.com/vizoal/services/playerlistByClub/%d",self.cludId]];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     
     NSLog(@"%@",url);
