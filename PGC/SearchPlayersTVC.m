@@ -1,28 +1,29 @@
 //
-//  TopPlayerTVC.m
-//  TVTest
+//  SearchPlayersTVC.m
+//  Vizoal
 //
-//  Created by Shuai Xiao on 9/30/13.
-//  Copyright (c) 2013 Shuai Xiao. All rights reserved.
+//  Created by Shuai Xiao on 1/12/14.
+//  Copyright (c) 2014 Shuai Xiao. All rights reserved.
 //
 
-#import "ClubPlayersTVC.h"
-#import "ClubCell.h"
+#import "SearchPlayersTVC.h"
 #import "PlayerCell.h"
 #import "PlayerProfileVC.h"
 #import "PlayerPhoto+Internet.h"
 #import "playerProfileDetailTBC.h"
 
-@interface ClubPlayersTVC ()
+@interface SearchPlayersTVC ()
+
 //保存数据列表
-@property (nonatomic,strong) NSMutableArray* listData;
+@property (strong,nonatomic) NSMutableArray* listData;
 
 @property (strong,nonatomic) NSMutableArray *filteredArray;
 @property IBOutlet UISearchBar *SearchBar;
+@property BOOL isUnderSearch;
 
 @end
 
-@implementation ClubPlayersTVC
+@implementation SearchPlayersTVC
 
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 #define TABLE_CELL_H 60
@@ -47,24 +48,27 @@
 
 -(void)viewDidLoad
 {
+    self.isUnderSearch = false;
     [super viewDidLoad];
     
     // a UIRefreshControl inherits from UIControl, so we can use normal target/action
     // this is the first time you’ve seen this done without ctrl-dragging in Xcode
     [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     
-    [self startRequest];
+    //[self startRequest];
     
     // 将搜索栏藏起来（搜索栏只有在用户滚动到列表视图顶端时才会出现）
-    CGRect newBounds = self.tableView.bounds;
-    newBounds.origin.y = newBounds.origin.y + self.SearchBar.bounds.size.height;
-    self.tableView.bounds = newBounds;
+    //CGRect newBounds = self.tableView.bounds;
+    //newBounds.origin.y = newBounds.origin.y + self.SearchBar.bounds.size.height;
+    //self.tableView.bounds = newBounds;
     
     //self.searchDisplayController = [[UISearchDisplayController alloc]
     //                    initWithSearchBar:self.SearchBar contentsController:self];
     self.searchDisplayController.delegate = self;
     self.searchDisplayController.searchResultsDataSource = self;
     self.searchDisplayController.searchResultsDelegate = self;
+    
+    [self.SearchBar becomeFirstResponder];
 }
 
 
@@ -78,6 +82,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (self.isUnderSearch) {
+        return 0;
+    }
+    
     // Return the number of rows in the section.
     if (self.listData) {
         // 检查现在应该显示普通列表还是过滤后的列表
@@ -100,12 +108,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"ClubPlayer";
+    if (self.isUnderSearch) {
+        return Nil;
+    }
+    
+    static NSString *CellIdentifier = @"SearchPlayerCell";
     PlayerCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[PlayerCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
-
+    
     NSMutableDictionary* dict;
     
     // 检查现在应该显示普通列表还是过滤后的列表
@@ -129,7 +141,7 @@
             [cell.imageView updateConstraints];
         }
     }];
-
+    
     NSString* name = nil;
     if ([[[dict objectForKey:@"firstName"] description] compare:@""]) {
         name = [[NSString alloc] initWithFormat:@"%@ %@",[[dict objectForKey:@"firstName"] description] ,[[dict objectForKey:@"lastName"] description]];
@@ -177,13 +189,15 @@
     return image;
 }
 
--(void)startRequest
+-(void)startSearch:(NSString *)searchString
 {
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.vizoal.com/vizoal/services/playerlistByClub/%d",self.cludId]];
+    self.isUnderSearch = TRUE;
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.vizoal.com/vizoal/services/playerlistByName/%@",searchString]];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     
     NSLog(@"%@",url);
-
+    
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     
     [NSURLConnection sendAsynchronousRequest:request
@@ -200,43 +214,59 @@
                                    
                                    if ([resultCodeObj integerValue] >=0)
                                    {
-                                       self.listData = [resDic objectForKey:@"result"];
-                                       self.filteredArray = [NSMutableArray arrayWithCapacity:[self.listData count]];
+                                       if ([[resDic objectForKey:@"result"] isKindOfClass:[NSArray class]]) {
+                                           self.listData = [resDic objectForKey:@"result"];
+                                           self.filteredArray = [resDic objectForKey:@"result"];
+                                       }
+                                       
+                                       //self.filteredArray = [NSMutableArray arrayWithCapacity:[self.listData count]];
                                    }
+                                   
                                }
                                
                                dispatch_async(dispatch_get_main_queue(), ^{
+                                   self.isUnderSearch = FALSE;
                                    [self.tableView reloadData];
+                                   [self.searchDisplayController.searchResultsTableView reloadData];
+                                   
                                });
                            }];
 }
 
 
-#pragma mark Content Filtering
--(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
-    // 根据搜索栏的内容和范围更新过滤后的数组。
-    // 先将过滤后的数组清空。
-    [self.filteredArray removeAllObjects];
-    // 用NSPredicate来过滤数组。
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.fullName contains[c] %@",searchText];
-    self.filteredArray = [NSMutableArray arrayWithArray:[self.listData filteredArrayUsingPredicate:predicate]];
-}
-
 #pragma mark - UISearchDisplayController Delegate Methods
--(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
-    // 当用户改变搜索字符串时，让列表的数据来源重新加载数据
-    [self filterContentForSearchText:searchString scope:
-     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self startSearch:searchString];
+
     // 返回YES，让table view重新加载。
     return YES;
 }
 
--(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
-    // 当用户改变搜索范围时，让列表的数据来源重新加载数据
-    [self filterContentForSearchText:self.searchDisplayController.searchBar.text scope:
-     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
+{
+    [self startSearch:controller.searchBar.text];
+    
     // 返回YES，让table view重新加载。
     return YES;
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    NSLog(@"Search checked!");
+    [self startSearch:searchBar.text];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    NSLog(@"cancel checked!");
+    [self.SearchBar resignFirstResponder];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    NSLog(@"Search textDidChange");
+    [self startSearch:searchText];
 }
 
 -(IBAction)goToSearch:(id)sender {
@@ -245,9 +275,11 @@
     [self.SearchBar becomeFirstResponder];
 }
 
+
+
 #pragma mark - Segue
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"CellPlayerSelect"]) {
+    if ([[segue identifier] isEqualToString:@"SearchCellPlayerSelect"]) {
         // 我们需要知道哪个是现在正显示的列表视图，这样才能从相应的数组中提取正确的信息，显示在详细视图中。
         if(sender == self.searchDisplayController.searchResultsTableView) {
             NSIndexPath *indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
@@ -264,10 +296,7 @@
     }
 }
 
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
-{
-    NSLog(@"cancel checked!");
-    [self.SearchBar resignFirstResponder];
-}
+
+
 
 @end

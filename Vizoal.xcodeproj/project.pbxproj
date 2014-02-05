@@ -21,6 +21,9 @@
 		0095415E1804E39F00E02794 /* PlayerPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 0095415D1804E39F00E02794 /* PlayerPhoto.m */; };
 		009541611804EDF500E02794 /* PlayerPhoto+Internet.m in Sources */ = {isa = PBXBuildFile; fileRef = 009541601804EDF500E02794 /* PlayerPhoto+Internet.m */; };
 		009F18A5180242CB00BC385F /* 16.png in Resources */ = {isa = PBXBuildFile; fileRef = 009F18A4180242CB00BC385F /* 16.png */; };
+		00A29CA1189F066800A04F0D /* Vizoal-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 00A29CA0189F066800A04F0D /* Vizoal-background.png */; };
+		00A29CA3189F23F700A04F0D /* tab_bar_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 00A29CA2189F23F700A04F0D /* tab_bar_profile.png */; };
+		00A29CA5189F25F900A04F0D /* tab_bar_profile_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 00A29CA4189F25F900A04F0D /* tab_bar_profile_1.png */; };
 		00A952AB180B7920004547C4 /* HomePageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A952A8180B7920004547C4 /* HomePageVC.m */; };
 		00A952AC180B7920004547C4 /* ICETutorialPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A952AA180B7920004547C4 /* ICETutorialPage.m */; };
 		00A952BC180B7952004547C4 /* background-gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 00A952B0180B7952004547C4 /* background-gradient.png */; };
@@ -51,6 +54,7 @@
 		00B7069317FBBFDB0011EAAE /* PlayerProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B7069217FBBFDB0011EAAE /* PlayerProfileVC.m */; };
 		00B7069817FBCA760011EAAE /* Vizicon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 00B7069617FBCA760011EAAE /* Vizicon2.png */; };
 		00B7069917FBCA760011EAAE /* Vizoal-Icon-Green.png in Resources */ = {isa = PBXBuildFile; fileRef = 00B7069717FBCA760011EAAE /* Vizoal-Icon-Green.png */; };
+		00C1B38B1883520400789F46 /* SearchPlayersTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C1B38A1883520400789F46 /* SearchPlayersTVC.m */; };
 		00EFC7E51842B5A1006E75A3 /* soccerfield-Large.png in Resources */ = {isa = PBXBuildFile; fileRef = 00EFC7E41842B5A1006E75A3 /* soccerfield-Large.png */; };
 		3302CEC8180DD75F0021F533 /* PlayerHdPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 3302CEC7180DD75F0021F533 /* PlayerHdPhoto.m */; };
 		3302CECB180DD77A0021F533 /* PlayerHdPhoto+Internet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3302CECA180DD77A0021F533 /* PlayerHdPhoto+Internet.m */; };
@@ -150,6 +154,9 @@
 		0095415F1804EDF500E02794 /* PlayerPhoto+Internet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PlayerPhoto+Internet.h"; sourceTree = "<group>"; };
 		009541601804EDF500E02794 /* PlayerPhoto+Internet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PlayerPhoto+Internet.m"; sourceTree = "<group>"; };
 		009F18A4180242CB00BC385F /* 16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 16.png; path = PGCTests/16.png; sourceTree = SOURCE_ROOT; };
+		00A29CA0189F066800A04F0D /* Vizoal-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Vizoal-background.png"; sourceTree = "<group>"; };
+		00A29CA2189F23F700A04F0D /* tab_bar_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_bar_profile.png; sourceTree = "<group>"; };
+		00A29CA4189F25F900A04F0D /* tab_bar_profile_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_bar_profile_1.png; sourceTree = "<group>"; };
 		00A952A7180B7920004547C4 /* HomePageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomePageVC.h; path = Libraries/HomePageVC.h; sourceTree = "<group>"; };
 		00A952A8180B7920004547C4 /* HomePageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomePageVC.m; path = Libraries/HomePageVC.m; sourceTree = "<group>"; };
 		00A952A9180B7920004547C4 /* ICETutorialPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICETutorialPage.h; sourceTree = "<group>"; };
@@ -191,6 +198,8 @@
 		00B7069217FBBFDB0011EAAE /* PlayerProfileVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerProfileVC.m; sourceTree = "<group>"; };
 		00B7069617FBCA760011EAAE /* Vizicon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Vizicon2.png; sourceTree = "<group>"; };
 		00B7069717FBCA760011EAAE /* Vizoal-Icon-Green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Vizoal-Icon-Green.png"; sourceTree = "<group>"; };
+		00C1B3891883520400789F46 /* SearchPlayersTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchPlayersTVC.h; sourceTree = "<group>"; };
+		00C1B38A1883520400789F46 /* SearchPlayersTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchPlayersTVC.m; sourceTree = "<group>"; };
 		00EFC7E41842B5A1006E75A3 /* soccerfield-Large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "soccerfield-Large.png"; sourceTree = "<group>"; };
 		3302CEC6180DD75F0021F533 /* PlayerHdPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerHdPhoto.h; sourceTree = "<group>"; };
 		3302CEC7180DD75F0021F533 /* PlayerHdPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerHdPhoto.m; sourceTree = "<group>"; };
@@ -334,6 +343,9 @@
 		00A952AF180B7952004547C4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				00A29CA2189F23F700A04F0D /* tab_bar_profile.png */,
+				00A29CA4189F25F900A04F0D /* tab_bar_profile_1.png */,
+				00A29CA0189F066800A04F0D /* Vizoal-background.png */,
 				338F689E18428C99007A6BD9 /* Player-position-icon-1.png */,
 				338F689F18428C99007A6BD9 /* Player-position-icon-2.png */,
 				338F68A018428C99007A6BD9 /* Player-position-icon-3.png */,
@@ -401,6 +413,8 @@
 				00A952A7180B7920004547C4 /* HomePageVC.h */,
 				00A952A8180B7920004547C4 /* HomePageVC.m */,
 				00B7065017FB78280011EAAE /* Main_iPhone.storyboard */,
+				00C1B3891883520400789F46 /* SearchPlayersTVC.h */,
+				00C1B38A1883520400789F46 /* SearchPlayersTVC.m */,
 				336045101830378B005D8EEB /* LeagueTVC.h */,
 				336045111830378B005D8EEB /* LeagueTVC.m */,
 				33EC31F1183C3DE400A7F315 /* LeagueCell.h */,
@@ -699,6 +713,7 @@
 				3311F25B1836E363009F7807 /* bubble-default-incoming-green@2x.png in Resources */,
 				3311F2601836E363009F7807 /* bubble-default-outgoing-green.png in Resources */,
 				00A952C1180B7952004547C4 /* Default.png in Resources */,
+				00A29CA3189F23F700A04F0D /* tab_bar_profile.png in Resources */,
 				338F68A718428C99007A6BD9 /* Player-position-icon-5.png in Resources */,
 				3311F2741836E363009F7807 /* send-highlighted.png in Resources */,
 				3311F25F1836E363009F7807 /* bubble-default-incoming@2x.png in Resources */,
@@ -716,12 +731,14 @@
 				3311F25E1836E363009F7807 /* bubble-default-incoming.png in Resources */,
 				338F68A618428C99007A6BD9 /* Player-position-icon-4.png in Resources */,
 				338F68A518428C99007A6BD9 /* Player-position-icon-3.png in Resources */,
+				00A29CA5189F25F900A04F0D /* tab_bar_profile_1.png in Resources */,
 				3311F2691836E363009F7807 /* bubble-square-incoming@2x.png in Resources */,
 				3311F2651836E363009F7807 /* bubble-default-outgoing@2x.png in Resources */,
 				3311F26C1836E363009F7807 /* bubble-square-outgoing.png in Resources */,
 				00A952BD180B7952004547C4 /* background-gradient@2x.png in Resources */,
 				3311F2771836E363009F7807 /* send@2x.png in Resources */,
 				3311F2711836E363009F7807 /* input-bar@2x.png in Resources */,
+				00A29CA1189F066800A04F0D /* Vizoal-background.png in Resources */,
 				00B7069917FBCA760011EAAE /* Vizoal-Icon-Green.png in Resources */,
 				3311F2631836E363009F7807 /* bubble-default-outgoing-selected@2x.png in Resources */,
 				3311F25A1836E363009F7807 /* bubble-default-incoming-green.png in Resources */,
@@ -773,6 +790,7 @@
 				3311F2531836E363009F7807 /* JSBubbleMessageCell.m in Sources */,
 				009541291803BAED00E02794 /* PlayerProfileDetailVC_tab1.m in Sources */,
 				3311F2541836E363009F7807 /* JSBubbleView.m in Sources */,
+				00C1B38B1883520400789F46 /* SearchPlayersTVC.m in Sources */,
 				3311F27D1836E363009F7807 /* UIView+AnimationOptionsForCurve.m in Sources */,
 				00B7068E17FB94690011EAAE /* ClubPlayersTVC.m in Sources */,
 				3311F2561836E363009F7807 /* JSMessageInputView.m in Sources */,

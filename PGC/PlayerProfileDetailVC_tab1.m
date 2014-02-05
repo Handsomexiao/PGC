@@ -36,6 +36,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Vizoal-background.png"]];
+    [tempImageView setFrame:self.view.frame];
+    [self.view insertSubview:tempImageView belowSubview:self.view.subviews[0]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -84,7 +88,6 @@
     dispatch_async(kBgQueue, ^{
         NSInteger nationDisplay = [[self.listData objectForKey:@"nationality_fmid"] integerValue];
         NSString* urlString = [[NSString alloc] initWithFormat:@"http://api.vizoal.com/vizoal/image/android/country_logo_profile/2.0/%ld.png",(long)nationDisplay];
-        NSLog(@"country photo:%@",urlString);
         NSData* imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString] options:NSDataReadingMappedIfSafe error:nil];
         UIImage* image = [[UIImage alloc] initWithData:imageData];
         
@@ -165,7 +168,7 @@
                                                options:0];
             NSInteger age = [ageComponents year];
             
-            info = [[NSString alloc] initWithFormat:@"%d", age ];
+            info = [[NSString alloc] initWithFormat:@"%ld", (long)age ];
             NSMutableAttributedString *matInfo = [[NSMutableAttributedString alloc] initWithString:info];
             NSRange allrange;
             allrange.location = 0;

@@ -182,12 +182,15 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([sender isKindOfClass:[PlayerCell class]]) {
-        PlayerCell* player = (PlayerCell*)sender;
-        if([segue.destinationViewController isKindOfClass:[playerProfileDetailTBC class]])
-        {
-            playerProfileDetailTBC* plays = (playerProfileDetailTBC*)segue.destinationViewController;
-            plays.playerFmId = player.playerFmId;
+    if ([[segue identifier] isEqualToString:@"TopCellPlayerSelect"])
+    {
+        if ([sender isKindOfClass:[PlayerCell class]]) {
+            PlayerCell* player = (PlayerCell*)sender;
+            if([segue.destinationViewController isKindOfClass:[playerProfileDetailTBC class]])
+            {
+                playerProfileDetailTBC* plays = (playerProfileDetailTBC*)segue.destinationViewController;
+                plays.playerFmId = player.playerFmId;
+            }
         }
     }
 }

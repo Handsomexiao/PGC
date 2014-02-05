@@ -31,6 +31,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Vizoal-background.png"]];
+    [tempImageView setFrame:self.view.frame];
+    [self.view insertSubview:tempImageView belowSubview:self.view.subviews[0]];
 }
 
 - (void)didReceiveMemoryWarning

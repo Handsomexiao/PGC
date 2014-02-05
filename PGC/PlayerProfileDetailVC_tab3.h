@@ -9,5 +9,6 @@
 #import "PlayerProfileVC.h"
 
 @interface PlayerProfileDetailVC_tab3 : PlayerProfileVC
+@property (nonatomic,strong) NSDictionary* participationlistData;
 
 @end
