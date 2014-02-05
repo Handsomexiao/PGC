@@ -246,7 +246,7 @@
     CGSize TextLabelSize = _scrollView.bounds.size;
     UILabel *overlayLabel = [[UILabel alloc] initWithFrame:CGRectMake((index  * TextLabelSize.width),
                                                                       TextLabelSize.height - [commonStyle offset],
-                                                                      TextLabelSize.width,
+                                                                      TextLabelSize.width/2,
                                                                       TUTORIAL_LABEL_HEIGHT)];
     [overlayLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
     [overlayLabel setNumberOfLines:[commonStyle linesNumber]];
@@ -391,7 +391,8 @@
 
 - (void)initFormLoad
 {
-    _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0,  418, 320, 20)];
+    //_pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0,  418, 320, 20)];
+    _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(160,  418, 160, 20)];
     [_pageControl setNeedsLayout];
     _pageControl.currentPageIndicatorTintColor = [UIColor yellowColor];
     _pageControl.pageIndicatorTintColor = [UIColor grayColor];
@@ -492,7 +493,7 @@
                                            int a = [self  numberOfPages];
                                            a = a + 2;
                                            frameOfTextView.size.width = a * _windowSize.width;
-                                           frameOfTextView.size.height = 40;
+                                           frameOfTextView.size.height = TUTORIAL_LABEL_HEIGHT;
                                            frameOfTextView.origin.x = -_windowSize.width;
                                            frameOfTextView.origin.y = 439 - frameOfTextView.size.height;
                                            UIView* textView = [[UIView alloc] initWithFrame:frameOfTextView];
