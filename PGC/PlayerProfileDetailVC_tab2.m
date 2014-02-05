@@ -12,7 +12,6 @@
 
 //@property (strong, nonatomic) IBOutlet UITextView *DetailTextView;
 @property (strong, nonatomic) IBOutlet UILabel *OptimalPosition;
-
 @property (strong, nonatomic) IBOutlet UIView *positionView;
 @end
 

@@ -7,29 +7,18 @@
 //
 
 #import "PlayerProfileDetailVC_tab4.h"
+#import "PlayerPhoto+Internet.h"
 @interface PlayerProfileDetailVC_tab4 ()
-@property (strong, nonatomic) IBOutlet UIView *commitView;
+@property (strong, nonatomic) IBOutlet UILabel *name;
+@property (strong, nonatomic) IBOutlet UILabel *OptimalPosition;
+@property (weak, nonatomic) IBOutlet UIImageView *Photo;
 @end
 
 @implementation PlayerProfileDetailVC_tab4
 
-#pragma mark - Initialization
-- (UIButton *)sendButton
-{
-    // Override to use a custom send button
-    // The button's frame is set automatically for you
-    return [UIButton defaultSendButton];
-}
-
 
 
 #pragma mark - View lifecycle
-- (UIView *)commitView
-{
-    if(!_commitView) _commitView = [[UIView alloc] init];
-    
-    return _commitView;
-}
 
 - (NSMutableArray*)commitMessages
 {
@@ -41,17 +30,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Vizoal-background.png"]];
+    [tempImageView setFrame:self.view.frame];
+    [self.view insertSubview:tempImageView belowSubview:self.view.subviews[0]];
+    
     self.delegate = self;
     self.dataSource = self;
     
     self.title = @"Messages";
-    
-//    self.messages = [[NSMutableArray alloc] initWithObjects:
-//                     @"Testing some messages here.",
-//                     @"Options for avatars: none, circles, or squares",
-//                     @"This is a complete re-write and refactoring.",
-//                     @"It's easy to implement. Sound effects and images included. Animations are smooth and messages can be of arbitrary size!",
-//                     nil];
 
     
     self.timestamps = [[NSMutableArray alloc] initWithObjects:
@@ -62,6 +49,8 @@
                        nil];
     
     [self getCommit];
+    
+    [self startRequest];
     
     //self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFastForward
     //                                                                                       target:self
@@ -111,8 +100,6 @@
     
     // add commit
     [self addCommit:text];
-    
-    [self.inputToolBarView removeFromSuperview];
 }
 
 - (JSBubbleMessageType)messageTypeForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -122,22 +109,57 @@
 
 - (JSBubbleMessageStyle)messageStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return JSBubbleMessageStyleSquare;
+    return JSBubbleMessageStyleFlat;
+}
+
+- (JSBubbleMediaType)messageMediaTypeForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return JSBubbleMediaTypeText;
+}
+
+- (UIButton *)sendButton
+{
+    return [UIButton defaultSendButton];
 }
 
 - (JSMessagesViewTimestampPolicy)timestampPolicy
 {
-    return JSMessagesViewTimestampPolicyEveryThree;
+    /*
+     JSMessagesViewTimestampPolicyAll = 0,
+     JSMessagesViewTimestampPolicyAlternating,
+     JSMessagesViewTimestampPolicyEveryThree,
+     JSMessagesViewTimestampPolicyEveryFive,
+     JSMessagesViewTimestampPolicyCustom
+     */
+    return JSMessagesViewTimestampPolicyAll;
 }
 
 - (JSMessagesViewAvatarPolicy)avatarPolicy
 {
+    /*
+     JSMessagesViewAvatarPolicyIncomingOnly = 0,
+     JSMessagesViewAvatarPolicyBoth,
+     JSMessagesViewAvatarPolicyNone
+     */
     return JSMessagesViewAvatarPolicyNone;
 }
-
 - (JSAvatarStyle)avatarStyle
 {
-    return JSAvatarStyleNone;
+    /*
+     JSAvatarStyleCircle = 0,
+     JSAvatarStyleSquare,
+     JSAvatarStyleNone
+     */
+    return JSAvatarStyleCircle;
+}
+
+- (JSInputBarStyle)inputBarStyle
+{
+    /*
+     JSInputBarStyleDefault,
+     JSInputBarStyleFlat
+     
+     */
+    return JSInputBarStyleFlat;
 }
 
 //  Optional delegate method
@@ -175,6 +197,10 @@
     return nil;
 }
 
+- (id)dataForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return nil;
+}
+
 -(void)getCommit
 {
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.vizoal.com/vizoal/services/playerComment/%ld",(long)self.PlayerFmId]];
@@ -200,7 +226,7 @@
                                    
                                    if ([resultCodeObj integerValue] >=0)
                                    {
-                                       self.commitMessages = [resDic objectForKey:@"result"];
+                                       self.commitMessages = [[resDic objectForKey:@"result"] objectForKey:@"playerCommentList"];
 
                                        if (![self.commitMessages isKindOfClass:[NSMutableArray class]])
                                        {
@@ -279,6 +305,14 @@
     
 }
 
+- (void)cameraPressed:(id)sender{
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:picker animated:YES completion:NULL];
+}
+
 
 -(void)addCommit:(NSString *)text
 {
@@ -334,6 +368,110 @@
 }
 
 
+#pragma mark - Image picker delegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
 
+    
+}
+
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    
+}
+
+- (NSDictionary *)listData
+{
+    if (!_listData) {
+        _listData = [[NSDictionary alloc] init];
+    }
+    return _listData;
+}
+
+-(void)startRequest
+{
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.vizoal.com/vizoal/services/player/%ld",(long)self.PlayerFmId]];
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
+    
+    NSLog(@"%@",url);
+    
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:queue
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                               if ([data length] > 0 && connectionError == nil)
+                               {
+                                   NSLog(@"request finished");
+                                   
+                                   NSDictionary *resDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+                                   NSNumber *resultCodeObj = [resDic objectForKey:@"ResultCode"];
+                                   
+                                   NSLog(@"%@", resDic);
+                                   
+                                   if ([resultCodeObj integerValue] >=0)
+                                   {
+                                       self.listData = [resDic objectForKey:@"result"];
+                                   }
+                               }
+                               
+                               dispatch_async(dispatch_get_main_queue(), ^{
+                                   [self reflish];
+                               });
+                           }];
+    
+}
+
+- (void)reflish
+{
+	// Do any additional setup after loading the view.
+    NSMutableDictionary* dict = (NSMutableDictionary*)self.listData;
+    
+    if (dict == nil) {
+        return;
+    }
+    
+    // Configure the cell...
+    
+    NSString *thePath = [[NSBundle mainBundle] pathForResource:@"player-placeholder2" ofType:@"png"];
+    self.Photo.image = [[UIImage alloc] initWithContentsOfFile:thePath];
+    
+    NSInteger playerFmId = [[dict objectForKey:@"fmId"] integerValue];
+    [PlayerPhoto photoData:playerFmId afterDone:^(UIImage* image){
+        self.Photo.image = image;
+        [self.Photo updateConstraints];
+    }];
+    
+    NSString* name = nil;
+    if ([[[dict objectForKey:@"firstName"] description] compare:@""]) {
+        name = [[NSString alloc] initWithFormat:@"%@ %@",[[dict objectForKey:@"firstName"] description] ,[[dict objectForKey:@"lastName"] description]];
+    }
+    else
+    {
+        name = [[NSString alloc] initWithFormat:@"%@",[dict objectForKey:@"lastName"]];
+    }
+    
+    self.title = name;
+    
+    self.name.text = name;
+    
+    [self SetDatilText:self.listData];
+}
+
+-(void)SetDatilText:(NSDictionary*)dict
+{
+    NSArray* clubRecord = [[NSArray alloc] init];
+    clubRecord = [dict objectForKey:@"playerPositionList"];
+    
+    for (NSDictionary* rec in clubRecord) {
+        if ([[[rec objectForKey:@"efficiency"] description] compare:@"100%"] == NSOrderedSame) {
+            self.OptimalPosition.text = [NSString stringWithFormat:@"Optimal Position: %@", [rec objectForKey:@"name"]];
+            return;
+        }
+    }
+    
+    //self.DetailTextView.attributedText = allText;
+}
 
 @end

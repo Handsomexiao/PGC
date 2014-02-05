@@ -34,16 +34,31 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "JSDismissiveTextView.h"
+#import "JSMessageTextView.h"
+
+
+typedef enum
+{
+  JSInputBarStyleDefault,
+  JSInputBarStyleFlat
+} JSInputBarStyle;
+
+
+@protocol JSMessageInputViewDelegate <NSObject>
+
+@optional
+- (JSInputBarStyle)inputBarStyle;
+
+@end
+
 
 @interface JSMessageInputView : UIImageView
 
-@property (strong, nonatomic) JSDismissiveTextView *textView;
+@property (strong, nonatomic) JSMessageTextView *textView;
 @property (strong, nonatomic) UIButton *sendButton;
 
 #pragma mark - Initialization
-- (id)initWithFrame:(CGRect)frame
-           delegate:(id<UITextViewDelegate>)delegate;
+- (id)initWithFrame:(CGRect)frame delegate:(id<UITextViewDelegate, JSMessageInputViewDelegate>)delegate;
 
 #pragma mark - Message input view
 - (void)adjustTextViewHeightBy:(CGFloat)changeInHeight;
@@ -51,5 +66,6 @@
 + (CGFloat)textViewLineHeight;
 + (CGFloat)maxLines;
 + (CGFloat)maxHeight;
++ (JSInputBarStyle)inputBarStyle;
 
 @end

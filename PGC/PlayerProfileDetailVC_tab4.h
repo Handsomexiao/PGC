@@ -9,11 +9,13 @@
 #import "PlayerProfileVC.h"
 #import "JSMessagesViewController.h"
 
-@interface PlayerProfileDetailVC_tab4 : JSMessagesViewController <JSMessagesViewDelegate, JSMessagesViewDataSource>
+@interface PlayerProfileDetailVC_tab4 : JSMessagesViewController <JSMessagesViewDelegate, JSMessagesViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (strong, nonatomic) NSMutableArray *commitMessages;
 @property (strong, nonatomic) NSMutableArray *timestamps;
 @property NSInteger PlayerFmId;
 @property NSInteger lastCommitId;
+
+@property (nonatomic,strong) NSDictionary* listData;
 
 @end

@@ -612,6 +612,11 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" systemItem="mostRecent" id="Qf5-Hh-S0Z"/>
+                    <connections>
+                        <outlet property="OptimalPosition" destination="AOa-qR-jLi" id="w1e-aE-DA6"/>
+                        <outlet property="Photo" destination="oNo-4B-Eyl" id="LuN-7d-nQ0"/>
+                        <outlet property="name" destination="thJ-Ak-0QN" id="dRu-iq-DzT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HfF-za-BFu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

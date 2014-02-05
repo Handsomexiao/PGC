@@ -52,6 +52,7 @@
 - (void)configureWithType:(JSBubbleMessageType)type
               bubbleStyle:(JSBubbleMessageStyle)bubbleStyle
               avatarStyle:(JSAvatarStyle)avatarStyle
+                mediaType:(JSBubbleMediaType)mediaType
                 timestamp:(BOOL)hasTimestamp;
 
 - (void)handleLongPress:(UILongPressGestureRecognizer *)longPress;
@@ -106,6 +107,7 @@
 - (void)configureWithType:(JSBubbleMessageType)type
               bubbleStyle:(JSBubbleMessageStyle)bubbleStyle
               avatarStyle:(JSAvatarStyle)avatarStyle
+                mediaType:(JSBubbleMediaType)mediaType
                 timestamp:(BOOL)hasTimestamp
 {
     CGFloat bubbleY = 0.0f;
@@ -145,7 +147,8 @@
     
     self.bubbleView = [[JSBubbleView alloc] initWithFrame:frame
                                                bubbleType:type
-                                              bubbleStyle:bubbleStyle];
+                                              bubbleStyle:bubbleStyle
+                                                mediaType:mediaType];
     
     [self.contentView addSubview:self.bubbleView];
     [self.contentView sendSubviewToBack:self.bubbleView];
@@ -155,6 +158,7 @@
 - (id)initWithBubbleType:(JSBubbleMessageType)type
              bubbleStyle:(JSBubbleMessageStyle)bubbleStyle
              avatarStyle:(JSAvatarStyle)avatarStyle
+               mediaType:(JSBubbleMediaType)mediaType
             hasTimestamp:(BOOL)hasTimestamp
          reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -165,6 +169,7 @@
         [self configureWithType:type
                     bubbleStyle:bubbleStyle
                     avatarStyle:avatarStyle
+                      mediaType:mediaType
                       timestamp:hasTimestamp];
     }
     return self;
@@ -192,10 +197,27 @@
     self.bubbleView.text = msg;
 }
 
+
+- (void)setMedia:(id)data
+{
+	if ([data isKindOfClass:[UIImage class]])
+	{
+		// image
+		NSLog(@"show the image here");
+        self.bubbleView.data = data;
+	}
+	else if ([data isKindOfClass:[NSData class]])
+	{
+		// show a button / icon to view details
+		NSLog(@"icon view");
+	}
+}
+
+
 - (void)setTimestamp:(NSDate *)date
 {
     self.timestampLabel.text = [NSDateFormatter localizedStringFromDate:date
-                                                              dateStyle:NSDateFormatterMediumStyle
+                                                              dateStyle:kCFDateFormatterMediumStyle
                                                               timeStyle:NSDateFormatterShortStyle];
 }
 
@@ -226,6 +248,12 @@
     return MAX(avatarHeight, [JSBubbleView cellHeightForText:bubbleViewText]) + timestampHeight;
 }
 
++ (CGFloat)neededHeightForImage:(UIImage *)bubbleViewImage timestamp:(BOOL)hasTimestamp avatar:(BOOL)hasAvatar{
+    CGFloat timestampHeight = (hasTimestamp) ? TIMESTAMP_LABEL_HEIGHT : 0.0f;
+    CGFloat avatarHeight = (hasAvatar) ? kJSAvatarSize : 0.0f;
+    return MAX(avatarHeight, [JSBubbleView cellHeightForImage:bubbleViewImage]) + timestampHeight;
+}
+
 #pragma mark - Copying
 - (BOOL)canBecomeFirstResponder
 {
@@ -239,9 +267,13 @@
 
 - (BOOL)canPerformAction:(SEL)action withSender:(id)sender
 {
-    if(action == @selector(copy:))
-        return YES;
-    
+    if(self.bubbleView.data){
+        if(action == @selector(saveImage:))
+            return YES;
+    }else{
+        if(action == @selector(copy:))
+            return YES;
+    }
     return [super canPerformAction:action withSender:sender];
 }
 
@@ -271,17 +303,55 @@
        || ![self becomeFirstResponder])
         return;
     
+    
     UIMenuController *menu = [UIMenuController sharedMenuController];
+    UIMenuItem *saveItem;
+    if(self.bubbleView.data){
+        saveItem = [[UIMenuItem alloc] initWithTitle:@"Save" action:@selector(saveImage:)];
+    }else{
+        saveItem = nil;
+    }
+    
+    [menu setMenuItems:[NSArray arrayWithObjects:saveItem, nil]];
+    
     CGRect targetRect = [self convertRect:[self.bubbleView bubbleFrame]
                                  fromView:self.bubbleView];
     [menu setTargetRect:CGRectInset(targetRect, 0.0f, 4.0f) inView:self];
+    
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(handleMenuWillShowNotification:)
                                                  name:UIMenuControllerWillShowMenuNotification
                                                object:nil];
     [menu setMenuVisible:YES animated:YES];
+    
+    [menu update];
 }
+
+#pragma mark - Save Image
+-(void)saveImage:(id)sender{
+    
+    
+    
+    
+    UIImageWriteToSavedPhotosAlbum(self.bubbleView.data, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+}
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo{
+    
+    UIAlertView *alertView;
+    
+    if (error != NULL){
+        alertView = [[UIAlertView alloc] initWithTitle:@"Save Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+    }else{ 
+        alertView = [[UIAlertView alloc] initWithTitle:@"Save Success" message:@"Image has Saved !" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    }
+    [alertView show];
+}
+
+
+
 
 #pragma mark - Notification
 - (void)handleMenuWillHideNotification:(NSNotification *)notification
